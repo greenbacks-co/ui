@@ -192,9 +192,16 @@ const Graph: FC<{
   isSavingVisible = true,
   isSavingAndSpendingVisible = true,
   isSpendingVisible = true,
-  totalsByMonth,
+  totalsByMonth = [],
 }) => {
-  const earliestMonth = totalsByMonth?.[0].month ?? '';
+  if (totalsByMonth.length === 0) {
+    return (
+      <ResponsiveContainer aspect={4} minWidth={250} width="100%">
+        <LineChart />
+      </ResponsiveContainer>
+    );
+  }
+  const earliestMonth = totalsByMonth?.[0]?.month ?? '';
   const latestMonth = totalsByMonth?.[totalsByMonth.length - 1].month ?? '';
   const monthsToLabelBySeriesName = getMonthsToLabel(totalsByMonth);
   return (
