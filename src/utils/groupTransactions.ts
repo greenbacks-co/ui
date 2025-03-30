@@ -1,6 +1,7 @@
 import { DateTime } from 'luxon';
 
 import type Transaction from 'types/transaction';
+import type { Variability } from 'types/variability';
 
 export function groupTransactions({
   groupBy = GroupBy.Date,
@@ -66,6 +67,7 @@ export enum GroupBy {
   Date = 'Date',
   Month = 'Month',
   Tag = 'Tag',
+  Variability = 'Variability',
 }
 
 export enum SortDirection {
@@ -97,6 +99,8 @@ function getKey(transaction: Transaction, groupBy: GroupBy): string {
       return DateTime.fromISO(transaction.datetime).toFormat('yyyy-LL');
     case GroupBy.Tag:
       return transaction.tag || 'Untagged';
+    case GroupBy.Variability:
+      return transaction.variability || Variability.Variable;
     case GroupBy.Date:
     default:
       return transaction.datetime;
@@ -109,7 +113,7 @@ function getGroupSortKey(
 ): string | number {
   switch (sortGroupsBy) {
     case SortGroupsBy.Total:
-      return group.total;
+      return Math.abs(group.total);
     case SortGroupsBy.Key:
     default:
       return group.key;

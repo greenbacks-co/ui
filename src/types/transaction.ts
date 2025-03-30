@@ -1,3 +1,5 @@
+import type { Variability } from 'types/variability';
+
 export interface CoreTransaction {
   accountId: string;
   amount: number;
@@ -12,6 +14,7 @@ interface Transaction extends CoreTransaction {
   filteredBy?: string;
   tag?: string;
   type: TransactionType;
+  variability?: Variability;
 }
 
 export enum Category {

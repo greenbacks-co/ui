@@ -9,6 +9,7 @@ import Typeahead from 'components/Typeahead';
 import useTags from 'hooks/useTags';
 import { Comparator, FilterInput } from 'types/filter';
 import Transaction, { Category } from 'types/transaction';
+import { Variability, VARIABILITY_OPTIONS } from 'types/variability';
 import noop from 'utils/noop';
 
 export function NewFilterModal({
@@ -18,9 +19,11 @@ export function NewFilterModal({
   onSelectCategory = noop,
   onSelectProperty = noop,
   onSelectTag = noop,
+  onSelectVariability = noop,
   selectedCategory,
   selectedProperty,
   selectedTag,
+  selectedVariability,
   transaction,
 }: {
   existingTags?: string[];
@@ -29,9 +32,11 @@ export function NewFilterModal({
   onSelectCategory?: (input: Category) => void;
   onSelectProperty?: (input: PropertyToMatch) => void;
   onSelectTag?: (input: string) => void;
+  onSelectVariability?: (input: Variability) => void;
   selectedCategory?: Category;
   selectedProperty?: PropertyToMatch;
   selectedTag?: string;
+  selectedVariability?: Variability;
   transaction: Transaction;
 }): React.ReactElement {
   const { merchant, name } = transaction;
@@ -70,6 +75,17 @@ export function NewFilterModal({
             value={selectedCategory}
           />
         </div>
+        {selectedCategory === Category.Spending && (
+          <div>
+            <Label>Assign Variability</Label>
+            <RadioButtons
+              name="variability"
+              options={VARIABILITY_OPTIONS}
+              onChange={(input) => onSelectVariability(input as Variability)}
+              value={selectedVariability}
+            />
+          </div>
+        )}
         {selectedCategory !== Category.Hidden && (
           <div>
             <Label forId="tags">Add tag</Label>
@@ -119,6 +135,9 @@ export function NewFilterModalContainer({
     transaction.category,
   );
   const [selectedTag, selectTag] = useState<string | undefined>();
+  const [selectedVariability, selectVariability] = useState<Variability>(
+    Variability.Variable,
+  );
   return (
     <NewFilterModal
       existingTags={tags}
@@ -134,14 +153,20 @@ export function NewFilterModalContainer({
             },
           ],
           tagToAssign: selectedTag,
+          variabilityToAssign:
+            selectedCategory === Category.Spending
+              ? selectedVariability
+              : undefined,
         });
       }}
       onSelectCategory={selectCategory}
       onSelectProperty={selectProperty}
       onSelectTag={selectTag}
+      onSelectVariability={selectVariability}
       selectedCategory={selectedCategory}
       selectedProperty={selectedProperty}
       selectedTag={selectedTag}
+      selectedVariability={selectedVariability}
       transaction={transaction}
     />
   );

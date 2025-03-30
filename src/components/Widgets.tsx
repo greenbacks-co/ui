@@ -4,6 +4,7 @@ import { Route, Routes, useNavigate } from 'react-router-dom';
 import AccountConnectionBarrier from 'components/AccountConnectionBarrier';
 import AverageSpendingByTag from 'components/AverageSpendingByTag';
 import CashFlow from 'components/CashFlow';
+import { FunnelContainer } from 'components/Funnel';
 import Home from 'components/Home';
 import MonthlySpendingByTag from 'components/MonthlySpendingByTag';
 import Select from 'components/Select';
@@ -37,6 +38,7 @@ export function Widgets(): React.ReactElement {
       value: 'monthly-spending-by-tag',
     },
     { label: 'Filters', value: 'filters' },
+    { label: 'Funnel', value: 'funnel' },
   ];
 
   const oldHome = (
@@ -96,6 +98,7 @@ export function Widgets(): React.ReactElement {
           element={<TopSpendingCategories />}
         />
         <Route path="/transactions" element={<TransactionsPage />} />
+        <Route path="/funnel" element={<FunnelContainer />} />
       </Routes>
     </>
   );

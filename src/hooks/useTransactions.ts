@@ -129,12 +129,14 @@ function applyFilters(
     categoryToAssign = defaultCategory,
     id,
     tagToAssign,
+    variabilityToAssign,
   } = matchingFilter || {};
   return {
     ...transaction,
     category: categoryToAssign,
     filteredBy: id,
     tag: tagToAssign,
+    variability: variabilityToAssign,
   };
 }
 

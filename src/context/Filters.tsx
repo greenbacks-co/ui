@@ -234,6 +234,7 @@ export const FILTERS_QUERY = gql`
         property
       }
       tagToAssign
+      variabilityToAssign
     }
   }
 `;
@@ -243,12 +244,14 @@ export const ADD_FILTER_MUTATION = gql`
     $categoryToAssign: Category!
     $matchers: [MatcherInput]!
     $tagToAssign: String
+    $variabilityToAssign: Variability
   ) {
     addFilter(
       input: {
         categoryToAssign: $categoryToAssign
         matchers: $matchers
         tagToAssign: $tagToAssign
+        variabilityToAssign: $variabilityToAssign
       }
     ) {
       categoryToAssign
@@ -259,6 +262,7 @@ export const ADD_FILTER_MUTATION = gql`
         property
       }
       tagToAssign
+      variabilityToAssign
     }
   }
 `;
