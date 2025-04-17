@@ -3,12 +3,12 @@ import styled from 'styled-components';
 
 import { AverageAmountSummaryContainer } from 'components/AverageAmountSummary';
 import { CumulativeAmountSummaryContainer } from 'components/CumulativeAmountSummary';
-import TotalsByMonth from 'components/TotalsByMonth';
+import { TotalsByMonthGroupContainer as TotalsByMonth } from './TotalsByMonthGroup';
 
 export function SpendingSummary(): React.ReactElement {
   return (
     <Wrapper>
-      <TotalsByMonth area="totals" hasCheckboxes={false} />
+      <TotalsByMonth area="totals" />
       <AverageAmountSummaryContainer />
       <CumulativeAmountSummaryContainer />
     </Wrapper>

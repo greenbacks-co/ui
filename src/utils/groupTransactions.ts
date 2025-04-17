@@ -1,7 +1,7 @@
 import { DateTime } from 'luxon';
 
 import type Transaction from 'types/transaction';
-import type { Variability } from 'types/variability';
+import { Variability as TransactionVariability } from 'types/variability';
 
 export function groupTransactions({
   groupBy = GroupBy.Date,
@@ -100,7 +100,7 @@ function getKey(transaction: Transaction, groupBy: GroupBy): string {
     case GroupBy.Tag:
       return transaction.tag || 'Untagged';
     case GroupBy.Variability:
-      return transaction.variability || Variability.Variable;
+      return transaction.variability || TransactionVariability.Variable;
     case GroupBy.Date:
     default:
       return transaction.datetime;

@@ -38,7 +38,9 @@ const Checkbox: FC<{
 const Badge = styled.div<{ $colour: string }>`
   background-color: ${(props) => props.$colour};
   border-radius: 50%;
+  display: inline-block;
   height: 12px;
+  margin-left: 4px;
   width: 12px;
 `;
 

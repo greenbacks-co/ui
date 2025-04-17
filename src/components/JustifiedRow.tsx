@@ -45,6 +45,7 @@ const Wrapper = styled.div<{
 
 export enum Alignment {
   Center = 'center',
+  End = 'end',
   SpaceBetween = 'space-between',
 }
 

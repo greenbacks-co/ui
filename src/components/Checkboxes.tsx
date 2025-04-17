@@ -5,6 +5,7 @@ import Checkbox from 'components/Checkbox';
 import noop from 'utils/noop';
 
 const Checkboxes: FC<{
+  hasButtons?: boolean;
   label?: string;
   name?: string;
   onChange?: (input: string[]) => void;
@@ -13,6 +14,7 @@ const Checkboxes: FC<{
   options?: (Option | string)[];
   selectedOptions?: string[];
 }> = ({
+  hasButtons = true,
   label,
   name = 'checkbox',
   onChange = noop,
@@ -50,27 +52,31 @@ const Checkboxes: FC<{
         </div>
       );
     })}
-    <Button
-      onClick={() => {
-        onSelectAll();
-        onChange(
-          options.map((option) => {
-            if (typeof option === 'string') return option;
-            return option.value;
-          }),
-        );
-      }}
-    >
-      Select all
-    </Button>
-    <Button
-      onClick={() => {
-        onDeselectAll();
-        onChange([]);
-      }}
-    >
-      Deselect all
-    </Button>
+    {hasButtons && (
+      <>
+        <Button
+          onClick={() => {
+            onSelectAll();
+            onChange(
+              options.map((option) => {
+                if (typeof option === 'string') return option;
+                return option.value;
+              }),
+            );
+          }}
+        >
+          Select all
+        </Button>
+        <Button
+          onClick={() => {
+            onDeselectAll();
+            onChange([]);
+          }}
+        >
+          Deselect all
+        </Button>
+      </>
+    )}
   </fieldset>
 );
 
