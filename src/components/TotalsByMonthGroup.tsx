@@ -126,11 +126,17 @@ export function TotalsByMonthGroupSelectionContainer({
   area?: string;
   monthTotals?: Month[];
 }): ReactElement {
-  const [areCheckboxesVisible, setAreCheckboxesVisible] =
-    useState<boolean>(false);
+  const [areCheckboxesVisible, setAreCheckboxesVisible] = useState<boolean>(
+    false,
+  );
   const [visibilityBySeries, setVisibilityBySeries] = useState<
     Partial<Record<Series, boolean>>
-  >({});
+  >({
+    [Series.Earning]: true,
+    [Series.AfterSaving]: true,
+    [Series.AfterFixedSpending]: true,
+    [Series.AfterVariableSpending]: true,
+  });
   return (
     <TotalsByMonthGroup
       area={area}
@@ -202,12 +208,6 @@ function getMonthTotals({
   const variableSpendingByMonth = groupTransactions({
     groupBy: GroupBy.Month,
     transactions: variableSpending,
-  });
-  console.log({
-    earningByMonth,
-    savingByMonth,
-    fixedSpendingByMonth,
-    variableSpendingByMonth,
   });
   const totalsByMonth: Record<string, Month> = {};
   earningByMonth?.forEach((month) => {

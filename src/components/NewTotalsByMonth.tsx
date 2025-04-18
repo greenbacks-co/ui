@@ -34,7 +34,7 @@ export function TotalsByMonth({
   );
   const monthsToLabelBySeries = getMonthsToLabel(monthTotals);
   return (
-    <ResponsiveContainer aspect={3.6} minWidth={400} width="100%">
+    <ResponsiveContainer aspect={3.2} minWidth={400} width="100%">
       <LineChart data={[...monthTotals].reverse()}>
         {hasNegative && (
           <ReferenceLine
