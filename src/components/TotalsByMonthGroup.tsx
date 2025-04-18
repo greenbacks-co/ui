@@ -64,7 +64,7 @@ export function TotalsByMonthGroup({
         <Panel>
           <PanelItem hasBottomBorder>
             <JustifiedRow>
-              <Text>Cashflow</Text>
+              <Text>Cashflow Trends</Text>
               <Button
                 onClick={() => onChangeCheckboxVisibility(true)}
                 style={ButtonStyle.Unstyled}
@@ -93,7 +93,7 @@ const COLOURS_BY_SERIES: Partial<Record<Series, string>> = {
   [Series.AfterVariableSpending]: 'pink',
   [Series.Earning]: 'darkgreen',
   [Series.FixedSpending]: 'orange',
-  [Series.Saving]: 'blue',
+  [Series.Saving]: 'lightblue',
   [Series.Spending]: 'red',
   [Series.VariableSpending]: 'gold',
 };
@@ -126,9 +126,8 @@ export function TotalsByMonthGroupSelectionContainer({
   area?: string;
   monthTotals?: Month[];
 }): ReactElement {
-  const [areCheckboxesVisible, setAreCheckboxesVisible] = useState<boolean>(
-    false,
-  );
+  const [areCheckboxesVisible, setAreCheckboxesVisible] =
+    useState<boolean>(false);
   const [visibilityBySeries, setVisibilityBySeries] = useState<
     Partial<Record<Series, boolean>>
   >({
