@@ -1,5 +1,6 @@
 const defaultConfiguration: Configuration = {
   apiHost: 'https://api.greenbacks.app',
+  areWidgetsVisible: false,
   isTestData: false,
 };
 
@@ -12,12 +13,8 @@ export const configuration: Configuration = {
 
 export interface Configuration {
   apiHost: string;
+  areWidgetsVisible: boolean;
   isTestData: boolean;
-}
-
-interface AllOptionalConfiguration {
-  apiHost?: string;
-  isTestData?: boolean;
 }
 
 export default configuration;

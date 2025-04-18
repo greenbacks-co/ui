@@ -19,7 +19,9 @@ const App: FunctionComponent = () => (
         element={
           <DemoApiProvider>
             <MemoryFiltersProvider>
-              <UserSettingsProvider>
+              <UserSettingsProvider
+                areWidgetsInitiallyVisible={configuration.areWidgetsVisible}
+              >
                 <GlobalStyle />
                 <Greenbacks />
               </UserSettingsProvider>
@@ -34,7 +36,9 @@ const App: FunctionComponent = () => (
             <HttpApiProvider uri={`${configuration.apiHost}/graphql`}>
               <AccountConnectionProvider>
                 <ApiFiltersProvider>
-                  <UserSettingsProvider>
+                  <UserSettingsProvider
+                    areWidgetsInitiallyVisible={configuration.areWidgetsVisible}
+                  >
                     <GlobalStyle />
                     <Greenbacks />
                   </UserSettingsProvider>
