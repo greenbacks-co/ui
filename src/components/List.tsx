@@ -48,9 +48,17 @@ export const List = styled.ul<{
 
 export const Item = styled.li<{
   hasPadding?: boolean;
+  isInset?: boolean;
   isJustifiedRow?: boolean;
 }>`
   padding: ${({ hasPadding = true }) => (hasPadding ? '8px 16px' : '0')};
+
+  ${({ isInset = false }) =>
+    isInset &&
+    `
+      background-color: #f9f9f9;
+  `}
+
   ${({ isJustifiedRow = false }) =>
     isJustifiedRow && 'display: flex; justify-content: space-between;'}
 `;
