@@ -7,6 +7,7 @@ import CashFlow from 'components/CashFlow';
 import { FunnelContainer } from 'components/Funnel';
 import Home from 'components/Home';
 import MonthlySpendingByTag from 'components/MonthlySpendingByTag';
+import { NetExplorerMonthContainer as NetExplorer } from 'components/NetExplorer';
 import Select from 'components/Select';
 import Spending from 'components/Spending';
 import SpendingTimeline from 'components/SpendingTimeline';
@@ -38,6 +39,7 @@ export function Widgets(): React.ReactElement {
       value: 'monthly-spending-by-tag',
     },
     { label: 'Filters', value: 'filters' },
+    { label: 'Net Explorer', value: 'net-explorer' },
     { label: 'Funnel', value: 'funnel' },
   ];
 
@@ -98,6 +100,7 @@ export function Widgets(): React.ReactElement {
           element={<TopSpendingCategories />}
         />
         <Route path="/transactions" element={<TransactionsPage />} />
+        <Route path="/net-explorer" element={<NetExplorer />} />
         <Route path="/funnel" element={<FunnelContainer />} />
       </Routes>
     </>
