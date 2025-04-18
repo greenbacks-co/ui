@@ -4,7 +4,7 @@ const defaultConfiguration: Configuration = {
   isTestData: false,
 };
 
-const configurationOverrides: AllOptionalConfiguration = {};
+const configurationOverrides: Partial<Configuration> = {};
 
 export const configuration: Configuration = {
   ...defaultConfiguration,

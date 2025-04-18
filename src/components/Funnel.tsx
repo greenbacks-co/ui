@@ -8,35 +8,22 @@ import {
   YAxis,
 } from 'recharts';
 
-import { Button, ButtonStyle } from 'components/Button';
-import { Icon, IconType } from 'components/Icon';
-import { JustifiedRow as Row } from 'components/JustifiedRow';
-import { Panel, PanelItem } from 'components/Panel';
-import { Text } from 'components/Text';
 import useMonth from 'hooks/useMonth';
-import { useQueryParams } from 'hooks/useQueryParams';
 import useTransactionsByCategory from 'hooks/useTransactionsByCategory';
 import type Transaction from 'types/transaction';
 import { GroupBy, groupTransactions } from 'utils/groupTransactions';
-import noop from 'utils/noop';
 
 export function Funnel({
   bills = 0,
   discretionary = 0,
   earning = 0,
   isLoading = false,
-  onClickPrevious = noop,
-  onClickNext = noop,
-  period = '',
   saving = 0,
 }: {
   bills?: number;
   discretionary?: number;
   earning?: number;
   isLoading?: boolean;
-  onClickPrevious?: () => void;
-  onClickNext?: () => void;
-  period?: string;
   saving?: number;
 }): React.ReactElement {
   if (isLoading) return <p>loading</p>;
@@ -72,72 +59,57 @@ export function Funnel({
     (a, b) => (a > b ? -1 : 1),
   );
   return (
-    <Panel>
-      <PanelItem hasBottomBorder>
-        <ResponsiveContainer
-          aspect={1}
-          height="max-content"
-          minWidth={400}
-          width="100%"
-        >
-          <BarChart data={data} margin={{ left: 40, right: 40, top: 20 }}>
-            <ReferenceLine stroke="grey" y={0} />
-            <ReferenceLine stroke="lightgrey" y={earning} />
-            <ReferenceLine stroke="lightgrey" y={afterSaving} />
-            <ReferenceLine stroke="lightgrey" y={afterBills} />
-            <ReferenceLine stroke="lightgrey" y={afterDiscretionary} />
-            <Bar dataKey="remainder" fill="grey" stackId="a" />
-            <Bar dataKey="earning" fill="green" stackId="a" />
-            <Bar dataKey="saving" fill="blue" stackId="a">
-              <LabelList
-                formatter={formatThousands}
-                dataKey="saving"
-                position="top"
-              />
-            </Bar>
-            <Bar dataKey="bills" fill="yellow" stackId="a">
-              <LabelList
-                formatter={formatThousands}
-                dataKey="bills"
-                position="top"
-              />
-            </Bar>
-            <Bar dataKey="discretionary" fill="orange" stackId="a">
-              <LabelList
-                formatter={formatThousands}
-                dataKey="discretionary"
-                position="top"
-              />
-            </Bar>
-            <YAxis
-              axisLine={false}
-              tickFormatter={formatThousands}
-              tickLine={false}
-              ticks={ticks}
-            />
-            <YAxis
-              axisLine={false}
-              orientation="right"
-              tickFormatter={formatThousands}
-              tickLine={false}
-              ticks={ticks}
-              yAxisId="second"
-            />
-          </BarChart>
-        </ResponsiveContainer>
-      </PanelItem>
-      <PanelItem>
-        <Row>
-          <Button onClick={onClickPrevious} style={ButtonStyle.Unstyled}>
-            <Icon icon={IconType.ChevronLeft} />
-          </Button>
-          <Text>{period}</Text>
-          <Button onClick={onClickNext} style={ButtonStyle.Unstyled}>
-            <Icon icon={IconType.ChevronRight} />
-          </Button>
-        </Row>
-      </PanelItem>
-    </Panel>
+    <ResponsiveContainer
+      aspect={1}
+      height="max-content"
+      minWidth={400}
+      width="100%"
+    >
+      <BarChart data={data} margin={{ left: 40, right: 40, top: 20 }}>
+        <ReferenceLine stroke="grey" y={0} />
+        <ReferenceLine stroke="lightgrey" y={earning} />
+        <ReferenceLine stroke="lightgrey" y={afterSaving} />
+        <ReferenceLine stroke="lightgrey" y={afterBills} />
+        <ReferenceLine stroke="lightgrey" y={afterDiscretionary} />
+        <Bar dataKey="remainder" fill="grey" stackId="a" />
+        <Bar dataKey="earning" fill="green" stackId="a" />
+        <Bar dataKey="saving" fill="blue" stackId="a">
+          <LabelList
+            formatter={formatThousands}
+            dataKey="saving"
+            position="top"
+          />
+        </Bar>
+        <Bar dataKey="bills" fill="yellow" stackId="a">
+          <LabelList
+            formatter={formatThousands}
+            dataKey="bills"
+            position="top"
+          />
+        </Bar>
+        <Bar dataKey="discretionary" fill="orange" stackId="a">
+          <LabelList
+            formatter={formatThousands}
+            dataKey="discretionary"
+            position="top"
+          />
+        </Bar>
+        <YAxis
+          axisLine={false}
+          tickFormatter={formatThousands}
+          tickLine={false}
+          ticks={ticks}
+        />
+        <YAxis
+          axisLine={false}
+          orientation="right"
+          tickFormatter={formatThousands}
+          tickLine={false}
+          ticks={ticks}
+          yAxisId="second"
+        />
+      </BarChart>
+    </ResponsiveContainer>
   );
 }
 
@@ -149,14 +121,7 @@ function formatThousands(cents: number): string {
 }
 
 export function FunnelContainer(): React.ReactElement {
-  const {
-    endDate,
-    nextMonth,
-    previousMonth,
-    readable: readableMonth,
-    startDate,
-  } = useMonth();
-  const { setParams } = useQueryParams();
+  const { endDate, startDate } = useMonth();
   const { earning, isLoading, saving, spending } = useTransactionsByCategory({
     endDate,
     startDate,
@@ -180,9 +145,6 @@ export function FunnelContainer(): React.ReactElement {
       earning={getTotal(earning)}
       isLoading={isLoading}
       saving={getTotal(saving)}
-      onClickNext={() => setParams({ month: nextMonth })}
-      onClickPrevious={() => setParams({ month: previousMonth })}
-      period={readableMonth}
     />
   );
 }
