@@ -1,7 +1,7 @@
 import { Comparator, Filter, Matcher } from 'types/filter';
 import { Category, CoreTransaction } from 'types/transaction';
 
-const buildFilter = ({
+export const buildFilter = ({
   categoryToAssign = Category.Spending,
   id = 'test-filter-id',
   matchers = [],
@@ -19,7 +19,7 @@ const buildFilter = ({
 });
 
 export const buildMatcher = ({
-  comparator,
+  comparator = Comparator.Equals,
   expectedValue = 'test-expected-value',
   property = 'name',
 }: {
