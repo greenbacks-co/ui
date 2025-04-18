@@ -68,7 +68,7 @@ export function TotalsByMonth({
           }
           ticks={[earliestMonth, latestMonth]}
         />
-        <Legend iconType="plainline" />
+        <Legend iconType="plainline" wrapperStyle={{ fontSize: '0.8rem' }} />
       </LineChart>
     </ResponsiveContainer>
   );
