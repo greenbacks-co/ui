@@ -9,7 +9,6 @@ const COLOURS_BY_SERIES = {
   [Series.AfterVariableSpending]: 'pink',
   [Series.Earning]: 'darkgreen',
   [Series.FixedSpending]: 'orange',
-  [Series.Net]: 'purple',
   [Series.Saving]: 'blue',
   [Series.Spending]: 'red',
   [Series.VariableSpending]: 'gold',

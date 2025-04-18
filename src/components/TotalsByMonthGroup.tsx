@@ -2,18 +2,19 @@ import React, { ReactElement, useState } from 'react';
 import styled from 'styled-components';
 
 import { Icon, IconType } from 'components/Icon';
-import { Alignment, JustifiedRow } from 'components/JustifiedRow';
+import { JustifiedRow } from 'components/JustifiedRow';
 import useTransactionsByCategory from 'hooks/useTransactionsByCategory';
 import Transaction from 'types/transaction';
 import groupTransactions, { GroupBy } from 'utils/groupTransactions';
 import { Variability } from 'types/variability';
 import useNow from 'hooks/useNow';
 import Checkboxes from './Checkboxes';
-import { Month, TotalsByMonth, Series } from './NewTotalsByMonth';
+import { Month, TotalsByMonth, Series, SERIES_ORDER } from './NewTotalsByMonth';
 import noop from '../utils/noop';
 import { Panel, PanelItem } from './Panel';
 import Button, { ButtonStyle } from './Button';
 import { Modal } from './Modal';
+import { Text } from './Text';
 
 export function TotalsByMonthGroup({
   area,
@@ -35,7 +36,10 @@ export function TotalsByMonthGroup({
   return (
     <>
       {areCheckboxesVisible && (
-        <Modal onClose={() => onChangeCheckboxVisibility(false)}>
+        <Modal
+          onClose={() => onChangeCheckboxVisibility(false)}
+          title="Visibility"
+        >
           <Checkboxes
             hasButtons={false}
             onChange={(selectedSeries) =>
@@ -59,7 +63,8 @@ export function TotalsByMonthGroup({
       <Wrapper $area={area}>
         <Panel>
           <PanelItem hasBottomBorder>
-            <JustifiedRow alignment={Alignment.End}>
+            <JustifiedRow>
+              <Text>Cashflow</Text>
               <Button
                 onClick={() => onChangeCheckboxVisibility(true)}
                 style={ButtonStyle.Unstyled}
@@ -71,6 +76,7 @@ export function TotalsByMonthGroup({
           <PanelItem>
             <TotalsByMonth
               coloursBySeries={COLOURS_BY_SERIES}
+              labelsBySeries={LABELS_BY_SERIES}
               monthTotals={monthTotals}
               visibilityBySeries={visibilityBySeries}
             />
@@ -81,60 +87,32 @@ export function TotalsByMonthGroup({
   );
 }
 
-const COLOURS_BY_SERIES = {
+const COLOURS_BY_SERIES: Partial<Record<Series, string>> = {
   [Series.AfterFixedSpending]: 'darkorange',
   [Series.AfterSaving]: 'lightgreen',
   [Series.AfterVariableSpending]: 'pink',
   [Series.Earning]: 'darkgreen',
   [Series.FixedSpending]: 'orange',
-  [Series.Net]: 'purple',
   [Series.Saving]: 'blue',
   [Series.Spending]: 'red',
   [Series.VariableSpending]: 'gold',
 };
 
-const SERIES_OPTIONS = [
-  {
-    colour: COLOURS_BY_SERIES[Series.Earning],
-    label: 'Earning',
-    value: Series.Earning,
-  },
-  {
-    colour: COLOURS_BY_SERIES[Series.Saving],
-    label: 'Saving',
-    value: Series.Saving,
-  },
-  {
-    colour: COLOURS_BY_SERIES[Series.Spending],
-    label: 'Spending',
-    value: Series.Spending,
-  },
-  {
-    colour: COLOURS_BY_SERIES[Series.FixedSpending],
-    label: 'Fixed Spending',
-    value: Series.FixedSpending,
-  },
-  {
-    colour: COLOURS_BY_SERIES[Series.VariableSpending],
-    label: 'Variable Spending',
-    value: Series.VariableSpending,
-  },
-  {
-    colour: COLOURS_BY_SERIES[Series.AfterSaving],
-    label: 'After Saving',
-    value: Series.AfterSaving,
-  },
-  {
-    colour: COLOURS_BY_SERIES[Series.AfterFixedSpending],
-    label: 'After Fixed Spending',
-    value: Series.AfterFixedSpending,
-  },
-  {
-    colour: COLOURS_BY_SERIES[Series.AfterVariableSpending],
-    label: 'After Variable Spending',
-    value: Series.AfterVariableSpending,
-  },
-];
+const LABELS_BY_SERIES: Partial<Record<Series, string>> = {
+  [Series.AfterFixedSpending]: 'Balance After Bills',
+  [Series.AfterSaving]: 'Balance After Saving',
+  [Series.AfterVariableSpending]: 'Final Balance',
+  [Series.Earning]: 'Earning',
+  [Series.FixedSpending]: 'Bills',
+  [Series.Saving]: 'Saving',
+  [Series.Spending]: 'Spending',
+  [Series.VariableSpending]: 'Fun',
+};
+
+const SERIES_OPTIONS = SERIES_ORDER.map((series) => ({
+  label: LABELS_BY_SERIES[series] ?? series,
+  value: series,
+}));
 
 const Wrapper = styled.div<{ $area?: string }>`
   ${({ $area }) => $area && `grid-area: ${$area};`}
