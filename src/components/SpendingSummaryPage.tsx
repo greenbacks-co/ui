@@ -3,12 +3,14 @@ import styled from 'styled-components';
 
 import { AverageAmountSummaryContainer } from 'components/AverageAmountSummary';
 import { CumulativeAmountSummaryContainer } from 'components/CumulativeAmountSummary';
+import MonthSelector from 'components/MonthSelector';
 import { TotalsByMonthPanelContainer as TotalsByMonth } from './NewTotalsByMonth';
 
 export function SpendingSummary(): React.ReactElement {
   return (
     <Wrapper>
       <TotalsByMonth area="totals" />
+      <MonthSelector area="month" />
       <AverageAmountSummaryContainer />
       <CumulativeAmountSummaryContainer />
     </Wrapper>
@@ -28,6 +30,7 @@ const Wrapper = styled.div`
     grid-gap: 16px;
     grid-template-areas:
       'totals  totals'
+      'month   month'
       'average cumulative';
     grid-template-columns: 1fr 1fr;
   }

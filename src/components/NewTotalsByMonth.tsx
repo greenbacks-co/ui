@@ -118,14 +118,7 @@ export function TotalsByMonth({
           )}
         </Line>
         {hasNegative && (
-          <ReferenceLine
-            label={{
-              fontSize: '0.8rem',
-              value: 0,
-            }}
-            stroke="grey"
-            y={0}
-          />
+          <ReferenceLine stroke="grey" strokeDasharray="5 3" y={0} />
         )}
         <XAxis
           dataKey="month"
