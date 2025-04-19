@@ -1,27 +1,11 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Month, Series, TotalsByMonth } from 'components/NewTotalsByMonth';
-
-const COLOURS_BY_SERIES = {
-  [Series.AfterFixedSpending]: 'darkorange',
-  [Series.AfterSaving]: 'lightgreen',
-  [Series.AfterVariableSpending]: 'pink',
-  [Series.Earning]: 'darkgreen',
-  [Series.FixedSpending]: 'orange',
-  [Series.Saving]: 'blue',
-  [Series.Spending]: 'red',
-  [Series.VariableSpending]: 'gold',
-};
+import { Month, TotalsByMonth } from 'components/NewTotalsByMonth';
 
 const meta: Meta<React.ComponentProps<typeof TotalsByMonth>> = {
   args: {
-    coloursBySeries: COLOURS_BY_SERIES,
     monthTotals: buildMonthTotals(),
-    visibilityBySeries: Object.values(Series).reduce(
-      (result, series) => ({ ...result, [series]: true }),
-      {},
-    ),
   },
   component: TotalsByMonth,
   parameters: {

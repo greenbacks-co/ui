@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { AverageAmountSummaryContainer } from 'components/AverageAmountSummary';
 import { CumulativeAmountSummaryContainer } from 'components/CumulativeAmountSummary';
-import { TotalsByMonthGroupContainer as TotalsByMonth } from './TotalsByMonthGroup';
+import { TotalsByMonthPanelContainer as TotalsByMonth } from './NewTotalsByMonth';
 
 export function SpendingSummary(): React.ReactElement {
   return (
