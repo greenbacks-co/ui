@@ -11,15 +11,18 @@ import {
 } from 'recharts';
 
 import { formatThousands } from 'utils/formatThousands';
+import noop from 'utils/noop';
 
 export function Cashflow({
   coloursBySeries = COLOURS_BY_SERIES,
+  formatAxisLabel = noop,
   hasLabels = false,
   isWide = false,
   labelsBySeries = LABELS_BY_SERIES,
   totals = [],
 }: {
   coloursBySeries?: Partial<Record<Series, string>>;
+  formatAxisLabel?: (input: string) => string | void;
   hasLabels?: boolean;
   isWide?: boolean;
   labelsBySeries?: Partial<Record<Series, string>>;
@@ -89,6 +92,7 @@ export function Cashflow({
         )}
         <XAxis
           dataKey="key"
+          tickFormatter={(value) => formatAxisLabel(value) ?? value}
           interval="preserveStartEnd"
           tick={{ fontSize: '0.8rem' }}
           ticks={[totals[0].key, totals[totals.length - 1].key]}

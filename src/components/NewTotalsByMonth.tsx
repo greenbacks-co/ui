@@ -1,3 +1,4 @@
+import { DateTime } from 'luxon';
 import React, { ReactElement } from 'react';
 
 import useTransactionsByCategory from 'hooks/useTransactionsByCategory';
@@ -15,7 +16,17 @@ export function TotalsByMonth({
   monthTotals?: Month[];
 }): ReactElement {
   return (
-    <Cashflow hasLabels isWide totals={formatDataForAreaChart(monthTotals)} />
+    <Cashflow
+      formatAxisLabel={(value) =>
+        DateTime.fromISO(value).toLocaleString({
+          month: 'long',
+          year: 'numeric',
+        })
+      }
+      hasLabels
+      isWide
+      totals={formatDataForAreaChart(monthTotals)}
+    />
   );
 }
 
