@@ -13,6 +13,7 @@ import GreenbacksTransaction, {
   Category,
   TransactionType,
 } from 'types/transaction';
+import { Variability } from 'types/variability';
 
 const transaction: GreenbacksTransaction = {
   accountId: 'account-1',
@@ -46,11 +47,11 @@ export const InContainer: Story = {
     <TestFiltersProvider
       filters={[
         buildFilter('Rent'),
-        buildFilter('Groceries'),
-        buildFilter('Groceries'),
-        buildFilter('Groceries'),
-        buildFilter('Groceries'),
-        buildFilter('Groceries'),
+        buildFilter('Groceries', { variability: Variability.Fixed }),
+        buildFilter('Groceries', { variability: Variability.Fixed }),
+        buildFilter('Groceries', { variability: Variability.Fixed }),
+        buildFilter('Groceries', { variability: Variability.Fixed }),
+        buildFilter('Groceries', { variability: Variability.Fixed }),
         buildFilter('Entertainment'),
         buildFilter('Entertainment'),
         buildFilter('Entertainment'),
@@ -58,6 +59,10 @@ export const InContainer: Story = {
         buildFilter('Entertainment'),
         buildFilter('Entertainment'),
         buildFilter('Entertainment'),
+        buildFilter('Retirement', { category: Category.Saving }),
+        buildFilter('Retirement', { category: Category.Saving }),
+        buildFilter('Retirement', { category: Category.Saving }),
+        buildFilter('Retirement', { category: Category.Saving }),
         buildFilter('Restaurants'),
         buildFilter('Restaurants'),
         buildFilter('Restaurants'),
@@ -70,12 +75,19 @@ export const InContainer: Story = {
   ),
 };
 
-function buildFilter(tag: string): Filter {
+function buildFilter(
+  tag: string,
+  {
+    category = Category.Spending,
+    variability = Variability.Variable,
+  }: { category?: Category; variability?: Variability } = {},
+): Filter {
   return {
-    categoryToAssign: Category.Spending,
+    categoryToAssign: category,
     id: generateUuid(),
     matchers: [],
     tagToAssign: tag,
+    variabilityToAssign: variability,
   };
 }
 

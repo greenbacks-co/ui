@@ -67,6 +67,17 @@ export function NewFilterModal({
           />
         </div>
         <div>
+          <Label forId="tags">Add tag</Label>
+          <Typeahead
+            id="tags"
+            onChange={onSelectTag}
+            options={existingTags}
+            placeholder="Search or add new tag"
+            value={selectedTag}
+            visibleOptionCount={3}
+          />
+        </div>
+        <div>
           <Label>Assign category</Label>
           <RadioButtons
             name="category"
@@ -83,19 +94,6 @@ export function NewFilterModal({
               options={VARIABILITY_OPTIONS}
               onChange={(input) => onSelectVariability(input as Variability)}
               value={selectedVariability}
-            />
-          </div>
-        )}
-        {selectedCategory !== Category.Hidden && (
-          <div>
-            <Label forId="tags">Add tag</Label>
-            <Typeahead
-              id="tags"
-              onChange={onSelectTag}
-              options={existingTags}
-              placeholder="Search or add new tag"
-              value={selectedTag}
-              visibleOptionCount={3}
             />
           </div>
         )}
@@ -127,29 +125,40 @@ export function NewFilterModalContainer({
   onSave?: (input: FilterInput) => void;
   transaction: Transaction;
 }): React.ReactElement {
-  const { tags } = useTags();
-  const [selectedProperty, selectProperty] = useState<PropertyToMatch>(
-    PropertyToMatch.Merchant,
-  );
-  const [selectedCategory, selectCategory] = useState<Category>(
-    transaction.category,
-  );
+  const { filtersByTag, tags } = useTags();
   const [selectedTag, selectTag] = useState<string | undefined>();
-  const [selectedVariability, selectVariability] = useState<Variability>(
-    Variability.Variable,
-  );
+  const matchingFilter = filtersByTag?.[selectedTag ?? '']?.[0];
+  const [selectedProperty, selectProperty] = useState<
+    PropertyToMatch | undefined
+  >();
+  const [selectedCategory, selectCategory] = useState<Category | undefined>();
+  const [selectedVariability, selectVariability] = useState<
+    Variability | undefined
+  >();
+  const property =
+    selectedProperty ??
+    (matchingFilter?.matchers?.[0]?.property as PropertyToMatch) ??
+    PropertyToMatch.Merchant;
+  const category =
+    selectedCategory ??
+    matchingFilter?.categoryToAssign ??
+    transaction.category;
+  const variability =
+    selectedVariability ??
+    matchingFilter?.variabilityToAssign ??
+    Variability.Variable;
   return (
     <NewFilterModal
       existingTags={tags}
       onClose={onClose}
       onSave={() => {
         onSave({
-          categoryToAssign: selectedCategory,
+          categoryToAssign: category,
           matchers: [
             {
               comparator: Comparator.Equals,
-              property: selectedProperty,
-              expectedValue: transaction[selectedProperty],
+              property,
+              expectedValue: transaction[property],
             },
           ],
           tagToAssign: selectedTag,
@@ -163,10 +172,10 @@ export function NewFilterModalContainer({
       onSelectProperty={selectProperty}
       onSelectTag={selectTag}
       onSelectVariability={selectVariability}
-      selectedCategory={selectedCategory}
-      selectedProperty={selectedProperty}
+      selectedCategory={category}
+      selectedProperty={property}
       selectedTag={selectedTag}
-      selectedVariability={selectedVariability}
+      selectedVariability={variability}
       transaction={transaction}
     />
   );

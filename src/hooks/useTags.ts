@@ -1,7 +1,9 @@
 import useFilters from 'hooks/useFilters';
+import type { Filter } from 'types/filter';
 import { GroupBy, groupFilters, SortGroupsBy } from 'utils/groupFilters';
 
 const useTags = (): {
+  filtersByTag?: Record<string, Filter[]>;
   isLoading: boolean;
   tags?: string[];
 } => {
@@ -14,7 +16,12 @@ const useTags = (): {
   const tags = groupedFilters
     ?.map((group) => group.key)
     .filter((tag) => tag !== 'Untagged');
+  const filtersByTag = groupedFilters?.reduce(
+    (result, group) => ({ ...result, [group.key]: group.filters }),
+    {},
+  );
   return {
+    filtersByTag,
     isLoading,
     tags,
   };
