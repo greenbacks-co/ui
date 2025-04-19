@@ -5,14 +5,16 @@ import { AverageAmountSummaryContainer } from 'components/AverageAmountSummary';
 import { CumulativeAmountSummaryContainer } from 'components/CumulativeAmountSummary';
 import MonthSelector from 'components/MonthSelector';
 import { TotalsByMonthPanelContainer as TotalsByMonth } from './NewTotalsByMonth';
+import { CashflowTimelinePanelContainer } from './CashflowTimelinePanel';
 
 export function SpendingSummary(): React.ReactElement {
   return (
     <Wrapper>
       <TotalsByMonth area="totals" />
       <MonthSelector area="month" />
-      <AverageAmountSummaryContainer />
+      <CashflowTimelinePanelContainer />
       <CumulativeAmountSummaryContainer />
+      <AverageAmountSummaryContainer />
     </Wrapper>
   );
 }

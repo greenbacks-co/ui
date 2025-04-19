@@ -1,20 +1,19 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { CashflowTimeline } from 'components/CashflowTimeline';
-import type { Totals } from 'components/NewCashflow';
+import { Cashflow, Totals } from 'components/NewCashflow';
 
-const meta: Meta<typeof CashflowTimeline> = {
+const meta: Meta<typeof Cashflow> = {
   args: {
     totals: buildTotals(),
   },
-  component: CashflowTimeline,
+  component: Cashflow,
   parameters: {
     layout: 'centered',
   },
-  title: 'Molecules/CashflowTimeline',
+  title: 'Molecules/Cashflow',
 };
 
-type Story = StoryObj<typeof CashflowTimeline>;
+type Story = StoryObj<typeof Cashflow>;
 
 function buildTotals(): Totals[] {
   const result: Totals[] = [];

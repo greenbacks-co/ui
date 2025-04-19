@@ -95,7 +95,7 @@ export function Cashflow({
           tickFormatter={(value) => formatAxisLabel(value) ?? value}
           interval="preserveStartEnd"
           tick={{ fontSize: '0.8rem' }}
-          ticks={[totals[0].key, totals[totals.length - 1].key]}
+          ticks={[totals[0]?.key, totals[totals.length - 1]?.key]}
         />
         <Legend
           formatter={(value: Series) => labelsBySeries[value] ?? value}

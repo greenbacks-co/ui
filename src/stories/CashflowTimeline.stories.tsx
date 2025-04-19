@@ -1,19 +1,26 @@
+import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Cashflow, Totals } from 'components/NewCashflow';
+import {
+  CashflowTimeline,
+  CashflowTimelineContainer,
+} from 'components/CashflowTimeline';
+import { Totals } from 'components/NewCashflow';
+import RouteProvider from 'context/Route';
+import { DemoApiProvider } from 'context/GreenbacksApi';
 
-const meta: Meta<typeof Cashflow> = {
+const meta: Meta<typeof CashflowTimeline> = {
   args: {
     totals: buildTotals(),
   },
-  component: Cashflow,
+  component: CashflowTimeline,
   parameters: {
     layout: 'centered',
   },
-  title: 'Molecules/Cashflow',
+  title: 'Molecules/CashflowTimeline',
 };
 
-type Story = StoryObj<typeof Cashflow>;
+type Story = StoryObj<typeof CashflowTimeline>;
 
 function buildTotals(): Totals[] {
   const result: Totals[] = [];
@@ -52,5 +59,15 @@ function randomChance(chance: number): boolean {
 }
 
 export const Default: Story = {};
+
+export const Container: Story = {
+  render: () => (
+    <RouteProvider>
+      <DemoApiProvider>
+        <CashflowTimelineContainer />
+      </DemoApiProvider>
+    </RouteProvider>
+  ),
+};
 
 export default meta;
