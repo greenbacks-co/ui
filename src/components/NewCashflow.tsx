@@ -138,7 +138,7 @@ export const COLOURS_BY_SERIES: Partial<Record<Series, string>> = {
   [Series.VariableSpending]: 'gold',
 };
 
-const LABELS_BY_SERIES: Partial<Record<Series, string>> = {
+export const LABELS_BY_SERIES: Partial<Record<Series, string>> = {
   [Series.AfterFixedSpending]: 'Balance After Bills',
   [Series.AfterSaving]: 'Balance After Saving',
   [Series.AfterVariableSpending]: 'Total Cashflow',
