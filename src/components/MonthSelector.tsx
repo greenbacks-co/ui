@@ -10,33 +10,49 @@ import { Text } from 'components/Text';
 import useMonth from 'hooks/useMonth';
 import noop from 'utils/noop';
 import styled from 'utils/styled';
+import useNow from 'hooks/useNow';
+import getMonth from 'utils/getMonth';
 
 export function MonthSelector({
   area,
+  hasNext = true,
+  hasPrevious = true,
   month,
   nextUrl,
   onClickNext = noop,
   onClickPrevious = noop,
   previousUrl,
-}: {
+}: MonthSelectorProps): ReactElement {
+  return (
+    <Wrapper $area={area}>
+      {hasPrevious ? (
+        <LinkButton href={previousUrl} onClick={onClickPrevious}>
+          <Icon icon={IconType.ChevronLeft} />
+        </LinkButton>
+      ) : (
+        <div />
+      )}
+      <Text>{month.toLocaleString({ month: 'long', year: 'numeric' })}</Text>
+      {hasNext ? (
+        <LinkButton href={nextUrl} onClick={onClickNext}>
+          <Icon icon={IconType.ChevronRight} />
+        </LinkButton>
+      ) : (
+        <div />
+      )}
+    </Wrapper>
+  );
+}
+
+interface MonthSelectorProps {
   area?: string;
+  hasNext?: boolean;
+  hasPrevious?: boolean;
   month: DateTime;
   nextUrl?: string;
   onClickNext?: () => void;
   onClickPrevious?: () => void;
   previousUrl?: string;
-}): ReactElement {
-  return (
-    <Wrapper $area={area}>
-      <LinkButton href={previousUrl} onClick={onClickPrevious}>
-        <Icon icon={IconType.ChevronLeft} />
-      </LinkButton>
-      <Text>{month.toLocaleString({ month: 'long', year: 'numeric' })}</Text>
-      <LinkButton href={nextUrl} onClick={onClickNext}>
-        <Icon icon={IconType.ChevronRight} />
-      </LinkButton>
-    </Wrapper>
-  );
 }
 
 function LinkButton({
@@ -59,14 +75,7 @@ function LinkButton({
 export function MonthSelectorPanel({
   area,
   ...props
-}: {
-  area?: string;
-  month: DateTime;
-  nextUrl?: string;
-  onClickNext?: () => void;
-  onClickPrevious?: () => void;
-  previousUrl?: string;
-}): ReactElement {
+}: MonthSelectorProps): ReactElement {
   return (
     <Panel area={area}>
       <PanelItem>
@@ -82,6 +91,8 @@ export function QueryParameterMonthSelector({
   area?: string;
 }): ReactElement {
   const { nextMonth, previousMonth, iso } = useMonth();
+  const { now } = useNow();
+  const { iso: currentMonth } = getMonth({ datetime: now });
   const { pathname, search } = useLocation();
   const previousMonthUrl = `${pathname}?${addQueryParam(
     search,
@@ -97,6 +108,7 @@ export function QueryParameterMonthSelector({
     <MonthSelectorPanel
       area={area}
       month={DateTime.fromISO(iso)}
+      hasNext={iso !== currentMonth}
       nextUrl={nextMonthUrl}
       previousUrl={previousMonthUrl}
     />
