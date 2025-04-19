@@ -14,7 +14,7 @@ const meta: Meta<React.ComponentProps<typeof TotalsByMonth>> = {
   title: 'Molecules/NewTotalsByMonth',
 };
 
-export function buildMonthTotals(): Month[] {
+function buildMonthTotals(): Month[] {
   const result = [];
   for (let i = 0; i < 12; i += 1) {
     const earning = 400000 * getMultiplier(0.2);
