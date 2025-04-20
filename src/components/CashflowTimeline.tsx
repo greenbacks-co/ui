@@ -137,6 +137,7 @@ export function buildTimeline({
     const afterBills = afterSaving - runningFixedSpending;
     const afterFun = afterBills - runningVariableSpending;
     totals.push({
+      afterFixedSpending: afterBills,
       afterVariableSpending: afterFun,
       earning: runningEarning,
       fixedSpending: [afterSaving, afterBills],

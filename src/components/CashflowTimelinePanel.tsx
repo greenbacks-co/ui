@@ -39,6 +39,7 @@ export function CashflowTimelinePanel({
           Series.Earning,
           Series.Saving,
           Series.FixedSpending,
+          Series.AfterFixedSpending,
           Series.VariableSpending,
           Series.AfterVariableSpending,
         ].map((series) => (
@@ -84,6 +85,7 @@ export function CashflowTimelinePanelContainer(): ReactElement {
   });
   const lastFullTotal = [...totals].reverse().find((group) => group.earning);
   const totalsBySeries = {
+    afterFixedSpending: lastFullTotal?.afterFixedSpending,
     afterVariableSpending: lastFullTotal?.afterVariableSpending,
     earning: lastFullTotal?.earning,
     fixedSpending:

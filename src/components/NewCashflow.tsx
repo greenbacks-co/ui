@@ -40,6 +40,21 @@ export function Cashflow({
       width="100%"
     >
       <ComposedChart data={totals}>
+        <Area
+          dataKey={Series.Saving}
+          fill={COLOURS_BY_SERIES[Series.Saving]}
+          stroke="none"
+        />
+        <Area
+          dataKey={Series.FixedSpending}
+          fill={COLOURS_BY_SERIES[Series.FixedSpending]}
+          stroke="none"
+        />
+        <Area
+          dataKey={Series.VariableSpending}
+          fill={COLOURS_BY_SERIES[Series.VariableSpending]}
+          stroke="none"
+        />
         <Line
           dataKey={Series.Earning}
           dot={false}
@@ -56,21 +71,21 @@ export function Cashflow({
             />
           )}
         </Line>
-        <Area
-          dataKey={Series.Saving}
-          fill={COLOURS_BY_SERIES[Series.Saving]}
-          stroke="none"
-        />
-        <Area
-          dataKey={Series.FixedSpending}
-          fill={COLOURS_BY_SERIES[Series.FixedSpending]}
-          stroke="none"
-        />
-        <Area
-          dataKey={Series.VariableSpending}
-          fill={COLOURS_BY_SERIES[Series.VariableSpending]}
-          stroke="none"
-        />
+        <Line
+          dataKey={Series.AfterFixedSpending}
+          dot={false}
+          stroke={coloursBySeries[Series.AfterFixedSpending]}
+          strokeWidth={2}
+        >
+          {hasLabels && (
+            <LabelList
+              formatter={formatThousands}
+              style={{
+                fontSize: LABEL_SIZE,
+              }}
+            />
+          )}
+        </Line>
         <Line
           dataKey={Series.AfterVariableSpending}
           dot={false}
@@ -108,6 +123,7 @@ export function Cashflow({
 }
 
 export interface Totals {
+  afterFixedSpending?: number;
   afterVariableSpending?: number;
   earning?: number;
   fixedSpending?: [number, number];
@@ -139,7 +155,7 @@ export const COLOURS_BY_SERIES: Partial<Record<Series, string>> = {
 };
 
 export const LABELS_BY_SERIES: Partial<Record<Series, string>> = {
-  [Series.AfterFixedSpending]: 'Balance After Bills',
+  [Series.AfterFixedSpending]: 'Disposable Income',
   [Series.AfterSaving]: 'Balance After Saving',
   [Series.AfterVariableSpending]: 'Total Cashflow',
   [Series.Earning]: 'Earning',

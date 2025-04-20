@@ -44,6 +44,7 @@ function formatDataForAreaChart(months: Month[]): {
 }[] {
   return months.map((month) => ({
     key: month.month,
+    [Series.AfterFixedSpending]: month[Series.AfterFixedSpending] ?? 0,
     [Series.AfterVariableSpending]: month[Series.AfterVariableSpending] ?? 0,
     [Series.Earning]: month[Series.Earning] ?? 0,
     [Series.FixedSpending]: [
