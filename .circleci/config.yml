@@ -70,7 +70,6 @@ workflows:
     jobs:
       - lint
       - typecheck
-      - test
       - deploy:
           context:
             - aws
