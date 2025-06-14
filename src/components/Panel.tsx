@@ -26,11 +26,14 @@ export const Panel = styled.div<{
 export const PanelItem = styled.div<{
   hasBottomBorder?: boolean;
   hasPadding?: boolean;
+  hasTopBorder?: boolean;
   isInset?: boolean;
 }>`
   padding: ${({ hasPadding = true }) => (hasPadding ? '8px 16px' : '0')};
   ${({ hasBottomBorder = false }) =>
     hasBottomBorder && 'border-bottom: solid lightgrey 1px;'}
+  ${({ hasTopBorder = false }) =>
+    hasTopBorder && 'border-top: solid lightgrey 1px;'}
   ${({ isInset = false }) =>
     isInset &&
     `

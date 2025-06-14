@@ -6,6 +6,7 @@ import { CumulativeAmountSummaryContainer } from 'components/CumulativeAmountSum
 import MonthSelector from 'components/MonthSelector';
 import { TotalsByMonthPanelContainer as TotalsByMonth } from './NewTotalsByMonth';
 import { CashflowTimelinePanelContainer } from './CashflowTimelinePanel';
+import { UntaggedTransactionsContainer } from './NewUntaggedTransactions';
 
 export function SpendingSummary(): React.ReactElement {
   return (
@@ -13,6 +14,7 @@ export function SpendingSummary(): React.ReactElement {
       <TotalsByMonth area="totals" />
       <MonthSelector area="month" />
       <CashflowTimelinePanelContainer />
+      <UntaggedTransactionsContainer />
       <CumulativeAmountSummaryContainer />
       <AverageAmountSummaryContainer />
     </Wrapper>
