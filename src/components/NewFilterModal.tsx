@@ -147,26 +147,25 @@ export function NewFilterModalContainer({
     selectedVariability ??
     matchingFilter?.variabilityToAssign ??
     Variability.Variable;
+  const filterToSave = {
+    categoryToAssign: category,
+    matchers: [
+      {
+        comparator: Comparator.Equals,
+        property,
+        expectedValue: transaction[property],
+      },
+    ],
+    tagToAssign: selectedTag,
+    variabilityToAssign:
+      category === Category.Spending ? variability : undefined,
+  };
   return (
     <NewFilterModal
       existingTags={tags}
       onClose={onClose}
       onSave={() => {
-        onSave({
-          categoryToAssign: category,
-          matchers: [
-            {
-              comparator: Comparator.Equals,
-              property,
-              expectedValue: transaction[property],
-            },
-          ],
-          tagToAssign: selectedTag,
-          variabilityToAssign:
-            selectedCategory === Category.Spending
-              ? selectedVariability
-              : undefined,
-        });
+        onSave(filterToSave);
       }}
       onSelectCategory={selectCategory}
       onSelectProperty={selectProperty}
