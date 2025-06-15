@@ -1,3 +1,4 @@
+import useCurrencyFormatter from 'hooks/useCurrencyFormatter';
 import useTransactionsByCategory from 'hooks/useTransactionsByCategory';
 import React, { ReactElement, useState } from 'react';
 import TransactionType from 'types/transaction';
@@ -22,6 +23,7 @@ export function UntaggedTransactions({
   isLoading = false,
   onClickNext = noop,
   onClickPrevious = noop,
+  totalAmount,
   totalCount,
   untaggedTransactions = [],
 }: {
@@ -29,9 +31,11 @@ export function UntaggedTransactions({
   isLoading?: boolean;
   onClickPrevious?: () => void;
   onClickNext?: () => void;
+  totalAmount?: number;
   totalCount?: number;
   untaggedTransactions?: TransactionType[];
 }): ReactElement {
+  const { format } = useCurrencyFormatter();
   if (isLoading)
     return (
       <Panel>
@@ -50,7 +54,10 @@ export function UntaggedTransactions({
   return (
     <Panel>
       <PanelItem hasBottomBorder>
-        <Text>Untagged Transactions</Text>
+        <Text>
+          Untagged Transactions
+          {totalAmount && ` (${format({ value: totalAmount })})`}
+        </Text>
       </PanelItem>
       <List
         hasOutsideBorder={false}
@@ -95,7 +102,11 @@ export function UntaggedTransactions({
 }
 
 export function UntaggedTransactionsContainer(): ReactElement {
-  const { isLoading, untaggedTransactions = [] } = useUntaggedTransactions();
+  const {
+    isLoading,
+    totalAmount,
+    untaggedTransactions = [],
+  } = useUntaggedTransactions();
   const { currentIndex, onNext, onPrevious, visibleTransactions } =
     useVisibleTransactions({
       transactions: untaggedTransactions,
@@ -106,6 +117,7 @@ export function UntaggedTransactionsContainer(): ReactElement {
       isLoading={isLoading}
       onClickNext={onNext}
       onClickPrevious={onPrevious}
+      totalAmount={totalAmount}
       totalCount={untaggedTransactions.length}
       untaggedTransactions={visibleTransactions}
     />
@@ -114,6 +126,7 @@ export function UntaggedTransactionsContainer(): ReactElement {
 
 function useUntaggedTransactions(): {
   isLoading?: boolean;
+  totalAmount?: number;
   untaggedTransactions?: TransactionType[];
 } {
   const { now } = useNow();
@@ -133,10 +146,13 @@ function useUntaggedTransactions(): {
     sortTransactionsBy: SortTransactionsBy.Amount,
     transactions: [...earning, ...saving, ...spending],
   });
-  const untaggedTransactions =
-    groups?.find((group) => group.key === 'Untagged')?.transactions ?? [];
+  const untaggedTransactionsGroup = groups?.find(
+    (group) => group.key === 'Untagged',
+  );
+  const untaggedTransactions = untaggedTransactionsGroup?.transactions ?? [];
   return {
     isLoading,
+    totalAmount: untaggedTransactionsGroup?.total,
     untaggedTransactions,
   };
 }
