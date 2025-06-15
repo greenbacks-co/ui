@@ -56,6 +56,23 @@ export function CashflowTimelinePanel({
           const tagAmounts = tagAmountsBySeries[series] ?? [];
           return (
             <Expander
+              body={
+                <List
+                  hasOutsideBorder={false}
+                  hasRoundedBottomCorners={isLastItem}
+                  hasRoundedTopCorners={false}
+                  isInset
+                >
+                  {tagAmounts.map(({ amount, tag }) => (
+                    <Item key={tag}>
+                      <JustifiedRow>
+                        <Text>{tag}</Text>
+                        <Text>{format(amount)}</Text>
+                      </JustifiedRow>
+                    </Item>
+                  ))}
+                </List>
+              }
               heading={
                 <Row>
                   <Text area="amount">
@@ -69,23 +86,7 @@ export function CashflowTimelinePanel({
                   <Text area="label">{labelsBySeries[series]}</Text>
                 </Row>
               }
-              body={
-                <List
-                  hasOutsideBorder={false}
-                  hasRoundedBottomCorners={isLastItem}
-                  hasRoundedTopCorners={false}
-                  isInset
-                >
-                  {tagAmounts.map(({ amount, tag }) => (
-                    <Item>
-                      <JustifiedRow>
-                        <Text>{tag}</Text>
-                        <Text>{format(amount)}</Text>
-                      </JustifiedRow>
-                    </Item>
-                  ))}
-                </List>
-              }
+              key={series}
             />
           );
         })}
