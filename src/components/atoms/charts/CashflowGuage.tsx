@@ -3,23 +3,19 @@ import React, { ReactElement } from 'react';
 import { Pie, PieChart, ResponsiveContainer } from 'recharts';
 
 export function CashflowGuage({
-  data: {
-    fixedEarning = 0,
-    fixedSaving = 0,
-    fixedSpending = 0,
-    variableEarning = 0,
-    variableSaving = 0,
-    variableSpending = 0,
-  } = {},
+  fixedEarning = 0,
+  fixedSaving = 0,
+  fixedSpending = 0,
+  variableEarning = 0,
+  variableSaving = 0,
+  variableSpending = 0,
 }: {
-  data?: {
-    fixedEarning?: number;
-    fixedSaving?: number;
-    fixedSpending?: number;
-    variableEarning?: number;
-    variableSaving?: number;
-    variableSpending?: number;
-  };
+  fixedEarning?: number;
+  fixedSaving?: number;
+  fixedSpending?: number;
+  variableEarning?: number;
+  variableSaving?: number;
+  variableSpending?: number;
 }): ReactElement {
   const { format } = useCurrencyFormatter();
   const totalInflow = fixedEarning + variableEarning;
@@ -36,6 +32,8 @@ export function CashflowGuage({
     >
       <PieChart>
         <Pie
+          cx="15%"
+          cy="70%"
           data={[
             {
               fill: 'lightgreen',
@@ -51,11 +49,13 @@ export function CashflowGuage({
           dataKey="value"
           endAngle={90}
           isAnimationActive={false}
-          innerRadius="40%"
-          outerRadius="50%"
+          innerRadius="70%"
+          outerRadius="90%"
           startAngle={0}
         />
         <Pie
+          cx="15%"
+          cy="70%"
           data={[
             {
               fill: 'orange',
@@ -88,11 +88,11 @@ export function CashflowGuage({
           ]}
           dataKey="value"
           endAngle={90}
-          innerRadius="50%"
+          innerRadius="90%"
           isAnimationActive={false}
           label={CustomLabel}
           labelLine={false}
-          outerRadius="60%"
+          outerRadius="110%"
           startAngle={outflowStartAngle}
         />
       </PieChart>
@@ -116,7 +116,7 @@ function CustomLabel({
   startAngle: number;
 }): ReactElement | undefined {
   if (!label || !labelPosition) return undefined;
-  const radius = outerRadius * 1.15;
+  const radius = outerRadius * 1.1;
   const angle = labelPosition === 'upper' ? endAngle : startAngle;
   return (
     <text
