@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { CashflowPanel as Component } from './CashflowPanel';
+import { CashflowGuagePanel as Component } from './CashflowGuagePanel';
 
 const meta: Meta<React.ComponentProps<typeof Component>> = {
   args: {

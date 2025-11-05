@@ -5,7 +5,7 @@ import { Text } from 'components/Text';
 import useCurrencyFormatter from 'hooks/useCurrencyFormatter';
 import React, { ReactElement } from 'react';
 
-export function CashflowPanel({
+export function CashflowGuagePanel({
   fixedEarning = 0,
   fixedSaving = 0,
   fixedSpending = 0,
