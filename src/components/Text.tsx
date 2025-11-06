@@ -79,7 +79,7 @@ interface InnerTextProps {
 const sharedStyles = css<InnerTextProps>`
   ${({ area }) => area && `grid-area: ${area};`}
   color: #013220;
-  font-family: 'Lora', serif;
+  font-family: 'Lora', 'Georgia', 'Garamond', serif;
   ${({ size }) => `font-size: ${getFontSize({ size })};`}
   ${({ isBold }) => isBold && 'font-weight: 700;'}
   margin: 0;
@@ -97,7 +97,7 @@ const sharedStyles = css<InnerTextProps>`
 
 export const basicFontStyles = css`
   color: #013220;
-  font-family: 'Lora', serif;
+  font-family: 'Lora', 'Georgia', 'Garamond', serif;
   font-size: 1rem;
 `;
 
