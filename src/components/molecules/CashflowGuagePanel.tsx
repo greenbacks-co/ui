@@ -1,14 +1,20 @@
 import { CashflowGuage } from 'components/atoms/charts/CashflowGuage';
+import Button, { ButtonStyle } from 'components/Button';
 import { JustifiedRow } from 'components/JustifiedRow';
 import { Panel, PanelItem } from 'components/Panel';
 import { Text } from 'components/Text';
 import useCurrencyFormatter from 'hooks/useCurrencyFormatter';
 import React, { ReactElement } from 'react';
+import { Category } from 'types/transaction';
+import { Variability } from 'types/variability';
+import noop from 'utils/noop';
+import { CategoryLabel } from './CategoryLabel';
 
 export function CashflowGuagePanel({
   fixedEarning = 0,
   fixedSaving = 0,
   fixedSpending = 0,
+  onSelect = noop,
   variableEarning = 0,
   variableSaving = 0,
   variableSpending = 0,
@@ -16,6 +22,7 @@ export function CashflowGuagePanel({
   fixedEarning?: number;
   fixedSaving?: number;
   fixedSpending?: number;
+  onSelect?: (input: { category: Category; variability: Variability }) => void;
   variableEarning?: number;
   variableSaving?: number;
   variableSpending?: number;
@@ -37,40 +44,124 @@ export function CashflowGuagePanel({
         />
       </PanelItem>
       <PanelItem hasBottomBorder>
-        <JustifiedRow>
-          <Text>Fixed Earning</Text>
-          <Text>{format(fixedEarning)}</Text>
-        </JustifiedRow>
+        <Button
+          isFullWidth
+          onClick={() =>
+            onSelect({
+              category: Category.Earning,
+              variability: Variability.Fixed,
+            })
+          }
+          style={ButtonStyle.Unstyled}
+        >
+          <JustifiedRow>
+            <CategoryLabel
+              category={Category.Earning}
+              variability={Variability.Fixed}
+            />
+            <Text>{format(fixedEarning)}</Text>
+          </JustifiedRow>
+        </Button>
       </PanelItem>
       <PanelItem hasBottomBorder>
-        <JustifiedRow>
-          <Text>Variable Earning</Text>
-          <Text>{format(variableEarning)}</Text>
-        </JustifiedRow>
+        <Button
+          isFullWidth
+          onClick={() =>
+            onSelect({
+              category: Category.Earning,
+              variability: Variability.Variable,
+            })
+          }
+          style={ButtonStyle.Unstyled}
+        >
+          <JustifiedRow>
+            <CategoryLabel
+              category={Category.Earning}
+              variability={Variability.Variable}
+            />
+            <Text>{format(variableEarning)}</Text>
+          </JustifiedRow>
+        </Button>
       </PanelItem>
       <PanelItem hasBottomBorder>
-        <JustifiedRow>
-          <Text>Fixed Saving</Text>
-          <Text>{format(fixedSaving)}</Text>
-        </JustifiedRow>
+        <Button
+          isFullWidth
+          onClick={() =>
+            onSelect({
+              category: Category.Saving,
+              variability: Variability.Fixed,
+            })
+          }
+          style={ButtonStyle.Unstyled}
+        >
+          <JustifiedRow>
+            <CategoryLabel
+              category={Category.Saving}
+              variability={Variability.Fixed}
+            />
+            <Text>{format(fixedSaving)}</Text>
+          </JustifiedRow>
+        </Button>
       </PanelItem>
       <PanelItem hasBottomBorder>
-        <JustifiedRow>
-          <Text>Variable Saving</Text>
-          <Text>{format(variableSaving)}</Text>
-        </JustifiedRow>
+        <Button
+          isFullWidth
+          onClick={() =>
+            onSelect({
+              category: Category.Saving,
+              variability: Variability.Variable,
+            })
+          }
+          style={ButtonStyle.Unstyled}
+        >
+          <JustifiedRow>
+            <CategoryLabel
+              category={Category.Saving}
+              variability={Variability.Variable}
+            />
+            <Text>{format(variableSaving)}</Text>
+          </JustifiedRow>
+        </Button>
       </PanelItem>
       <PanelItem hasBottomBorder>
-        <JustifiedRow>
-          <Text>Fixed Spending</Text>
-          <Text>{format(fixedSpending)}</Text>
-        </JustifiedRow>
+        <Button
+          isFullWidth
+          onClick={() =>
+            onSelect({
+              category: Category.Spending,
+              variability: Variability.Fixed,
+            })
+          }
+          style={ButtonStyle.Unstyled}
+        >
+          <JustifiedRow>
+            <CategoryLabel
+              category={Category.Spending}
+              variability={Variability.Fixed}
+            />
+            <Text>{format(fixedSpending)}</Text>
+          </JustifiedRow>
+        </Button>
       </PanelItem>
       <PanelItem>
-        <JustifiedRow>
-          <Text>Variable Spending</Text>
-          <Text>{format(variableSpending)}</Text>
-        </JustifiedRow>
+        <Button
+          isFullWidth
+          onClick={() =>
+            onSelect({
+              category: Category.Spending,
+              variability: Variability.Variable,
+            })
+          }
+          style={ButtonStyle.Unstyled}
+        >
+          <JustifiedRow>
+            <CategoryLabel
+              category={Category.Spending}
+              variability={Variability.Variable}
+            />
+            <Text>{format(variableSpending)}</Text>
+          </JustifiedRow>
+        </Button>
       </PanelItem>
     </Panel>
   );
