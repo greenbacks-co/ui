@@ -28,7 +28,7 @@ export function Cashflow({
   labelsBySeries?: Partial<Record<Series, string>>;
   totals?: Totals[];
 }): ReactElement {
-  const aspect = isWide ? 3.2 : 2;
+  const aspect = isWide ? 5 : 5;
   const hasNegative = totals.some(
     (group) => (group[Series.AfterVariableSpending] ?? 0) < 0,
   );
