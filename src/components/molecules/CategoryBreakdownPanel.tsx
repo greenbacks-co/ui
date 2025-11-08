@@ -18,15 +18,16 @@ export function CategoryBreakdownPanel({
   tags = [],
   variability,
 }: {
-  category: Category;
+  category?: Category;
   onSelect?: (input: string) => void;
   tags?: Array<{
     name: string;
     total: number;
   }>;
-  variability: Variability;
+  variability?: Variability;
 }): ReactElement {
   const { format } = useCurrencyFormatter();
+  if (!category || !variability) return <></>;
   return (
     <Panel>
       <PanelItem hasBottomBorder>
@@ -34,9 +35,9 @@ export function CategoryBreakdownPanel({
       </PanelItem>
       <PanelItem hasBottomBorder>
         <ResponsiveContainer
-          aspect={1}
+          aspect={1.4}
           height="max-content"
-          minWidth={400}
+          minWidth={300}
           width="100%"
         >
           <PieChart>
@@ -52,20 +53,22 @@ export function CategoryBreakdownPanel({
         </ResponsiveContainer>
       </PanelItem>
       <List hasOutsideBorder={false}>
-        {tags.map(({ name, total }) => (
-          <Item>
-            <Button
-              isFullWidth
-              onClick={() => onSelect(name)}
-              style={ButtonStyle.Unstyled}
-            >
-              <JustifiedRow>
-                <Text>{name}</Text>
-                <Text>{format(total)}</Text>
-              </JustifiedRow>
-            </Button>
-          </Item>
-        ))}
+        {tags
+          .sort((a, b) => (a.total > b.total ? -1 : 1))
+          .map(({ name, total }) => (
+            <Item>
+              <Button
+                isFullWidth
+                onClick={() => onSelect(name)}
+                style={ButtonStyle.Unstyled}
+              >
+                <JustifiedRow>
+                  <Text>{name}</Text>
+                  <Text>{format(total)}</Text>
+                </JustifiedRow>
+              </Button>
+            </Item>
+          ))}
       </List>
     </Panel>
   );

@@ -2,6 +2,9 @@ import useCurrencyFormatter from 'hooks/useCurrencyFormatter';
 import React, { ReactElement } from 'react';
 import { Pie, PieChart, ResponsiveContainer } from 'recharts';
 
+const CX = '20%';
+const CY = '80%';
+
 export function CashflowGuage({
   fixedEarning = 0,
   fixedSaving = 0,
@@ -25,15 +28,15 @@ export function CashflowGuage({
   const outflowStartAngle = 90 - 90 * outflowRatio;
   return (
     <ResponsiveContainer
-      aspect={1}
+      aspect={1.4}
       height="max-content"
-      minWidth={400}
+      minWidth={300}
       width="100%"
     >
       <PieChart>
         <Pie
-          cx="15%"
-          cy="70%"
+          cx={CX}
+          cy={CY}
           data={[
             {
               fill: 'lightgreen',
@@ -54,8 +57,8 @@ export function CashflowGuage({
           startAngle={0}
         />
         <Pie
-          cx="15%"
-          cy="70%"
+          cx={CX}
+          cy={CY}
           data={[
             {
               fill: 'orange',

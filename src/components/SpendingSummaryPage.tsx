@@ -7,12 +7,14 @@ import MonthSelector from 'components/MonthSelector';
 import { TotalsByMonthPanelContainer as TotalsByMonth } from './NewTotalsByMonth';
 import { CashflowTimelinePanelContainer } from './CashflowTimelinePanel';
 import { UntaggedTransactionsContainer } from './NewUntaggedTransactions';
+import { CashflowRowContainer } from './organisms/CashflowRow';
 
 export function SpendingSummary(): React.ReactElement {
   return (
     <Wrapper>
       <TotalsByMonth area="totals" />
       <MonthSelector area="month" />
+      <CashflowRowContainer />
       <CashflowTimelinePanelContainer />
       <UntaggedTransactionsContainer />
       <CumulativeAmountSummaryContainer />
@@ -35,11 +37,8 @@ const Wrapper = styled.div`
     grid-template-areas:
       'totals  totals'
       'month   month'
+      'row     row'
       'average cumulative';
     grid-template-columns: 1fr 1fr;
-  }
-
-  @media (min-width: 832px) {
-    width: 800px;
   }
 `;
