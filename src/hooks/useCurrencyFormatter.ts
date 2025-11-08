@@ -2,7 +2,9 @@ import { useContext } from 'react';
 
 import { CurrencyLocalesContext } from 'context/CurrencyLocales';
 
-const useCurrencyFormatter = (): UseCurrencyFormatterResult => {
+const useCurrencyFormatter = ({
+  shorten,
+}: { shorten?: boolean } = {}): UseCurrencyFormatterResult => {
   const { locales } = useContext(CurrencyLocalesContext);
   return {
     format: (input) => {
@@ -10,6 +12,7 @@ const useCurrencyFormatter = (): UseCurrencyFormatterResult => {
       const formatter = Intl.NumberFormat(locales, {
         currency,
         style: 'currency',
+        notation: shorten ? 'compact' : undefined,
       });
       return formatter.format(prepareValue({ currency, value }));
     },

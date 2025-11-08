@@ -20,7 +20,7 @@ export function CashflowGuage({
   variableSaving?: number;
   variableSpending?: number;
 }): ReactElement {
-  const { format } = useCurrencyFormatter();
+  const { format } = useCurrencyFormatter({ shorten: true });
   const totalInflow = fixedEarning + variableEarning;
   const totalSaving = fixedSaving + variableSaving;
   const totalOutflow = totalSaving + fixedSpending + variableSpending;
@@ -119,6 +119,7 @@ function CustomLabel({
   return (
     <text
       fill="black"
+      style={{ fontSize: '0.6rem' }}
       x={cx + radius * Math.cos(-angle * RADIAN)}
       y={cy + radius * Math.sin(-angle * RADIAN)}
     >
