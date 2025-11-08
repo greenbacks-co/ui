@@ -13,9 +13,11 @@ const PAGE_SIZE = 10;
 
 export function TransactionsPanel({
   isLoading = false,
+  title = 'Transactions',
   transactions = [],
 }: {
   isLoading?: boolean;
+  title?: string;
   transactions?: TransactionType[];
 }): ReactElement {
   const [page, setPage] = useState(0);
@@ -44,7 +46,7 @@ export function TransactionsPanel({
   return (
     <Panel>
       <PanelItem hasBottomBorder>
-        <Text>Transactions</Text>
+        <Text>{title}</Text>
       </PanelItem>
       <List
         hasOutsideBorder={false}

@@ -68,7 +68,10 @@ export function CashflowRow({
         tags={tags?.map(({ key, total }) => ({ name: key, total }))}
         variability={variability}
       />
-      <TransactionsPanel transactions={selectedTagGroup?.transactions} />
+      <TransactionsPanel
+        title={tag}
+        transactions={selectedTagGroup?.transactions}
+      />
     </Wrapper>
   );
 }
