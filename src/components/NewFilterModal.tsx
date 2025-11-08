@@ -66,17 +66,19 @@ export function NewFilterModal({
             value={selectedProperty}
           />
         </div>
-        <div>
-          <Label forId="tags">Add tag</Label>
-          <Typeahead
-            id="tags"
-            onChange={onSelectTag}
-            options={existingTags}
-            placeholder="Search or add new tag"
-            value={selectedTag}
-            visibleOptionCount={3}
-          />
-        </div>
+        {selectedCategory !== Category.Hidden && (
+          <div>
+            <Label forId="tags">Add tag</Label>
+            <Typeahead
+              id="tags"
+              onChange={onSelectTag}
+              options={existingTags}
+              placeholder="Search or add new tag"
+              value={selectedTag}
+              visibleOptionCount={3}
+            />
+          </div>
+        )}
         <div>
           <Label>Assign category</Label>
           <RadioButtons
@@ -86,7 +88,7 @@ export function NewFilterModal({
             value={selectedCategory}
           />
         </div>
-        {selectedCategory === Category.Spending && (
+        {selectedCategory !== Category.Hidden && (
           <div>
             <Label>Assign Variability</Label>
             <RadioButtons
@@ -156,9 +158,8 @@ export function NewFilterModalContainer({
         expectedValue: transaction[property],
       },
     ],
-    tagToAssign: selectedTag,
-    variabilityToAssign:
-      category === Category.Spending ? variability : undefined,
+    tagToAssign: category !== Category.Hidden ? selectedTag : undefined,
+    variabilityToAssign: category !== Category.Hidden ? variability : undefined,
   };
   return (
     <NewFilterModal

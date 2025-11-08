@@ -5,11 +5,11 @@ export enum Variability {
 
 export const VARIABILITY_OPTIONS = [
   {
-    label: 'Bills',
+    label: 'Fixed',
     value: Variability.Fixed,
   },
   {
-    label: 'Discretionary',
+    label: 'Variable',
     value: Variability.Variable,
   },
 ];
