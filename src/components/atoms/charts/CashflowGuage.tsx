@@ -2,8 +2,7 @@ import useCurrencyFormatter from 'hooks/useCurrencyFormatter';
 import React, { ReactElement } from 'react';
 import { Pie, PieChart, ResponsiveContainer } from 'recharts';
 
-const CX = '20%';
-const CY = '80%';
+const RADIAN = Math.PI / 180;
 
 export function CashflowGuage({
   fixedEarning = 0,
@@ -26,12 +25,20 @@ export function CashflowGuage({
   const totalOutflow = totalSaving + fixedSpending + variableSpending;
   const outflowRatio = totalOutflow / totalInflow;
   const outflowStartAngle = 90 - 90 * outflowRatio;
+  const { cx, cy, innerRadius, middleRadius, outerRadius } = getPosition({
+    outflowRatio,
+  });
   return (
-    <ResponsiveContainer aspect={1.4} height="max-content" width="100%">
+    <ResponsiveContainer
+      aspect={1.4}
+      height="max-content"
+      minWidth={250}
+      width="100%"
+    >
       <PieChart>
         <Pie
-          cx={CX}
-          cy={CY}
+          cx={cx}
+          cy={cy}
           data={[
             {
               fill: 'lightgreen',
@@ -46,14 +53,14 @@ export function CashflowGuage({
           ]}
           dataKey="value"
           endAngle={90}
+          innerRadius={innerRadius}
           isAnimationActive={false}
-          innerRadius="70%"
-          outerRadius="90%"
+          outerRadius={middleRadius}
           startAngle={0}
         />
         <Pie
-          cx={CX}
-          cy={CY}
+          cx={cx}
+          cy={cy}
           data={[
             {
               fill: 'orange',
@@ -86,16 +93,37 @@ export function CashflowGuage({
           ]}
           dataKey="value"
           endAngle={90}
-          innerRadius="90%"
+          innerRadius={middleRadius}
           isAnimationActive={false}
           label={CustomLabel}
           labelLine={false}
-          outerRadius="110%"
+          outerRadius={outerRadius}
           startAngle={outflowStartAngle}
         />
       </PieChart>
     </ResponsiveContainer>
   );
+}
+
+function getPosition({ outflowRatio }: { outflowRatio: number }): {
+  cx: string;
+  cy: string;
+  innerRadius: string;
+  middleRadius: string;
+  outerRadius: string;
+} {
+  const yOverflow = Math.min(Math.max(outflowRatio, 1), 2) - 1;
+  const xOverflow = Math.min(Math.max(outflowRatio, 2), 3) - 2;
+  const cx = 30 + xOverflow * 20;
+  const cy = 80 - yOverflow * 30;
+  const radius = 90 - yOverflow * 30;
+  return {
+    cx: `${cx}%`,
+    cy: `${cy}%`,
+    innerRadius: `${radius - 20}%`,
+    middleRadius: `${radius}%`,
+    outerRadius: `${radius + 20}%`,
+  };
 }
 
 function CustomLabel({
@@ -127,5 +155,3 @@ function CustomLabel({
     </text>
   );
 }
-
-const RADIAN = Math.PI / 180;
