@@ -34,12 +34,7 @@ export function CategoryBreakdownPanel({
         <CategoryLabel category={category} variability={variability} />
       </PanelItem>
       <PanelItem hasBottomBorder>
-        <ResponsiveContainer
-          aspect={1.4}
-          height="max-content"
-          minWidth={300}
-          width="100%"
-        >
+        <ResponsiveContainer aspect={1.4} height="max-content" width="100%">
           <PieChart>
             <Pie
               data={tags.map(({ name, total }) => ({

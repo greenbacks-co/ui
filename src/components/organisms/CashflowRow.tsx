@@ -127,8 +127,10 @@ function selectCategory({
 const Wrapper = styled.div`
   display: grid;
   gap: 16px;
-  grid-template-columns: repeat(3, 1fr);
-  width: max-content;
+
+  @media (min-width: 820px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 `;
 
 export function CashflowRowContainer(): ReactElement {

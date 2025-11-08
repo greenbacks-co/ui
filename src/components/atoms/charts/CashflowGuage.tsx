@@ -27,12 +27,7 @@ export function CashflowGuage({
   const outflowRatio = totalOutflow / totalInflow;
   const outflowStartAngle = 90 - 90 * outflowRatio;
   return (
-    <ResponsiveContainer
-      aspect={1.4}
-      height="max-content"
-      minWidth={300}
-      width="100%"
-    >
+    <ResponsiveContainer aspect={1.4} height="max-content" width="100%">
       <PieChart>
         <Pie
           cx={CX}

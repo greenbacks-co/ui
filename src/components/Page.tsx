@@ -36,12 +36,13 @@ export const PageWrapper = styled.main<{ isVerticallyCentered?: boolean }>`
   height: 100vh;
   ${({ isVerticallyCentered = false }) =>
     isVerticallyCentered && 'justify-content: center;'}
+  overflow-y: scroll;
   width: 100vw;
 `;
 
 export const PageBody = styled.article`
   box-sizing: border-box;
-  overflow-y: scroll;
+  max-width: 1100px;
   padding: 16px;
   width: 100%;
 `;

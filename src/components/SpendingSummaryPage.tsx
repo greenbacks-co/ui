@@ -24,21 +24,7 @@ export function SpendingSummary(): React.ReactElement {
 }
 
 const Wrapper = styled.div`
-  display: grid;
-  grid-gap: 32px;
-  grid-template-areas:
-    'totals'
-    'average'
-    'cumulative';
-  grid-template-columns: 1fr;
-
-  @media (min-width: 632px) {
-    grid-gap: 16px;
-    grid-template-areas:
-      'totals  totals'
-      'month   month'
-      'row     row'
-      'average cumulative';
-    grid-template-columns: 1fr 1fr;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 `;
