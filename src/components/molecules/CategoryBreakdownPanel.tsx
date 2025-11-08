@@ -43,6 +43,9 @@ export function CategoryBreakdownPanel({
                 value: total,
               }))}
               dataKey="value"
+              endAngle={-270}
+              isAnimationActive={false}
+              startAngle={90}
             />
           </PieChart>
         </ResponsiveContainer>
