@@ -7,6 +7,7 @@ import getMonth from 'utils/getMonth';
 const useMonth = (): {
   daysInMonth: number;
   endDate: string;
+  isCurrent: boolean;
   iso: string;
   nextMonth: string;
   previousMonth: string;
@@ -16,6 +17,8 @@ const useMonth = (): {
   const { routeMonth } = useRouteMonth();
   const { now } = useNow();
   const month = routeMonth || now;
+  const isCurrent =
+    !routeMonth || routeMonth.startOf('month').equals(now.startOf('month'));
   const {
     daysInMonth,
     firstDay,
@@ -30,6 +33,7 @@ const useMonth = (): {
   return {
     daysInMonth,
     endDate: lastDay,
+    isCurrent,
     iso: currentMonth,
     nextMonth,
     previousMonth,

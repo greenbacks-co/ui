@@ -8,6 +8,7 @@ export function CashflowGuage({
   fixedEarning = 0,
   fixedSaving = 0,
   fixedSpending = 0,
+  projectedFixedEarning = 0,
   variableEarning = 0,
   variableSaving = 0,
   variableSpending = 0,
@@ -15,12 +16,18 @@ export function CashflowGuage({
   fixedEarning?: number;
   fixedSaving?: number;
   fixedSpending?: number;
+  projectedFixedEarning?: number;
   variableEarning?: number;
   variableSaving?: number;
   variableSpending?: number;
 }): ReactElement {
   const { format } = useCurrencyFormatter({ shorten: true });
-  const totalInflow = fixedEarning + variableEarning;
+  const remainingProjectedFixedEarning = Math.max(
+    projectedFixedEarning - fixedEarning,
+    0,
+  );
+  const totalInflow =
+    remainingProjectedFixedEarning + fixedEarning + variableEarning;
   const totalSaving = fixedSaving + variableSaving;
   const totalOutflow = totalSaving + fixedSpending + variableSpending;
   const outflowRatio = totalOutflow / totalInflow;
@@ -36,6 +43,17 @@ export function CashflowGuage({
       width="100%"
     >
       <PieChart>
+        <defs>
+          <pattern
+            id="fixed-spending-stripe"
+            width="3"
+            height="3"
+            patternUnits="userSpaceOnUse"
+            patternTransform="rotate(45)"
+          >
+            <rect width="2" height="4" fill="darkgreen" />
+          </pattern>
+        </defs>
         <Pie
           cx={cx}
           cy={cy}
@@ -49,6 +67,11 @@ export function CashflowGuage({
               fill: 'darkgreen',
               name: 'Fixed Earning',
               value: fixedEarning,
+            },
+            {
+              fill: 'url(#fixed-spending-stripe)',
+              name: 'Projected Fixed Earning',
+              value: remainingProjectedFixedEarning,
             },
           ]}
           dataKey="value"

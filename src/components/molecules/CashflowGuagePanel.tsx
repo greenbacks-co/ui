@@ -15,6 +15,7 @@ export function CashflowGuagePanel({
   fixedSaving = 0,
   fixedSpending = 0,
   onSelect = noop,
+  projectedFixedEarning = 0,
   variableEarning = 0,
   variableSaving = 0,
   variableSpending = 0,
@@ -23,11 +24,17 @@ export function CashflowGuagePanel({
   fixedSaving?: number;
   fixedSpending?: number;
   onSelect?: (input: { category: Category; variability: Variability }) => void;
+  projectedFixedEarning?: number;
   variableEarning?: number;
   variableSaving?: number;
   variableSpending?: number;
 }): ReactElement {
   const { format } = useCurrencyFormatter();
+  const { format: formatShort } = useCurrencyFormatter({ shorten: true });
+  const remainingProjectedFixedEarning = Math.max(
+    projectedFixedEarning - fixedEarning,
+    0,
+  );
   return (
     <Panel>
       <PanelItem hasBottomBorder>
@@ -38,6 +45,7 @@ export function CashflowGuagePanel({
           fixedEarning={fixedEarning}
           fixedSaving={fixedSaving}
           fixedSpending={fixedSpending}
+          projectedFixedEarning={projectedFixedEarning}
           variableEarning={variableEarning}
           variableSaving={variableSaving}
           variableSpending={variableSpending}
@@ -59,7 +67,7 @@ export function CashflowGuagePanel({
               category={Category.Earning}
               variability={Variability.Fixed}
             />
-            <Text>{format(fixedEarning)}</Text>
+            <Text>{`${format(fixedEarning)}${remainingProjectedFixedEarning && ` (${formatShort(projectedFixedEarning)})`}`}</Text>
           </JustifiedRow>
         </Button>
       </PanelItem>
