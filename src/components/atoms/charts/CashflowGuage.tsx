@@ -9,6 +9,7 @@ export function CashflowGuage({
   fixedSaving = 0,
   fixedSpending = 0,
   projectedFixedEarning = 0,
+  projectedFixedSpending = 0,
   variableEarning = 0,
   variableSaving = 0,
   variableSpending = 0,
@@ -17,6 +18,7 @@ export function CashflowGuage({
   fixedSaving?: number;
   fixedSpending?: number;
   projectedFixedEarning?: number;
+  projectedFixedSpending?: number;
   variableEarning?: number;
   variableSaving?: number;
   variableSpending?: number;
@@ -26,10 +28,16 @@ export function CashflowGuage({
     projectedFixedEarning - fixedEarning,
     0,
   );
+  const remainingProjectedFixedSpending = Math.max(
+    projectedFixedSpending - fixedSpending,
+    0,
+  );
   const totalInflow =
     remainingProjectedFixedEarning + fixedEarning + variableEarning;
   const totalSaving = fixedSaving + variableSaving;
-  const totalOutflow = totalSaving + fixedSpending + variableSpending;
+  const totalSpending =
+    remainingProjectedFixedSpending + fixedSpending + variableSpending;
+  const totalOutflow = totalSaving + totalSpending;
   const outflowRatio = totalOutflow / totalInflow;
   const outflowStartAngle = 90 - 90 * outflowRatio;
   const { cx, cy, innerRadius, middleRadius, outerRadius } = getPosition({
@@ -45,13 +53,22 @@ export function CashflowGuage({
       <PieChart>
         <defs>
           <pattern
-            id="fixed-spending-stripe"
+            id="fixed-earning-stripe"
             width="3"
             height="3"
             patternUnits="userSpaceOnUse"
             patternTransform="rotate(45)"
           >
             <rect width="2" height="4" fill="darkgreen" />
+          </pattern>
+          <pattern
+            id="fixed-spending-stripe"
+            width="3"
+            height="3"
+            patternUnits="userSpaceOnUse"
+            patternTransform="rotate(45)"
+          >
+            <rect width="2" height="4" fill="darkorange" />
           </pattern>
         </defs>
         <Pie
@@ -69,7 +86,7 @@ export function CashflowGuage({
               value: fixedEarning,
             },
             {
-              fill: 'url(#fixed-spending-stripe)',
+              fill: 'url(#fixed-earning-stripe)',
               name: 'Projected Fixed Earning',
               value: remainingProjectedFixedEarning,
             },
@@ -94,10 +111,20 @@ export function CashflowGuage({
             },
             {
               fill: 'darkorange',
-              label: format(totalInflow - totalSaving - fixedSpending),
+              label: format(
+                totalInflow -
+                  totalSaving -
+                  remainingProjectedFixedSpending -
+                  fixedSpending,
+              ),
               labelPosition: 'lower',
               name: 'Fixed Spending',
               value: fixedSpending,
+            },
+            {
+              fill: 'url(#fixed-spending-stripe)',
+              name: 'Projected Fixed Spending',
+              value: remainingProjectedFixedSpending,
             },
             {
               fill: 'lightblue',

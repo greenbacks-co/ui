@@ -13,11 +13,13 @@ import groupTransactions, { Group, GroupBy } from 'utils/groupTransactions';
 export function CashflowRow({
   earning,
   projectedFixedEarning = 0,
+  projectedFixedSpending = 0,
   saving,
   spending,
 }: {
   earning?: Transaction[];
   projectedFixedEarning?: number;
+  projectedFixedSpending?: number;
   saving?: Transaction[];
   spending?: Transaction[];
 }): ReactElement {
@@ -58,6 +60,7 @@ export function CashflowRow({
         fixedSaving={fixedSaving?.total}
         fixedSpending={fixedSpending?.total}
         projectedFixedEarning={projectedFixedEarning}
+        projectedFixedSpending={projectedFixedSpending}
         variableEarning={variableEarning?.total}
         variableSaving={variableSaving?.total}
         variableSpending={variableSpending?.total}
@@ -146,18 +149,25 @@ export function CashflowRowContainer(): ReactElement {
     endDate,
     startDate,
   });
-  const projectedFixedEarning = useAverageFixedEarning();
+  const {
+    fixedEarning: projectedFixedEarning,
+    fixedSpending: projectedFixedSpending,
+  } = useProjections();
   return (
     <CashflowRow
       earning={earning}
       projectedFixedEarning={isCurrent ? projectedFixedEarning : undefined}
+      projectedFixedSpending={isCurrent ? projectedFixedSpending : undefined}
       saving={saving}
       spending={spending}
     />
   );
 }
 
-function useAverageFixedEarning(): number {
+function useProjections(): {
+  fixedEarning: number;
+  fixedSpending: number;
+} {
   const { iso } = useMonth();
   const startDate = datetime
     .fromISO(iso)
@@ -169,17 +179,28 @@ function useAverageFixedEarning(): number {
     .minus({ months: 1 })
     .endOf('month')
     .toISODate();
-  const { earning } = useTransactionsByCategory({
+  const { earning, spending } = useTransactionsByCategory({
     startDate,
     endDate,
   });
-  const variabilityGroups = groupTransactions({
+  const earningVariabilityGroups = groupTransactions({
     groupBy: GroupBy.Variability,
     transactions: earning,
   });
-  const fixedEarning = variabilityGroups?.find(
+  const fixedEarning = earningVariabilityGroups?.find(
     ({ key }) => key === Variability.Fixed,
   );
   const totalFixedEarning = fixedEarning?.total ?? 0;
-  return Math.round(totalFixedEarning / 3);
+  const spendingVariabilityGroups = groupTransactions({
+    groupBy: GroupBy.Variability,
+    transactions: spending,
+  });
+  const fixedSpending = spendingVariabilityGroups?.find(
+    ({ key }) => key === Variability.Fixed,
+  );
+  const totalFixedSpending = fixedSpending?.total ?? 0;
+  return {
+    fixedEarning: totalFixedEarning / 3,
+    fixedSpending: totalFixedSpending / 3,
+  };
 }

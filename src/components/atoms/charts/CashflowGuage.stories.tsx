@@ -8,6 +8,7 @@ const meta: Meta<React.ComponentProps<typeof Component>> = {
     fixedSaving: 60000,
     fixedSpending: 60000,
     projectedFixedEarning: 120000,
+    projectedFixedSpending: 70000,
     variableEarning: 100000,
     variableSaving: 60000,
     variableSpending: 60000,
