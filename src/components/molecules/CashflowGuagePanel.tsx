@@ -1,5 +1,4 @@
 import { CashflowGuage } from 'components/atoms/charts/CashflowGuage';
-import Button, { ButtonStyle } from 'components/Button';
 import { JustifiedRow } from 'components/JustifiedRow';
 import { Panel, PanelItem } from 'components/Panel';
 import { Text } from 'components/Text';
@@ -8,6 +7,7 @@ import React, { ReactElement } from 'react';
 import { Category } from 'types/transaction';
 import { Variability } from 'types/variability';
 import noop from 'utils/noop';
+import Button, { ButtonStyle } from '../atoms/Button';
 import { CategoryLabel } from './CategoryLabel';
 
 export function CashflowGuagePanel({

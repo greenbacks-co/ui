@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Button from 'components/Button';
 import { Link } from 'components/Link';
 import { PageWrapper } from 'components/Page';
 import { Size, Text } from 'components/Text';
 import useLogin from 'hooks/useLogin';
 import noop from 'utils/noop';
+import Button from './atoms/Button';
 
 export function Login({
   onLogin = noop,

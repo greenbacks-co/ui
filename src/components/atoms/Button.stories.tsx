@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 import styled from 'styled-components';
 
-import { Button, ButtonStyle } from 'components/Button';
+import { Button, ButtonStyle } from './Button';
 
 const meta: Meta<typeof Button> = {
   args: {

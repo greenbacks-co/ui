@@ -2,7 +2,6 @@ import { DateTime } from 'luxon';
 import React, { ReactElement, ReactNode } from 'react';
 import { useLocation } from 'react-router-dom';
 
-import { Button, ButtonStyle } from 'components/Button';
 import { Icon, IconType } from 'components/Icon';
 import Link from 'components/Link';
 import { Panel, PanelItem } from 'components/Panel';
@@ -12,6 +11,7 @@ import noop from 'utils/noop';
 import styled from 'utils/styled';
 import useNow from 'hooks/useNow';
 import getMonth from 'utils/getMonth';
+import { Button, ButtonStyle } from './atoms/Button';
 
 export function MonthSelector({
   area,

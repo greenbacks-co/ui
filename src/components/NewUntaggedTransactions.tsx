@@ -9,7 +9,7 @@ import groupTransactions, {
   GroupBy,
   SortTransactionsBy,
 } from '../utils/groupTransactions';
-import Button, { ButtonStyle } from './Button';
+import Button, { ButtonStyle } from './atoms/Button';
 import Icon, { IconType } from './Icon';
 import { Alignment, JustifiedRow } from './JustifiedRow';
 import List, { Item } from './List';

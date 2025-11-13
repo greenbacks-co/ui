@@ -1,4 +1,3 @@
-import Button, { ButtonStyle } from 'components/Button';
 import Icon, { IconType } from 'components/Icon';
 import { Alignment, JustifiedRow } from 'components/JustifiedRow';
 import List, { Item } from 'components/List';
@@ -8,6 +7,7 @@ import { Size, Text } from 'components/Text';
 import Transaction from 'components/Transaction';
 import React, { ReactElement, useState } from 'react';
 import TransactionType from 'types/transaction';
+import Button, { ButtonStyle } from '../atoms/Button';
 
 const PAGE_SIZE = 10;
 

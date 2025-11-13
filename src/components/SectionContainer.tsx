@@ -1,8 +1,8 @@
 import React, { FC, useState } from 'react';
 import styled from 'styled-components';
 
-import Button from 'components/Button';
 import noop from 'utils/noop';
+import Button from './atoms/Button';
 
 const SectionContainer: FC<{
   area?: string;

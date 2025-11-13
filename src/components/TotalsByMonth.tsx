@@ -11,7 +11,6 @@ import {
 } from 'recharts';
 import styled from 'styled-components';
 
-import { Button, ButtonStyle } from 'components/Button';
 import Checkboxes from 'components/Checkboxes';
 import { Icon, IconType } from 'components/Icon';
 import { Alignment, JustifiedRow } from 'components/JustifiedRow';
@@ -21,6 +20,7 @@ import { Size, Text } from 'components/Text';
 import useCurrencyFormatter from 'hooks/useCurrencyFormatter';
 import useMultiselect from 'hooks/useMultiselect';
 import useTotalsByMonth, { MonthTotals } from 'hooks/useTotalsByMonth';
+import { Button, ButtonStyle } from './atoms/Button';
 
 const TotalsByMonth: FC<{ area?: string; hasCheckboxes?: boolean }> = ({
   area,

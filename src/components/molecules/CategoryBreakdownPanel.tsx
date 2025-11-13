@@ -1,4 +1,3 @@
-import Button, { ButtonStyle } from 'components/Button';
 import { JustifiedRow } from 'components/JustifiedRow';
 import List, { Item } from 'components/List';
 import { Panel, PanelItem } from 'components/Panel';
@@ -10,6 +9,7 @@ import { Category } from 'types/transaction';
 import { Variability } from 'types/variability';
 import { CATEGORY_COLOURS } from 'utils/categoryColours';
 import noop from 'utils/noop';
+import Button, { ButtonStyle } from '../atoms/Button';
 import { CategoryLabel } from './CategoryLabel';
 
 export function CategoryBreakdownPanel({

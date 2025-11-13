@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import Button from 'components/Button';
 import Label from 'components/Label';
 import { Modal } from 'components/Modal';
 import RadioButtons from 'components/RadioButtons';
@@ -11,6 +10,7 @@ import { Comparator, FilterInput } from 'types/filter';
 import Transaction, { Category } from 'types/transaction';
 import { Variability, VARIABILITY_OPTIONS } from 'types/variability';
 import noop from 'utils/noop';
+import Button from './atoms/Button';
 
 export function NewFilterModal({
   existingTags = [],

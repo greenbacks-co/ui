@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react';
 
-import { Button, ButtonStyle } from 'components/Button';
 import { Icon, IconType } from 'components/Icon';
 import { Alignment, JustifiedRow, Space } from 'components/JustifiedRow';
 import List, { Item } from 'components/List';
@@ -25,6 +24,7 @@ import {
   SortTransactionsBy,
 } from 'utils/groupTransactions';
 import noop from 'utils/noop';
+import { Button, ButtonStyle } from './atoms/Button';
 
 export function CumulativeAmountSummary({
   areAllTagsVisible = false,

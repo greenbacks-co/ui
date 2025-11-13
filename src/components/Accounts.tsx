@@ -1,12 +1,12 @@
 import React from 'react';
 import { usePlaidLink } from 'react-plaid-link';
 
-import Button from 'components/Button';
 import LoadingIndicator from 'components/LoadingIndicator';
 import PageWrapper from 'components/PageWrapper';
 import useAccounts, { Account } from 'hooks/useAccounts';
 import { useInitializationToken } from 'hooks/useInitializationToken';
 import useUpdateAccountConnection from 'hooks/useUpdateAccountConnection';
+import Button from './atoms/Button';
 import noop from '../utils/noop';
 
 export function Accounts({

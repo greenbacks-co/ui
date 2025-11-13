@@ -1,13 +1,13 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 
-import { Button, ButtonStyle } from 'components/Button';
 import Link from 'components/Link';
 import { PageContainer } from 'components/Page';
 import { Text } from 'components/Text';
 import { UserSettingsContext } from 'context/UserSettings';
 import useAccounts, { Account } from 'hooks/useAccounts';
 import noop from 'utils/noop';
+import { Button, ButtonStyle } from './atoms/Button';
 
 export function NoAccounts({
   onEnableDemoMode = noop,

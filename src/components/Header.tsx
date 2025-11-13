@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Button, ButtonStyle } from 'components/Button';
 import { Link, LinkStyle } from 'components/Link';
 import { Heirarchy, Size, Text } from 'components/Text';
 import noop from 'utils/noop';
+import { Button, ButtonStyle } from './atoms/Button';
 
 export function Header({
   hasLinks = true,

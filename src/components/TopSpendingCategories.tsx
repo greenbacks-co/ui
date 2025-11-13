@@ -1,6 +1,5 @@
 import React, { FC, useState } from 'react';
 
-import Button from 'components/Button';
 import Link from 'components/Link';
 import Transaction from 'components/Transaction';
 import LoadingIndicator from 'components/LoadingIndicator';
@@ -9,6 +8,7 @@ import useCurrencyFormatter from 'hooks/useCurrencyFormatter';
 import useMonth from 'hooks/useMonth';
 import useTransactionsByTag from 'hooks/useTransactionsByTag';
 import type TransactionType from 'types/transaction';
+import Button from './atoms/Button';
 
 const TopSpendingCategories: FC = () => {
   const {
