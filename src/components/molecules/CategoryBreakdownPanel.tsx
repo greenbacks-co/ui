@@ -1,4 +1,3 @@
-import List, { Item } from 'components/List';
 import useCurrencyFormatter from 'hooks/useCurrencyFormatter';
 import React, { ReactElement } from 'react';
 import { Pie, PieChart, ResponsiveContainer } from 'recharts';
@@ -6,6 +5,7 @@ import { Category } from 'types/transaction';
 import { Variability } from 'types/variability';
 import { CATEGORY_COLOURS } from 'utils/categoryColours';
 import noop from 'utils/noop';
+import List, { Item } from '../atoms/List';
 import { Panel, PanelItem } from '../atoms/Panel';
 import { Row } from '../atoms/Row';
 import { Text } from '../atoms/Text';

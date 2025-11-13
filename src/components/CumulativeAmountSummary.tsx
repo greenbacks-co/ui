@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 
 import { Icon, IconType } from 'components/Icon';
-import List, { Item } from 'components/List';
 import LoadingIndicator from 'components/LoadingIndicator';
 import { PureMonthSelector as MonthSelector } from 'components/MonthSelector';
 import { PureSpendingTimeline as SpendingTimeline } from 'components/SpendingTimeline';
@@ -21,6 +20,7 @@ import {
   SortTransactionsBy,
 } from 'utils/groupTransactions';
 import noop from 'utils/noop';
+import List, { Item } from './atoms/List';
 import { Panel, PanelItem } from './atoms/Panel';
 import { Alignment, Row, Space } from './atoms/Row';
 import { Size, Text } from './atoms/Text';

@@ -12,7 +12,7 @@ import groupTransactions, {
 import Button, { ButtonStyle } from './atoms/Button';
 import Icon, { IconType } from './Icon';
 import { Alignment, Row } from './atoms/Row';
-import List, { Item } from './List';
+import List, { Item } from './atoms/List';
 import LoadingIndicator from './LoadingIndicator';
 import { Panel, PanelItem } from './atoms/Panel';
 import { Size, Text } from './atoms/Text';

@@ -3,7 +3,7 @@ import React, { ReactElement, ReactNode, useState } from 'react';
 import noop from 'utils/noop';
 import styled, { css } from 'utils/styled';
 
-import { Button, ButtonStyle } from './atoms/Button';
+import { Button, ButtonStyle } from './Button';
 
 export const List = styled.ul<{
   hasOutsideBorder?: boolean;

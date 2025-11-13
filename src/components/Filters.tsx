@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
 
 import CategoryAndTagIndicators from 'components/CategoryAndTagIndicators';
-import List, { Item } from 'components/List';
 import useFilters from 'hooks/useFilters';
 import { Filter as FilterType, Matcher as MatcherType } from 'types/filter';
 import groupFilters from 'utils/groupFilters';
+import List, { Item } from './atoms/List';
 
 const Filters: FC = () => {
   const { filters } = useFilters();
