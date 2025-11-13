@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 
-import { Icon, IconType } from 'components/Icon';
 import noop from 'utils/noop';
 import styled from 'utils/styled';
+import { Icon, IconType } from './atoms/Icon';
 import { basicFontStyles } from './atoms/Text';
 
 const RadioButtons: FC<{

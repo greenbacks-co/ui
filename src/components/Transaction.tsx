@@ -1,10 +1,10 @@
 import React, { FC, useContext } from 'react';
 import styled from 'utils/styled';
 
-import { Icon, IconType } from 'components/Icon';
 import TagModalContext from 'context/TagModal';
 import useCurrencyFormatter from 'hooks/useCurrencyFormatter';
 import TransactionType, { Category } from 'types/transaction';
+import { Icon, IconType } from './atoms/Icon';
 import { Size, Text } from './atoms/Text';
 import Button, { ButtonStyle } from './atoms/Button';
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Icon, IconType } from 'components/Icon';
 import noop from 'utils/noop';
+import { Icon, IconType } from './atoms/Icon';
 import { Panel, PanelItem } from './atoms/Panel';
 import { Row } from './atoms/Row';
 import { Text } from './atoms/Text';

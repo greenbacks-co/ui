@@ -10,7 +10,7 @@ import groupTransactions, {
   SortTransactionsBy,
 } from '../utils/groupTransactions';
 import Button, { ButtonStyle } from './atoms/Button';
-import Icon, { IconType } from './Icon';
+import Icon, { IconType } from './atoms/Icon';
 import { Alignment, Row } from './atoms/Row';
 import List, { Item } from './atoms/List';
 import LoadingIndicator from './LoadingIndicator';

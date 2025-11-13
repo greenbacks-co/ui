@@ -1,7 +1,6 @@
 import { DateTime } from 'luxon';
 import React, { useContext, useState } from 'react';
 
-import { Icon, IconType } from 'components/Icon';
 import LoadingIndicator from 'components/LoadingIndicator';
 import { MonthlyAmountsGraph } from 'components/MonthlyAmountsGraph';
 import { UserSettingsContext } from 'context/UserSettings';
@@ -16,6 +15,7 @@ import {
   SortGroupsBy,
 } from 'utils/groupTransactions';
 import noop from 'utils/noop';
+import { Icon, IconType } from './atoms/Icon';
 import List, { Item } from './atoms/List';
 import { Panel, PanelItem } from './atoms/Panel';
 import { Alignment, Row, Space } from './atoms/Row';

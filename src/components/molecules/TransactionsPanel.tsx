@@ -1,8 +1,8 @@
-import Icon, { IconType } from 'components/Icon';
 import LoadingIndicator from 'components/LoadingIndicator';
 import Transaction from 'components/Transaction';
 import React, { ReactElement, useState } from 'react';
 import TransactionType from 'types/transaction';
+import Icon, { IconType } from '../atoms/Icon';
 import List, { Item } from '../atoms/List';
 import { Panel, PanelItem } from '../atoms/Panel';
 import { Alignment, Row } from '../atoms/Row';

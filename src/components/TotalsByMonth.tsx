@@ -12,11 +12,11 @@ import {
 import styled from 'styled-components';
 
 import Checkboxes from 'components/Checkboxes';
-import { Icon, IconType } from 'components/Icon';
 import LoadingIndicator from 'components/LoadingIndicator';
 import useCurrencyFormatter from 'hooks/useCurrencyFormatter';
 import useMultiselect from 'hooks/useMultiselect';
 import useTotalsByMonth, { MonthTotals } from 'hooks/useTotalsByMonth';
+import { Icon, IconType } from './atoms/Icon';
 import { Panel, PanelItem } from './atoms/Panel';
 import { Alignment, Row } from './atoms/Row';
 import { Size, Text } from './atoms/Text';
