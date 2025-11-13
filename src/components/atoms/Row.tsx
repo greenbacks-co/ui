@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export function JustifiedRow({
+export function Row({
   alignment = Alignment.SpaceBetween,
   children,
   columnBreakpoint,

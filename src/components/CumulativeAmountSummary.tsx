@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 
 import { Icon, IconType } from 'components/Icon';
-import { Alignment, JustifiedRow, Space } from 'components/JustifiedRow';
 import List, { Item } from 'components/List';
 import LoadingIndicator from 'components/LoadingIndicator';
 import { PureMonthSelector as MonthSelector } from 'components/MonthSelector';
@@ -23,6 +22,7 @@ import {
   SortTransactionsBy,
 } from 'utils/groupTransactions';
 import noop from 'utils/noop';
+import { Alignment, Row, Space } from './atoms/Row';
 import { Size, Text } from './atoms/Text';
 import { Button, ButtonStyle } from './atoms/Button';
 
@@ -102,9 +102,9 @@ export function CumulativeAmountSummary({
           <Text size={Size.Large}>--</Text>
         </PanelItem>
         <PanelItem>
-          <JustifiedRow alignment={Alignment.Center}>
+          <Row alignment={Alignment.Center}>
             <LoadingIndicator />
-          </JustifiedRow>
+          </Row>
         </PanelItem>
       </Panel>
     );
@@ -181,12 +181,12 @@ export function CumulativeAmountSummary({
             />
           )}
           <Item>
-            <JustifiedRow>
+            <Row>
               <Text size={Size.Small}>
                 {actualVisibleTagCount} of {groupedTransactions.length} tag
                 {groupedTransactions.length !== 1 && 's'} visible
               </Text>
-              <JustifiedRow space={Space.Small}>
+              <Row space={Space.Small}>
                 {canIncreaseVisibleTagCount && (
                   <Button
                     isDisabled={!canIncreaseVisibleTagCount}
@@ -213,8 +213,8 @@ export function CumulativeAmountSummary({
                     <Icon icon={IconType.Minus} />
                   </Button>
                 )}
-              </JustifiedRow>
-            </JustifiedRow>
+              </Row>
+            </Row>
           </Item>
         </List>
       )}
@@ -255,12 +255,12 @@ function TagAmount({
     return (
       <Item>
         <Button isFullWidth onClick={onExpand} style={ButtonStyle.Unstyled}>
-          <JustifiedRow>
+          <Row>
             <Text>{format(total)}</Text>
             <Text isUnderlined size={Size.Small}>
               {tag}
             </Text>
-          </JustifiedRow>
+          </Row>
         </Button>
       </Item>
     );
@@ -268,12 +268,12 @@ function TagAmount({
     <Panel hasBorder={false} hasTopBorder={!isFirstTag}>
       <PanelItem>
         <Button isFullWidth onClick={onExpand} style={ButtonStyle.Unstyled}>
-          <JustifiedRow>
+          <Row>
             <Text isBold>{format(total)}</Text>
             <Text isBold isUnderlined size={Size.Small}>
               {tag}
             </Text>
-          </JustifiedRow>
+          </Row>
         </Button>
       </PanelItem>
       <List

@@ -13,12 +13,12 @@ import styled from 'styled-components';
 
 import Checkboxes from 'components/Checkboxes';
 import { Icon, IconType } from 'components/Icon';
-import { Alignment, JustifiedRow } from 'components/JustifiedRow';
 import LoadingIndicator from 'components/LoadingIndicator';
 import { Panel, PanelItem } from 'components/Panel';
 import useCurrencyFormatter from 'hooks/useCurrencyFormatter';
 import useMultiselect from 'hooks/useMultiselect';
 import useTotalsByMonth, { MonthTotals } from 'hooks/useTotalsByMonth';
+import { Alignment, Row } from './atoms/Row';
 import { Size, Text } from './atoms/Text';
 import { Button, ButtonStyle } from './atoms/Button';
 
@@ -90,9 +90,9 @@ const TotalsByMonth: FC<{ area?: string; hasCheckboxes?: boolean }> = ({
           <Text size={Size.Medium}>Cash Flow</Text>
         </PanelItem>
         <PanelItem>
-          <JustifiedRow alignment={Alignment.Center}>
+          <Row alignment={Alignment.Center}>
             <LoadingIndicator />
-          </JustifiedRow>
+          </Row>
         </PanelItem>
       </Panel>
     );
@@ -100,7 +100,7 @@ const TotalsByMonth: FC<{ area?: string; hasCheckboxes?: boolean }> = ({
   return (
     <Panel area={area}>
       <PanelItem hasBottomBorder>
-        <JustifiedRow>
+        <Row>
           <Text size={Size.Medium}>Cash Flow</Text>
           <Button
             onClick={() => {
@@ -114,7 +114,7 @@ const TotalsByMonth: FC<{ area?: string; hasCheckboxes?: boolean }> = ({
           >
             <Icon icon={IconType.Filter} />
           </Button>
-        </JustifiedRow>
+        </Row>
       </PanelItem>
       <PanelItem hasBottomBorder>
         <Graph
@@ -141,7 +141,7 @@ const TotalsByMonth: FC<{ area?: string; hasCheckboxes?: boolean }> = ({
         )}
       </PanelItem>
       <PanelItem hasPadding={false}>
-        <JustifiedRow columnBreakpoint={610}>
+        <Row columnBreakpoint={610}>
           <AverageWrapper>
             <Text size={Size.Large}>
               {format(
@@ -169,7 +169,7 @@ const TotalsByMonth: FC<{ area?: string; hasCheckboxes?: boolean }> = ({
             </Text>
             <Text size={Size.Small}>Average Monthly Spending</Text>
           </AverageWrapper>
-        </JustifiedRow>
+        </Row>
       </PanelItem>
     </Panel>
   );

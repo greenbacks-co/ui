@@ -54,7 +54,7 @@ export const List = styled.ul<{
 const ItemStyle = css<{
   hasPadding?: boolean;
   isInset?: boolean;
-  isJustifiedRow?: boolean;
+  isRow?: boolean;
 }>`
   padding: ${({ hasPadding = true }) => (hasPadding ? '8px 16px' : '0')};
 
@@ -64,14 +64,14 @@ const ItemStyle = css<{
       background-color: #f9f9f9;
   `}
 
-  ${({ isJustifiedRow = false }) =>
-    isJustifiedRow && 'display: flex; justify-content: space-between;'}
+  ${({ isRow = false }) =>
+    isRow && 'display: flex; justify-content: space-between;'}
 `;
 
 export const Item = styled.li<{
   hasPadding?: boolean;
   isInset?: boolean;
-  isJustifiedRow?: boolean;
+  isRow?: boolean;
 }>`
   ${ItemStyle}
 `;

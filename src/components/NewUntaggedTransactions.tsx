@@ -11,7 +11,7 @@ import groupTransactions, {
 } from '../utils/groupTransactions';
 import Button, { ButtonStyle } from './atoms/Button';
 import Icon, { IconType } from './Icon';
-import { Alignment, JustifiedRow } from './JustifiedRow';
+import { Alignment, Row } from './atoms/Row';
 import List, { Item } from './List';
 import LoadingIndicator from './LoadingIndicator';
 import { Panel, PanelItem } from './Panel';
@@ -43,9 +43,9 @@ export function UntaggedTransactions({
           <Text>Untagged Transactions</Text>
         </PanelItem>
         <PanelItem>
-          <JustifiedRow alignment={Alignment.Center}>
+          <Row alignment={Alignment.Center}>
             <LoadingIndicator />
-          </JustifiedRow>
+          </Row>
         </PanelItem>
       </Panel>
     );
@@ -75,7 +75,7 @@ export function UntaggedTransactions({
         ))}
       </List>
       <PanelItem hasTopBorder>
-        <JustifiedRow>
+        <Row>
           <Button
             isDisabled={currentIndex < 0}
             onClick={onClickPrevious}
@@ -95,7 +95,7 @@ export function UntaggedTransactions({
           >
             <Icon icon={IconType.ChevronRight} />
           </Button>
-        </JustifiedRow>
+        </Row>
       </PanelItem>
     </Panel>
   );

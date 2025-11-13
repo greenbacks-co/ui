@@ -15,7 +15,7 @@ import { LABELS_BY_SERIES, Series, Totals } from './NewCashflow';
 import { Panel, PanelItem } from './Panel';
 import { Size, Text } from './atoms/Text';
 import List, { ExpanderContainer as Expander, Item } from './List';
-import { JustifiedRow } from './JustifiedRow';
+import { Row } from './atoms/Row';
 
 export function CashflowTimelinePanel({
   labelsBySeries = LABELS_BY_SERIES,
@@ -65,16 +65,16 @@ export function CashflowTimelinePanel({
                 >
                   {tagAmounts.map(({ amount, tag }) => (
                     <Item key={tag}>
-                      <JustifiedRow>
+                      <Row>
                         <Text>{tag}</Text>
                         <Text>{format(amount)}</Text>
-                      </JustifiedRow>
+                      </Row>
                     </Item>
                   ))}
                 </List>
               }
               heading={
-                <Row>
+                <GridRow>
                   <Text area="amount">
                     {format(totalsBySeries[series] ?? 0)}
                   </Text>
@@ -84,7 +84,7 @@ export function CashflowTimelinePanel({
                     </Text>
                   )}
                   <Text area="label">{labelsBySeries[series]}</Text>
-                </Row>
+                </GridRow>
               }
               key={series}
             />
@@ -100,7 +100,7 @@ interface TagAmount {
   tag: string;
 }
 
-const Row = styled.div`
+const GridRow = styled.div`
   align-items: center;
   display: grid;
   grid-gap: 32px;

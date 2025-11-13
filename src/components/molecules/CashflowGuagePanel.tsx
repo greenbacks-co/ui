@@ -1,11 +1,11 @@
 import { CashflowGuage } from 'components/atoms/charts/CashflowGuage';
-import { JustifiedRow } from 'components/JustifiedRow';
 import { Panel, PanelItem } from 'components/Panel';
 import useCurrencyFormatter from 'hooks/useCurrencyFormatter';
 import React, { ReactElement } from 'react';
 import { Category } from 'types/transaction';
 import { Variability } from 'types/variability';
 import noop from 'utils/noop';
+import { Row } from '../atoms/Row';
 import { Text } from '../atoms/Text';
 import Button, { ButtonStyle } from '../atoms/Button';
 import { CategoryLabel } from './CategoryLabel';
@@ -69,13 +69,13 @@ export function CashflowGuagePanel({
           }
           style={ButtonStyle.Unstyled}
         >
-          <JustifiedRow>
+          <Row>
             <CategoryLabel
               category={Category.Earning}
               variability={Variability.Fixed}
             />
             <Text>{`${format(fixedEarning)}${remainingProjectedFixedEarning && ` (${formatShort(projectedFixedEarning)})`}`}</Text>
-          </JustifiedRow>
+          </Row>
         </Button>
       </PanelItem>
       <PanelItem hasBottomBorder>
@@ -89,13 +89,13 @@ export function CashflowGuagePanel({
           }
           style={ButtonStyle.Unstyled}
         >
-          <JustifiedRow>
+          <Row>
             <CategoryLabel
               category={Category.Earning}
               variability={Variability.Variable}
             />
             <Text>{format(variableEarning)}</Text>
-          </JustifiedRow>
+          </Row>
         </Button>
       </PanelItem>
       <PanelItem hasBottomBorder>
@@ -109,13 +109,13 @@ export function CashflowGuagePanel({
           }
           style={ButtonStyle.Unstyled}
         >
-          <JustifiedRow>
+          <Row>
             <CategoryLabel
               category={Category.Saving}
               variability={Variability.Fixed}
             />
             <Text>{format(fixedSaving)}</Text>
-          </JustifiedRow>
+          </Row>
         </Button>
       </PanelItem>
       <PanelItem hasBottomBorder>
@@ -129,13 +129,13 @@ export function CashflowGuagePanel({
           }
           style={ButtonStyle.Unstyled}
         >
-          <JustifiedRow>
+          <Row>
             <CategoryLabel
               category={Category.Saving}
               variability={Variability.Variable}
             />
             <Text>{format(variableSaving)}</Text>
-          </JustifiedRow>
+          </Row>
         </Button>
       </PanelItem>
       <PanelItem hasBottomBorder>
@@ -149,13 +149,13 @@ export function CashflowGuagePanel({
           }
           style={ButtonStyle.Unstyled}
         >
-          <JustifiedRow>
+          <Row>
             <CategoryLabel
               category={Category.Spending}
               variability={Variability.Fixed}
             />
             <Text>{`${format(fixedSpending)}${remainingProjectedFixedSpending && ` (${formatShort(projectedFixedSpending)})`}`}</Text>
-          </JustifiedRow>
+          </Row>
         </Button>
       </PanelItem>
       <PanelItem>
@@ -169,13 +169,13 @@ export function CashflowGuagePanel({
           }
           style={ButtonStyle.Unstyled}
         >
-          <JustifiedRow>
+          <Row>
             <CategoryLabel
               category={Category.Spending}
               variability={Variability.Variable}
             />
             <Text>{format(variableSpending)}</Text>
-          </JustifiedRow>
+          </Row>
         </Button>
       </PanelItem>
     </Panel>

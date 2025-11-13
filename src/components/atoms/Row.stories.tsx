@@ -2,9 +2,9 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import styled from 'styled-components';
 
-import { JustifiedRow, Space } from 'components/JustifiedRow';
+import { Row, Space } from './Row';
 
-const meta: Meta<typeof JustifiedRow> = {
+const meta: Meta<typeof Row> = {
   args: {
     space: undefined,
   },
@@ -14,22 +14,22 @@ const meta: Meta<typeof JustifiedRow> = {
       control: 'radio',
     },
   },
-  component: JustifiedRow,
+  component: Row,
   parameters: {
     layout: 'centered',
   },
-  title: 'Atoms/JustifiedRow',
+  title: 'Atoms/Row',
 };
 
-type Story = StoryObj<typeof JustifiedRow>;
+type Story = StoryObj<typeof Row>;
 
 export const TwoItems: Story = {
   render: ({ space }) => (
     <Wrapper>
-      <JustifiedRow space={space}>
+      <Row space={space}>
         <p>first</p>
         <p>second</p>
-      </JustifiedRow>
+      </Row>
     </Wrapper>
   ),
 };
@@ -37,11 +37,11 @@ export const TwoItems: Story = {
 export const ThreeItems: Story = {
   render: ({ space }) => (
     <Wrapper>
-      <JustifiedRow space={space}>
+      <Row space={space}>
         <p>first</p>
         <p>second</p>
         <p>third</p>
-      </JustifiedRow>
+      </Row>
     </Wrapper>
   ),
 };

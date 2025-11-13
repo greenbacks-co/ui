@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { Icon, IconType } from 'components/Icon';
-import { Alignment, JustifiedRow as Row } from 'components/JustifiedRow';
 import List, { Item as ListItem } from 'components/List';
 import LoadingIndicator from 'components/LoadingIndicator';
 import { Panel, PanelItem } from 'components/Panel';
@@ -17,6 +16,7 @@ import {
   SortTransactionsBy,
 } from 'utils/groupTransactions';
 import noop from 'utils/noop';
+import { Alignment, Row } from './atoms/Row';
 import { Size, Text } from './atoms/Text';
 import { Button, ButtonStyle } from './atoms/Button';
 

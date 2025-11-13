@@ -1,11 +1,11 @@
 import Icon, { IconType } from 'components/Icon';
-import { Alignment, JustifiedRow } from 'components/JustifiedRow';
 import List, { Item } from 'components/List';
 import LoadingIndicator from 'components/LoadingIndicator';
 import { Panel, PanelItem } from 'components/Panel';
 import Transaction from 'components/Transaction';
 import React, { ReactElement, useState } from 'react';
 import TransactionType from 'types/transaction';
+import { Alignment, Row } from '../atoms/Row';
 import { Size, Text } from '../atoms/Text';
 import Button, { ButtonStyle } from '../atoms/Button';
 
@@ -28,9 +28,9 @@ export function TransactionsPanel({
           <Text>Transactions</Text>
         </PanelItem>
         <PanelItem>
-          <JustifiedRow alignment={Alignment.Center}>
+          <Row alignment={Alignment.Center}>
             <LoadingIndicator />
-          </JustifiedRow>
+          </Row>
         </PanelItem>
       </Panel>
     );
@@ -64,7 +64,7 @@ export function TransactionsPanel({
         ))}
       </List>
       <PanelItem hasTopBorder>
-        <JustifiedRow>
+        <Row>
           <Button
             isDisabled={page < 1}
             onClick={() => setPage(page - 1)}
@@ -80,7 +80,7 @@ export function TransactionsPanel({
           >
             <Icon icon={IconType.ChevronRight} />
           </Button>
-        </JustifiedRow>
+        </Row>
       </PanelItem>
     </Panel>
   );

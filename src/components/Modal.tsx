@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { Icon, IconType } from 'components/Icon';
-import { JustifiedRow as Row } from 'components/JustifiedRow';
 import { Panel, PanelItem } from 'components/Panel';
 import noop from 'utils/noop';
+import { Row } from './atoms/Row';
 import { Text } from './atoms/Text';
 import { Button, ButtonStyle } from './atoms/Button';
 

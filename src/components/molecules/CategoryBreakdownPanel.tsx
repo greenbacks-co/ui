@@ -1,4 +1,3 @@
-import { JustifiedRow } from 'components/JustifiedRow';
 import List, { Item } from 'components/List';
 import { Panel, PanelItem } from 'components/Panel';
 import useCurrencyFormatter from 'hooks/useCurrencyFormatter';
@@ -8,6 +7,7 @@ import { Category } from 'types/transaction';
 import { Variability } from 'types/variability';
 import { CATEGORY_COLOURS } from 'utils/categoryColours';
 import noop from 'utils/noop';
+import { Row } from '../atoms/Row';
 import { Text } from '../atoms/Text';
 import Button, { ButtonStyle } from '../atoms/Button';
 import { CategoryLabel } from './CategoryLabel';
@@ -60,10 +60,10 @@ export function CategoryBreakdownPanel({
                 onClick={() => onSelect(name)}
                 style={ButtonStyle.Unstyled}
               >
-                <JustifiedRow>
+                <Row>
                   <Text>{name}</Text>
                   <Text>{format(total)}</Text>
-                </JustifiedRow>
+                </Row>
               </Button>
             </Item>
           ))}
