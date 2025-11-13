@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
 
 import Link from 'components/Link';
-import LoadingIndicator from 'components/LoadingIndicator';
 import useAverageMonthlySpending from 'hooks/useAverageMonthlySpending';
 import useCurrencyFormatter from 'hooks/useCurrencyFormatter';
 import useSpendingRate from 'hooks/useSpendingRate';
+import LoadingIndicator from './atoms/LoadingIndicator';
 
 const AverageSpendingSummary: FC<{ hasLinkToSpendingPage?: boolean }> = ({
   hasLinkToSpendingPage = false,

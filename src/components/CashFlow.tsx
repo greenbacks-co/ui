@@ -9,7 +9,6 @@ import {
 } from 'recharts';
 
 import ArticleContainer from 'components/ArticleContainer';
-import LoadingIndicator from 'components/LoadingIndicator';
 import MonthSelector from 'components/MonthSelector';
 import RadioButtons from 'components/RadioButtons';
 import useAverageMonthlyEarning from 'hooks/useAverageMonthlyEarning';
@@ -18,6 +17,7 @@ import useAverageMonthlySpending from 'hooks/useAverageMonthlySpending';
 import useMonth from 'hooks/useMonth';
 import useTransactionsByCategory from 'hooks/useTransactionsByCategory';
 import Transaction from 'types/transaction';
+import LoadingIndicator from './atoms/LoadingIndicator';
 
 const CashFlow: FC = () => {
   const { endDate, startDate } = useMonth();

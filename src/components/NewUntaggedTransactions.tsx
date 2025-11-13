@@ -13,7 +13,7 @@ import Button, { ButtonStyle } from './atoms/Button';
 import Icon, { IconType } from './atoms/Icon';
 import { Alignment, Row } from './atoms/Row';
 import List, { Item } from './atoms/List';
-import LoadingIndicator from './LoadingIndicator';
+import LoadingIndicator from './atoms/LoadingIndicator';
 import { Panel, PanelItem } from './atoms/Panel';
 import { Size, Text } from './atoms/Text';
 import Transaction from './Transaction';

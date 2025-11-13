@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 
-import LoadingIndicator from 'components/LoadingIndicator';
 import styled from 'utils/styled';
+import LoadingIndicator from './atoms/LoadingIndicator';
 
 const Badge: FC<Props> = ({ children, isLoading = false, label, name }) => {
   if (isLoading) return <LoadingIndicator name={name} />;

@@ -1,7 +1,7 @@
-import LoadingIndicator from 'components/LoadingIndicator';
 import Transaction from 'components/Transaction';
 import React, { ReactElement, useState } from 'react';
 import TransactionType from 'types/transaction';
+import LoadingIndicator from '../atoms/LoadingIndicator';
 import Icon, { IconType } from '../atoms/Icon';
 import List, { Item } from '../atoms/List';
 import { Panel, PanelItem } from '../atoms/Panel';

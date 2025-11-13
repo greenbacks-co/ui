@@ -1,11 +1,11 @@
 import React, { FC, Fragment } from 'react';
 
-import LoadingIndicator from 'components/LoadingIndicator';
 import SectionContainer from 'components/SectionContainer';
 import useCurrencyFormatter from 'hooks/useCurrencyFormatter';
 import useMonth from 'hooks/useMonth';
 import useTransactionsByCategory from 'hooks/useTransactionsByCategory';
 import getTransactionsByDate from 'utils/getTransactionsByDate';
+import LoadingIndicator from './atoms/LoadingIndicator';
 
 const MonthlyExpenses: FC = () => {
   const { endDate, startDate } = useMonth();

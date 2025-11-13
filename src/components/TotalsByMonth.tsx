@@ -12,10 +12,10 @@ import {
 import styled from 'styled-components';
 
 import Checkboxes from 'components/Checkboxes';
-import LoadingIndicator from 'components/LoadingIndicator';
 import useCurrencyFormatter from 'hooks/useCurrencyFormatter';
 import useMultiselect from 'hooks/useMultiselect';
 import useTotalsByMonth, { MonthTotals } from 'hooks/useTotalsByMonth';
+import LoadingIndicator from './atoms/LoadingIndicator';
 import { Icon, IconType } from './atoms/Icon';
 import { Panel, PanelItem } from './atoms/Panel';
 import { Alignment, Row } from './atoms/Row';

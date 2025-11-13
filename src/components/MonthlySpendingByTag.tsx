@@ -11,13 +11,13 @@ import {
 
 import Checkbox from 'components/Checkbox';
 import Checkboxes from 'components/Checkboxes';
-import LoadingIndicator from 'components/LoadingIndicator';
 import MonthSelector from 'components/MonthSelector';
 import useAveragingPeriod from 'hooks/useAveragingPeriod';
 import useMonth from 'hooks/useMonth';
 import useMultiselect from 'hooks/useMultiselect';
 import useTransactionsByTag from 'hooks/useTransactionsByTag';
 import type { TagGroup } from 'types/tagGroup';
+import LoadingIndicator from './atoms/LoadingIndicator';
 
 const MonthlySpendingByTag: FC = () => {
   const { endDate: endOfMonth, startDate: startOfMonth } = useMonth();

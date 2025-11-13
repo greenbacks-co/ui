@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
 
-import LoadingIndicator from 'components/LoadingIndicator';
 import SectionContainer from 'components/SectionContainer';
 import Transactions from 'components/Transactions';
 import useAveragingPeriod from 'hooks/useAveragingPeriod';
 import useNow from 'hooks/useNow';
 import useUntaggedTransactions from 'hooks/useUntaggedTransactions';
+import LoadingIndicator from './atoms/LoadingIndicator';
 
 const UntaggedTransactions: FC = () => {
   const { startIso: startDate } = useAveragingPeriod();

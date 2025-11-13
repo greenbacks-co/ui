@@ -1,7 +1,7 @@
 import React, { FunctionComponent, ReactNode } from 'react';
 
 import { useAuth } from 'auth';
-import LoadingIndicator from 'components/LoadingIndicator';
+import LoadingIndicator from '../components/atoms/LoadingIndicator';
 
 const AuthenticationBarrier: FunctionComponent<propTypes> = ({
   children,

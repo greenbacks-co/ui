@@ -16,12 +16,12 @@ import { makeExecutableSchema } from '@graphql-tools/schema';
 import { DateTime } from 'luxon';
 
 import { useAuth } from 'auth';
-import LoadingIndicator from 'components/LoadingIndicator';
 import { Page } from 'components/Page';
 import useIsAuthenticated from 'hooks/useIsAuthenticated';
 import useLogout from 'hooks/useLogout';
 import useNow from 'hooks/useNow';
 import { generateTransactions } from 'utils/generateTransactions';
+import LoadingIndicator from '../components/atoms/LoadingIndicator';
 
 export { GraphQLError } from 'graphql';
 

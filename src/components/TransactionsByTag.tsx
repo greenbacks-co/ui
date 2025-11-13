@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
 import { Pie, PieChart, ResponsiveContainer } from 'recharts';
 
-import LoadingIndicator from 'components/LoadingIndicator';
 import SectionContainer from 'components/SectionContainer';
 import useCurrencyFormatter from 'hooks/useCurrencyFormatter';
 import type { TagGroup } from 'types/tagGroup';
+import LoadingIndicator from './atoms/LoadingIndicator';
 
 const TransactionsByTag: FC<{
   id?: string;

@@ -1,6 +1,5 @@
 import React from 'react';
 
-import LoadingIndicator from 'components/LoadingIndicator';
 import useCurrencyFormatter from 'hooks/useCurrencyFormatter';
 import useMonth from 'hooks/useMonth';
 import { useQueryParams } from 'hooks/useQueryParams';
@@ -13,6 +12,7 @@ import {
   SortTransactionsBy,
 } from 'utils/groupTransactions';
 import noop from 'utils/noop';
+import LoadingIndicator from './atoms/LoadingIndicator';
 import { Icon, IconType } from './atoms/Icon';
 import List, { Item as ListItem } from './atoms/List';
 import { Panel, PanelItem } from './atoms/Panel';

@@ -12,13 +12,13 @@ import {
   YAxis,
 } from 'recharts';
 
-import LoadingIndicator from 'components/LoadingIndicator';
 import MonthSelector from 'components/MonthSelector';
 import RadioButtons from 'components/RadioButtons';
 import useMonth from 'hooks/useMonth';
 import useNow from 'hooks/useNow';
 import useSpendingTimeline, { DailyTotal } from 'hooks/useSpendingTimeline';
 import Transaction from 'types/transaction';
+import LoadingIndicator from './atoms/LoadingIndicator';
 
 const PreviousMonthSpending: FC = () => {
   const {

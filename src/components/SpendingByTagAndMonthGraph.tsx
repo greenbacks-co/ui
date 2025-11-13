@@ -8,7 +8,6 @@ import {
   YAxis,
 } from 'recharts';
 
-import LoadingIndicator from 'components/LoadingIndicator';
 import useAveragingPeriod from 'hooks/useAveragingPeriod';
 import useNow from 'hooks/useNow';
 import useTagsByCategory from 'hooks/useTagsByCategory';
@@ -16,6 +15,7 @@ import useTransactionsByTagAndMonth, {
   MonthTagGroup,
 } from 'hooks/useTransactionsByTagAndMonth';
 import getMonth from 'utils/getMonth';
+import LoadingIndicator from './atoms/LoadingIndicator';
 
 const SpendingByTagAndMonthGraph: FC<{ selectedTags?: string[] }> = ({
   selectedTags,
