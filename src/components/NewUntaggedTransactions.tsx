@@ -16,7 +16,7 @@ import List, { Item } from './atoms/List';
 import LoadingIndicator from './atoms/LoadingIndicator';
 import { Panel, PanelItem } from './atoms/Panel';
 import { Size, Text } from './atoms/Text';
-import Transaction from './Transaction';
+import Transaction from './molecules/Transaction';
 
 export function UntaggedTransactions({
   currentIndex = 0,

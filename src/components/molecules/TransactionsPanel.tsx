@@ -1,6 +1,6 @@
-import Transaction from 'components/Transaction';
 import React, { ReactElement, useState } from 'react';
 import TransactionType from 'types/transaction';
+import Transaction from './Transaction';
 import LoadingIndicator from '../atoms/LoadingIndicator';
 import Icon, { IconType } from '../atoms/Icon';
 import List, { Item } from '../atoms/List';

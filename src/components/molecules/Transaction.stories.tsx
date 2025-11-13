@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import Transaction from 'components/Transaction';
 import GreenbacksTransaction, {
   Category,
   TransactionType,
 } from 'types/transaction';
+import Transaction from './Transaction';
 
 const transaction: GreenbacksTransaction = {
   accountId: 'account-1',

@@ -2,7 +2,6 @@ import React, { useContext, useState } from 'react';
 
 import { PureMonthSelector as MonthSelector } from 'components/MonthSelector';
 import { PureSpendingTimeline as SpendingTimeline } from 'components/SpendingTimeline';
-import Transaction from 'components/Transaction';
 import { UserSettingsContext } from 'context/UserSettings';
 import useCurrencyFormatter from 'hooks/useCurrencyFormatter';
 import useNow from 'hooks/useNow';
@@ -18,6 +17,7 @@ import {
   SortTransactionsBy,
 } from 'utils/groupTransactions';
 import noop from 'utils/noop';
+import Transaction from './molecules/Transaction';
 import LoadingIndicator from './atoms/LoadingIndicator';
 import { Icon, IconType } from './atoms/Icon';
 import List, { Item } from './atoms/List';

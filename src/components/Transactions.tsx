@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 
-import Transaction from 'components/Transaction';
 import useCurrencyFormatter from 'hooks/useCurrencyFormatter';
 import TransactionType from 'types/transaction';
 import groupTransactions, {
@@ -8,6 +7,7 @@ import groupTransactions, {
   SortGroupsBy,
 } from 'utils/groupTransactions';
 import styled from 'utils/styled';
+import Transaction from './molecules/Transaction';
 import List, { Item } from './atoms/List';
 
 const Transactions: FC<{
