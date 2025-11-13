@@ -2,7 +2,7 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { List, Item } from 'components/List';
-import { Panel, PanelItem } from 'components/Panel';
+import { Panel, PanelItem } from './Panel';
 
 const meta: Meta<typeof Panel> = {
   args: {},
@@ -10,7 +10,7 @@ const meta: Meta<typeof Panel> = {
   parameters: {
     layout: 'centered',
   },
-  title: 'Atoms/Panel',
+  title: 'Atom./atoms/Panel',
 };
 
 type Story = StoryObj<typeof Panel>;

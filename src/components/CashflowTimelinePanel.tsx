@@ -12,7 +12,7 @@ import groupTransactions, {
 } from 'utils/groupTransactions';
 import { buildTimeline, CashflowTimeline } from './CashflowTimeline';
 import { LABELS_BY_SERIES, Series, Totals } from './NewCashflow';
-import { Panel, PanelItem } from './Panel';
+import { Panel, PanelItem } from './atoms/Panel';
 import { Size, Text } from './atoms/Text';
 import List, { ExpanderContainer as Expander, Item } from './List';
 import { Row } from './atoms/Row';

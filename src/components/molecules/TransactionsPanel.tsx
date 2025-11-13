@@ -1,10 +1,10 @@
 import Icon, { IconType } from 'components/Icon';
 import List, { Item } from 'components/List';
 import LoadingIndicator from 'components/LoadingIndicator';
-import { Panel, PanelItem } from 'components/Panel';
 import Transaction from 'components/Transaction';
 import React, { ReactElement, useState } from 'react';
 import TransactionType from 'types/transaction';
+import { Panel, PanelItem } from '../atoms/Panel';
 import { Alignment, Row } from '../atoms/Row';
 import { Size, Text } from '../atoms/Text';
 import Button, { ButtonStyle } from '../atoms/Button';

@@ -14,7 +14,7 @@ import Icon, { IconType } from './Icon';
 import { Alignment, Row } from './atoms/Row';
 import List, { Item } from './List';
 import LoadingIndicator from './LoadingIndicator';
-import { Panel, PanelItem } from './Panel';
+import { Panel, PanelItem } from './atoms/Panel';
 import { Size, Text } from './atoms/Text';
 import Transaction from './Transaction';
 
