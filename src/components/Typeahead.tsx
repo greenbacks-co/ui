@@ -4,10 +4,10 @@ import styled from 'styled-components';
 import { IconType } from 'components/Icon';
 import Input from 'components/Input';
 import RadioButtons from 'components/RadioButtons';
-import { Size, Text } from 'components/Text';
 import Option, { ComplexOption } from 'types/option';
 import getOption from 'utils/getOption';
 import noop from 'utils/noop';
+import { Size, Text } from './atoms/Text';
 
 const Typeahead: FC<{
   id: string;

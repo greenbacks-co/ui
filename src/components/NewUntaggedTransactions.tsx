@@ -15,7 +15,7 @@ import { Alignment, JustifiedRow } from './JustifiedRow';
 import List, { Item } from './List';
 import LoadingIndicator from './LoadingIndicator';
 import { Panel, PanelItem } from './Panel';
-import { Size, Text } from './Text';
+import { Size, Text } from './atoms/Text';
 import Transaction from './Transaction';
 
 export function UntaggedTransactions({

@@ -3,10 +3,10 @@ import styled from 'styled-components';
 
 import Link from 'components/Link';
 import { PageContainer } from 'components/Page';
-import { Text } from 'components/Text';
 import { UserSettingsContext } from 'context/UserSettings';
 import useAccounts, { Account } from 'hooks/useAccounts';
 import noop from 'utils/noop';
+import { Text } from './atoms/Text';
 import { Button, ButtonStyle } from './atoms/Button';
 
 export function NoAccounts({

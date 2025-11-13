@@ -3,9 +3,9 @@ import styled from 'styled-components';
 
 import { Link } from 'components/Link';
 import { PageWrapper } from 'components/Page';
-import { Size, Text } from 'components/Text';
 import useLogin from 'hooks/useLogin';
 import noop from 'utils/noop';
+import { Size, Text } from './atoms/Text';
 import Button from './atoms/Button';
 
 export function Login({

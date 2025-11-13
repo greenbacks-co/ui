@@ -7,7 +7,6 @@ import LoadingIndicator from 'components/LoadingIndicator';
 import { PureMonthSelector as MonthSelector } from 'components/MonthSelector';
 import { Panel, PanelItem } from 'components/Panel';
 import { PureSpendingTimeline as SpendingTimeline } from 'components/SpendingTimeline';
-import { Size, Text } from 'components/Text';
 import Transaction from 'components/Transaction';
 import { UserSettingsContext } from 'context/UserSettings';
 import useCurrencyFormatter from 'hooks/useCurrencyFormatter';
@@ -24,6 +23,7 @@ import {
   SortTransactionsBy,
 } from 'utils/groupTransactions';
 import noop from 'utils/noop';
+import { Size, Text } from './atoms/Text';
 import { Button, ButtonStyle } from './atoms/Button';
 
 export function CumulativeAmountSummary({

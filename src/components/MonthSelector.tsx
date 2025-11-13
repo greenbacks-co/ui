@@ -5,12 +5,12 @@ import { useLocation } from 'react-router-dom';
 import { Icon, IconType } from 'components/Icon';
 import Link from 'components/Link';
 import { Panel, PanelItem } from 'components/Panel';
-import { Text } from 'components/Text';
 import useMonth from 'hooks/useMonth';
 import noop from 'utils/noop';
 import styled from 'utils/styled';
 import useNow from 'hooks/useNow';
 import getMonth from 'utils/getMonth';
+import { Text } from './atoms/Text';
 import { Button, ButtonStyle } from './atoms/Button';
 
 export function MonthSelector({

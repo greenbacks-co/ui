@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Heirarchy, Size, Text } from 'components/Text';
+import { Heirarchy, Size, Text } from './Text';
 
 const meta: Meta<typeof Text> = {
   args: {

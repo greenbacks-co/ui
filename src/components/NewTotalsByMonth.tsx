@@ -7,7 +7,7 @@ import Transaction from 'types/transaction';
 import { Variability } from 'types/variability';
 import groupTransactions, { GroupBy } from 'utils/groupTransactions';
 import { Panel, PanelItem } from './Panel';
-import { Text } from './Text';
+import { Text } from './atoms/Text';
 import { Cashflow, Series } from './NewCashflow';
 
 export function TotalsByMonth({

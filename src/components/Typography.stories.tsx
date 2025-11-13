@@ -2,7 +2,7 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import styled from 'styled-components';
 
-import { Heirarchy, Size, Text } from 'components/Text';
+import { Heirarchy, Size, Text } from './atoms/Text';
 
 const meta: Meta = {
   parameters: {

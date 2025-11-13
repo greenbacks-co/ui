@@ -3,10 +3,10 @@ import { Alignment, JustifiedRow } from 'components/JustifiedRow';
 import List, { Item } from 'components/List';
 import LoadingIndicator from 'components/LoadingIndicator';
 import { Panel, PanelItem } from 'components/Panel';
-import { Size, Text } from 'components/Text';
 import Transaction from 'components/Transaction';
 import React, { ReactElement, useState } from 'react';
 import TransactionType from 'types/transaction';
+import { Size, Text } from '../atoms/Text';
 import Button, { ButtonStyle } from '../atoms/Button';
 
 const PAGE_SIZE = 10;

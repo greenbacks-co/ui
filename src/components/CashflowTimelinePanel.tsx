@@ -13,7 +13,7 @@ import groupTransactions, {
 import { buildTimeline, CashflowTimeline } from './CashflowTimeline';
 import { LABELS_BY_SERIES, Series, Totals } from './NewCashflow';
 import { Panel, PanelItem } from './Panel';
-import { Size, Text } from './Text';
+import { Size, Text } from './atoms/Text';
 import List, { ExpanderContainer as Expander, Item } from './List';
 import { JustifiedRow } from './JustifiedRow';
 

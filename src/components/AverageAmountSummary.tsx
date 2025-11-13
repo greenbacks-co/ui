@@ -7,7 +7,6 @@ import List, { Item } from 'components/List';
 import LoadingIndicator from 'components/LoadingIndicator';
 import { MonthlyAmountsGraph } from 'components/MonthlyAmountsGraph';
 import { Panel, PanelItem } from 'components/Panel';
-import { Size, Text } from 'components/Text';
 import { UserSettingsContext } from 'context/UserSettings';
 import useCurrencyFormatter from 'hooks/useCurrencyFormatter';
 import useNow from 'hooks/useNow';
@@ -20,6 +19,7 @@ import {
   SortGroupsBy,
 } from 'utils/groupTransactions';
 import noop from 'utils/noop';
+import { Size, Text } from './atoms/Text';
 import { Button, ButtonStyle } from './atoms/Button';
 
 export function AverageAmountSummary({

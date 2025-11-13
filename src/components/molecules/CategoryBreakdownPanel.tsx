@@ -1,7 +1,6 @@
 import { JustifiedRow } from 'components/JustifiedRow';
 import List, { Item } from 'components/List';
 import { Panel, PanelItem } from 'components/Panel';
-import { Text } from 'components/Text';
 import useCurrencyFormatter from 'hooks/useCurrencyFormatter';
 import React, { ReactElement } from 'react';
 import { Pie, PieChart, ResponsiveContainer } from 'recharts';
@@ -9,6 +8,7 @@ import { Category } from 'types/transaction';
 import { Variability } from 'types/variability';
 import { CATEGORY_COLOURS } from 'utils/categoryColours';
 import noop from 'utils/noop';
+import { Text } from '../atoms/Text';
 import Button, { ButtonStyle } from '../atoms/Button';
 import { CategoryLabel } from './CategoryLabel';
 

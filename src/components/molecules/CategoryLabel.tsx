@@ -1,7 +1,7 @@
-import { Text } from 'components/Text';
 import React, { ReactElement } from 'react';
 import styled from 'styled-components';
 import { CATEGORY_COLOURS } from 'utils/categoryColours';
+import { Text } from '../atoms/Text';
 
 import { Category } from '../../types/transaction';
 import { Variability } from '../../types/variability';

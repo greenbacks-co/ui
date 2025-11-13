@@ -4,8 +4,8 @@ import styled from 'styled-components';
 import { Icon, IconType } from 'components/Icon';
 import { JustifiedRow as Row } from 'components/JustifiedRow';
 import { Panel, PanelItem } from 'components/Panel';
-import { Text } from 'components/Text';
 import noop from 'utils/noop';
+import { Text } from './atoms/Text';
 import { Button, ButtonStyle } from './atoms/Button';
 
 export function Modal({

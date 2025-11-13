@@ -3,9 +3,9 @@ import styled from 'utils/styled';
 
 import { Icon, IconType } from 'components/Icon';
 import TagModalContext from 'context/TagModal';
-import { Size, Text } from 'components/Text';
 import useCurrencyFormatter from 'hooks/useCurrencyFormatter';
 import TransactionType, { Category } from 'types/transaction';
+import { Size, Text } from './atoms/Text';
 import Button, { ButtonStyle } from './atoms/Button';
 
 const Transaction: FC<{

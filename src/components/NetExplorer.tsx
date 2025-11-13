@@ -5,7 +5,6 @@ import { Alignment, JustifiedRow as Row } from 'components/JustifiedRow';
 import List, { Item as ListItem } from 'components/List';
 import LoadingIndicator from 'components/LoadingIndicator';
 import { Panel, PanelItem } from 'components/Panel';
-import { Size, Text } from 'components/Text';
 import useCurrencyFormatter from 'hooks/useCurrencyFormatter';
 import useMonth from 'hooks/useMonth';
 import { useQueryParams } from 'hooks/useQueryParams';
@@ -18,6 +17,7 @@ import {
   SortTransactionsBy,
 } from 'utils/groupTransactions';
 import noop from 'utils/noop';
+import { Size, Text } from './atoms/Text';
 import { Button, ButtonStyle } from './atoms/Button';
 
 export function NetExplorer({

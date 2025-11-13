@@ -16,10 +16,10 @@ import { Icon, IconType } from 'components/Icon';
 import { Alignment, JustifiedRow } from 'components/JustifiedRow';
 import LoadingIndicator from 'components/LoadingIndicator';
 import { Panel, PanelItem } from 'components/Panel';
-import { Size, Text } from 'components/Text';
 import useCurrencyFormatter from 'hooks/useCurrencyFormatter';
 import useMultiselect from 'hooks/useMultiselect';
 import useTotalsByMonth, { MonthTotals } from 'hooks/useTotalsByMonth';
+import { Size, Text } from './atoms/Text';
 import { Button, ButtonStyle } from './atoms/Button';
 
 const TotalsByMonth: FC<{ area?: string; hasCheckboxes?: boolean }> = ({

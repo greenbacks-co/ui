@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 
-import { basicFontStyles } from 'components/Text';
 import noop from 'utils/noop';
 import styled from 'utils/styled';
+import { basicFontStyles } from './atoms/Text';
 
 const Input: FC<{
   hasSharpLowerCorners?: boolean;
