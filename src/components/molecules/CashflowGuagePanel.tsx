@@ -1,10 +1,10 @@
-import { CashflowGuage } from 'components/atoms/charts/CashflowGuage';
 import { Panel, PanelItem } from 'components/Panel';
 import useCurrencyFormatter from 'hooks/useCurrencyFormatter';
 import React, { ReactElement } from 'react';
 import { Category } from 'types/transaction';
 import { Variability } from 'types/variability';
 import noop from 'utils/noop';
+import { CashflowGuage } from '../atoms/charts/CashflowGuage';
 import { Row } from '../atoms/Row';
 import { Text } from '../atoms/Text';
 import Button, { ButtonStyle } from '../atoms/Button';
