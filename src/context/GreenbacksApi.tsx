@@ -16,11 +16,11 @@ import { makeExecutableSchema } from '@graphql-tools/schema';
 import { DateTime } from 'luxon';
 
 import { useAuth } from 'auth';
-import { Page } from 'components/Page';
 import useIsAuthenticated from 'hooks/useIsAuthenticated';
 import useLogout from 'hooks/useLogout';
 import useNow from 'hooks/useNow';
 import { generateTransactions } from 'utils/generateTransactions';
+import { Page } from '../components/molecules/Page';
 import LoadingIndicator from '../components/atoms/LoadingIndicator';
 
 export { GraphQLError } from 'graphql';

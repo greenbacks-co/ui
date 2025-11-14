@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { UserSettingsContext } from 'context/UserSettings';
 import useLogout from 'hooks/useLogout';
 import noop from 'utils/noop';
-import { Header } from './organisms/Header';
+import { Header } from '../organisms/Header';
 
 export function Page({
   children,

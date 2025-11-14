@@ -2,10 +2,10 @@ import React, { useContext } from 'react';
 import styled from 'styled-components';
 
 import Link from 'components/Link';
-import { PageContainer } from 'components/Page';
 import { UserSettingsContext } from 'context/UserSettings';
 import useAccounts, { Account } from 'hooks/useAccounts';
 import noop from 'utils/noop';
+import { PageContainer } from './molecules/Page';
 import { Text } from './atoms/Text';
 import { Button, ButtonStyle } from './atoms/Button';
 

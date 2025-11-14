@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { Link } from 'components/Link';
-import { PageWrapper } from 'components/Page';
 import useLogin from 'hooks/useLogin';
 import noop from 'utils/noop';
+import { PageWrapper } from './molecules/Page';
 import { Size, Text } from './atoms/Text';
 import Button from './atoms/Button';
 

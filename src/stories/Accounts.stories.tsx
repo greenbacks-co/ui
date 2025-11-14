@@ -2,7 +2,7 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
 import Accounts from '../components/Accounts';
-import { Page } from '../components/Page';
+import { Page } from '../components/molecules/Page';
 import { TestGreenbacksProvider } from '../context/Greenbacks';
 import type { Account } from '../hooks/useAccounts';
 
