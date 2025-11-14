@@ -1,10 +1,10 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { AverageAmountSummaryContainer } from 'components/AverageAmountSummary';
 import { TestGreenbacksProvider } from 'context/Greenbacks';
 import { transactionsYearBeforeMay2024 } from 'stories/testTransactions';
 import buildApiTransactionsMock from '__test__/utils/buildApiTransactionsMock';
+import { AverageAmountSummaryContainer } from './AverageAmountSummary';
 
 const meta: Meta<typeof AverageAmountSummaryContainer> = {
   parameters: {

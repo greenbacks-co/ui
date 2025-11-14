@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { AverageAmountSummary } from 'components/AverageAmountSummary';
 import { transactionsYearBeforeMay2024 } from 'stories/testTransactions';
+import { AverageAmountSummary } from './AverageAmountSummary';
 
 const meta: Meta<React.ComponentProps<typeof AverageAmountSummary>> = {
   args: {

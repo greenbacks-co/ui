@@ -14,13 +14,13 @@ import {
   SortGroupsBy,
 } from 'utils/groupTransactions';
 import noop from 'utils/noop';
-import LoadingIndicator from './atoms/LoadingIndicator';
-import { Icon, IconType } from './atoms/Icon';
-import List, { Item } from './atoms/List';
-import { Panel, PanelItem } from './atoms/Panel';
-import { Alignment, Row, Space } from './atoms/Row';
-import { Size, Text } from './atoms/Text';
-import { Button, ButtonStyle } from './atoms/Button';
+import LoadingIndicator from '../atoms/LoadingIndicator';
+import { Icon, IconType } from '../atoms/Icon';
+import List, { Item } from '../atoms/List';
+import { Panel, PanelItem } from '../atoms/Panel';
+import { Alignment, Row, Space } from '../atoms/Row';
+import { Size, Text } from '../atoms/Text';
+import { Button, ButtonStyle } from '../atoms/Button';
 
 export function AverageAmountSummary({
   endDate,
