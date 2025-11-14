@@ -2,12 +2,12 @@ import { DateTime } from 'luxon';
 import React, { ReactElement, ReactNode } from 'react';
 import { useLocation } from 'react-router-dom';
 
-import Link from 'components/Link';
 import useMonth from 'hooks/useMonth';
 import noop from 'utils/noop';
 import styled from 'utils/styled';
 import useNow from 'hooks/useNow';
 import getMonth from 'utils/getMonth';
+import Link from '../atoms/Link';
 import { Icon, IconType } from '../atoms/Icon';
 import { Panel, PanelItem } from '../atoms/Panel';
 import { Text } from '../atoms/Text';

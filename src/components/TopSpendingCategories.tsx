@@ -1,11 +1,11 @@
 import React, { FC, useState } from 'react';
 
-import Link from 'components/Link';
 import useAveragingPeriod from 'hooks/useAveragingPeriod';
 import useCurrencyFormatter from 'hooks/useCurrencyFormatter';
 import useMonth from 'hooks/useMonth';
 import useTransactionsByTag from 'hooks/useTransactionsByTag';
 import type TransactionType from 'types/transaction';
+import Link from './atoms/Link';
 import Transaction from './molecules/Transaction';
 import LoadingIndicator from './atoms/LoadingIndicator';
 import Button from './atoms/Button';

@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Link, LinkStyle } from 'components/Link';
 import noop from 'utils/noop';
+import { Link, LinkStyle } from '../atoms/Link';
 import { Heirarchy, Size, Text } from '../atoms/Text';
 import { Button, ButtonStyle } from '../atoms/Button';
 

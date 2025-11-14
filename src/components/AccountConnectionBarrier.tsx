@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 
-import Link from 'components/Link';
 import useReauthenticationRequired from 'hooks/useReauthenticationRequired';
+import Link from './atoms/Link';
 
 const AccountConnectionBarrier: FC = ({ children }) => {
   const { isReauthenticationRequired } = useReauthenticationRequired();
