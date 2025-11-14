@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 
-import {
-  CumulativeAmountSummary,
-  CumulativeAmountSummaryContainer,
-} from 'components/CumulativeAmountSummary';
 import { TestGreenbacksProvider } from 'context/Greenbacks';
 import { transactions } from 'stories/testTransactions';
 import buildApiTransactionsMock from '__test__/utils/buildApiTransactionsMock';
 import datetime from 'utils/datetime';
+import {
+  CumulativeAmountSummary,
+  CumulativeAmountSummaryContainer,
+} from './CumulativeAmountSummary';
 
 type Args = React.ComponentProps<typeof CumulativeAmountSummary> & {
   endDate: string;
