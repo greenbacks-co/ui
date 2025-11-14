@@ -4,10 +4,10 @@ import useAddFilter from 'hooks/useAddFilter';
 import useTags from 'hooks/useTags';
 import { Comparator } from 'types/filter';
 import Transaction, { Category } from 'types/transaction';
-import Typeahead from './molecules/Typeahead';
-import RadioButtons from './atoms/RadioButtons';
-import Label from './atoms/Label';
-import Button from './atoms/Button';
+import Typeahead from '../molecules/Typeahead';
+import RadioButtons from '../atoms/RadioButtons';
+import Label from '../atoms/Label';
+import Button from '../atoms/Button';
 
 const AddFilter: FC<{ transaction: Transaction }> = ({ transaction }) => {
   const [category, setCategory] = useState<string>(transaction.category);

@@ -1,9 +1,9 @@
 import React, { FC, useContext } from 'react';
 
-import AddFilter from 'components/AddFilter';
+import AddFilter from './AddFilter';
 import TagModalContext from 'context/TagModal';
 import styled from 'utils/styled';
-import Button from './atoms/Button';
+import Button from '../atoms/Button';
 
 const TagModal: FC = () => {
   const { closeModal, transactionToTag } = useContext(TagModalContext);
