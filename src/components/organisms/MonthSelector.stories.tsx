@@ -3,7 +3,7 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 
-import { MonthSelector, MonthSelectorPanel } from 'components/MonthSelector';
+import { MonthSelector, MonthSelectorPanel } from './MonthSelector';
 
 const meta: Meta<typeof MonthSelector> = {
   args: {

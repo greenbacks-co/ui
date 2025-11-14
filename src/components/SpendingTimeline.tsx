@@ -12,11 +12,11 @@ import {
   YAxis,
 } from 'recharts';
 
-import MonthSelector from 'components/MonthSelector';
 import useMonth from 'hooks/useMonth';
 import useNow from 'hooks/useNow';
 import useSpendingTimeline, { DailyTotal } from 'hooks/useSpendingTimeline';
 import Transaction from 'types/transaction';
+import MonthSelector from './organisms/MonthSelector';
 import RadioButtons from './atoms/RadioButtons';
 import LoadingIndicator from './atoms/LoadingIndicator';
 

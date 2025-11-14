@@ -9,13 +9,13 @@ import {
 } from 'recharts';
 
 import ArticleContainer from 'components/ArticleContainer';
-import MonthSelector from 'components/MonthSelector';
 import useAverageMonthlyEarning from 'hooks/useAverageMonthlyEarning';
 import useAverageMonthlySaving from 'hooks/useAverageMonthlySaving';
 import useAverageMonthlySpending from 'hooks/useAverageMonthlySpending';
 import useMonth from 'hooks/useMonth';
 import useTransactionsByCategory from 'hooks/useTransactionsByCategory';
 import Transaction from 'types/transaction';
+import MonthSelector from './organisms/MonthSelector';
 import RadioButtons from './atoms/RadioButtons';
 import LoadingIndicator from './atoms/LoadingIndicator';
 

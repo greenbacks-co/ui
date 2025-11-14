@@ -5,13 +5,13 @@ import MonthlyEarnings from 'components/MonthlyEarnings';
 import MonthlyExpenses from 'components/MonthlyExpenses';
 import MonthlySavings from 'components/MonthlySavings';
 import MonthlyOverview from 'components/MonthlyOverview';
-import MonthSelector from 'components/MonthSelector';
 import SectionContainer from 'components/SectionContainer';
 import TransactionsByTag from 'components/TransactionsByTag';
 import Transactions from 'components/Transactions';
 import useMonth from 'hooks/useMonth';
 import useTransactionsByTag from 'hooks/useTransactionsByTag';
 import useUntaggedTransactions from 'hooks/useUntaggedTransactions';
+import MonthSelector from './organisms/MonthSelector';
 
 const MonthlySummary: FC = () => {
   const { endDate, startDate } = useMonth();

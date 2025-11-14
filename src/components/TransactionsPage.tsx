@@ -1,6 +1,5 @@
 import React, { FC, useState } from 'react';
 
-import MonthSelector from 'components/MonthSelector';
 import Select from 'components/Select';
 import Transactions from 'components/Transactions';
 import TransactionSelector from 'components/TransactionSelector';
@@ -10,6 +9,7 @@ import useSelectedFilters from 'hooks/useSelectedFilters';
 import useTransactionsByCategory from 'hooks/useTransactionsByCategory';
 import Transaction, { Category } from 'types/transaction';
 import { GroupBy, SortGroupsBy } from 'utils/groupTransactions';
+import MonthSelector from './organisms/MonthSelector';
 
 const TransactionsPage: FC = () => {
   const categories = useCategories();

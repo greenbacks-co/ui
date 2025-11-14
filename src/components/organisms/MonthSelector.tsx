@@ -8,10 +8,10 @@ import noop from 'utils/noop';
 import styled from 'utils/styled';
 import useNow from 'hooks/useNow';
 import getMonth from 'utils/getMonth';
-import { Icon, IconType } from './atoms/Icon';
-import { Panel, PanelItem } from './atoms/Panel';
-import { Text } from './atoms/Text';
-import { Button, ButtonStyle } from './atoms/Button';
+import { Icon, IconType } from '../atoms/Icon';
+import { Panel, PanelItem } from '../atoms/Panel';
+import { Text } from '../atoms/Text';
+import { Button, ButtonStyle } from '../atoms/Button';
 
 export function MonthSelector({
   area,
