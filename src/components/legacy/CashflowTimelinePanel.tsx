@@ -10,12 +10,12 @@ import groupTransactions, {
   GroupBy,
   SortGroupsBy,
 } from 'utils/groupTransactions';
-import { buildTimeline, CashflowTimeline } from './CashflowTimeline';
-import { LABELS_BY_SERIES, Series, Totals } from './NewCashflow';
-import { Panel, PanelItem } from './atoms/Panel';
-import { Size, Text } from './atoms/Text';
-import List, { ExpanderContainer as Expander, Item } from './atoms/List';
-import { Row } from './atoms/Row';
+import { buildTimeline, CashflowTimeline } from '../CashflowTimeline';
+import { LABELS_BY_SERIES, Series, Totals } from '../NewCashflow';
+import { Panel, PanelItem } from '../atoms/Panel';
+import { Size, Text } from '../atoms/Text';
+import List, { ExpanderContainer as Expander, Item } from '../atoms/List';
+import { Row } from '../atoms/Row';
 
 export function CashflowTimelinePanel({
   labelsBySeries = LABELS_BY_SERIES,
