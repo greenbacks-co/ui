@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 
-import CategoryAndTagIndicators from 'components/CategoryAndTagIndicators';
 import useFilters from 'hooks/useFilters';
 import { Filter as FilterType, Matcher as MatcherType } from 'types/filter';
 import groupFilters from 'utils/groupFilters';
+import CategoryAndTagIndicators from '../molecules/CategoryAndTagIndicators';
 import List, { Item } from '../atoms/List';
 
 const Filters: FC = () => {
