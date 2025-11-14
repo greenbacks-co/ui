@@ -1,11 +1,11 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Funnel, FunnelContainer } from 'components/Funnel';
 import { TestFiltersProvider } from 'context/Filters';
 import { DemoApiProvider } from 'context/GreenbacksApi';
 import RouteProvider from 'context/Route';
 import { buildFilter, buildMatcher } from '__test__/utils/buildFilter';
+import { Funnel, FunnelContainer } from './Funnel';
 
 const meta: Meta<React.ComponentProps<typeof Funnel>> = {
   args: {
