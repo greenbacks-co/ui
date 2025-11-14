@@ -1,13 +1,13 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { SpendingSummary } from 'components/SpendingSummaryPage';
 import { TestGreenbacksProvider } from 'context/Greenbacks';
 import {
   transactions,
   transactionsYearBeforeMay2024,
 } from 'stories/testTransactions';
 import buildApiTransactionsMock from '__test__/utils/buildApiTransactionsMock';
+import { SpendingSummary } from './SpendingSummary';
 
 const meta: Meta<React.ComponentProps<typeof SpendingSummary>> = {
   args: {
