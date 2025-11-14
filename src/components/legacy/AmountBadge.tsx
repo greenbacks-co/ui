@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 
-import Badge, { Props as BadgeProps } from './Badge';
 import useCurrencyFormatter from 'hooks/useCurrencyFormatter';
+import Badge, { Props as BadgeProps } from './Badge';
 
 const AmountBadge: FC<Props> = ({ amount, ...rest }) => {
   const { format } = useCurrencyFormatter();

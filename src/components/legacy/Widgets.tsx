@@ -3,7 +3,6 @@ import { Route, Routes, useNavigate } from 'react-router-dom';
 
 import AccountConnectionBarrier from 'components/AccountConnectionBarrier';
 import AverageSpendingByTag from 'components/AverageSpendingByTag';
-import CashFlow from 'components/CashFlow';
 import { FunnelContainer } from 'components/Funnel';
 import Home from 'components/Home';
 import MonthlySpendingByTag from 'components/MonthlySpendingByTag';
@@ -15,6 +14,7 @@ import TopSpendingCategories from 'components/TopSpendingCategories';
 import TotalsByMonth from 'components/TotalsByMonth';
 import TransactionsPage from 'components/TransactionsPage';
 import UntaggedTransactions from 'components/UntaggedTransactions';
+import CashFlow from './CashFlow';
 
 export function Widgets(): React.ReactElement {
   const [page, setPage] = useState<string>('');

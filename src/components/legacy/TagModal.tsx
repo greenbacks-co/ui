@@ -1,8 +1,8 @@
 import React, { FC, useContext } from 'react';
 
-import AddFilter from './AddFilter';
 import TagModalContext from 'context/TagModal';
 import styled from 'utils/styled';
+import AddFilter from './AddFilter';
 import Button from '../atoms/Button';
 
 const TagModal: FC = () => {
