@@ -3,10 +3,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 import { v4 as generateUuid } from 'uuid';
 
-import {
-  NewFilterModal,
-  NewFilterModalContainer,
-} from 'components/NewFilterModal';
 import { TestFiltersProvider } from 'context/Filters';
 import type { Filter } from 'types/filter';
 import GreenbacksTransaction, {
@@ -14,6 +10,7 @@ import GreenbacksTransaction, {
   TransactionType,
 } from 'types/transaction';
 import { Variability } from 'types/variability';
+import { NewFilterModal, NewFilterModalContainer } from './FilterModal';
 
 const transaction: GreenbacksTransaction = {
   accountId: 'account-1',
