@@ -1,13 +1,13 @@
 import React, { FC } from 'react';
 
-import CashFlowGraph from 'components/CashFlowGraph';
 import SectionContainer from 'components/SectionContainer';
 import useCurrencyFormatter from 'hooks/useCurrencyFormatter';
 import useMonth from 'hooks/useMonth';
 import useTotalEarning from 'hooks/useTotalEarning';
 import useTotalSaving from 'hooks/useTotalSaving';
 import useTotalSpending from 'hooks/useTotalSpending';
-import LoadingIndicator from './atoms/LoadingIndicator';
+import CashFlowGraph from './CashFlowGraph';
+import LoadingIndicator from '../atoms/LoadingIndicator';
 
 const MonthlyOverview: FC = () => {
   const { endDate, startDate } = useMonth();

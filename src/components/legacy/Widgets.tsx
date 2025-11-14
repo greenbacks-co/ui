@@ -4,7 +4,6 @@ import { Route, Routes, useNavigate } from 'react-router-dom';
 import AccountConnectionBarrier from 'components/AccountConnectionBarrier';
 import AverageSpendingByTag from 'components/AverageSpendingByTag';
 import { FunnelContainer } from 'components/Funnel';
-import Home from 'components/Home';
 import MonthlySpendingByTag from 'components/MonthlySpendingByTag';
 import { NetExplorerMonthContainer as NetExplorer } from 'components/NetExplorer';
 import Select from 'components/Select';
@@ -14,6 +13,7 @@ import TopSpendingCategories from 'components/TopSpendingCategories';
 import TotalsByMonth from 'components/TotalsByMonth';
 import TransactionsPage from 'components/TransactionsPage';
 import UntaggedTransactions from 'components/UntaggedTransactions';
+import Home from './Home';
 import CashFlow from './CashFlow';
 
 export function Widgets(): React.ReactElement {
