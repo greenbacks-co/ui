@@ -9,10 +9,10 @@ import { NetExplorerMonthContainer as NetExplorer } from 'components/NetExplorer
 import Select from 'components/Select';
 import Spending from 'components/Spending';
 import SpendingTimeline from 'components/SpendingTimeline';
-import TopSpendingCategories from 'components/TopSpendingCategories';
 import TotalsByMonth from 'components/TotalsByMonth';
 import TransactionsPage from 'components/TransactionsPage';
 import UntaggedTransactions from 'components/UntaggedTransactions';
+import TopSpendingCategories from './TopSpendingCategories';
 import Home from './Home';
 import CashFlow from './CashFlow';
 
