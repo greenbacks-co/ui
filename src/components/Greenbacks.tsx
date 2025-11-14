@@ -1,9 +1,9 @@
 import React, { FC, useContext } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import { NoAccountsBarrierContainer as NoAccountsBarrier } from 'components/NoAccounts';
 import TagModalContext, { TagModalProvider } from 'context/TagModal';
 import useAddFilter from 'hooks/useAddFilter';
+import { NoAccountsBarrierContainer as NoAccountsBarrier } from './organisms/NoAccounts';
 import { SpendingSummary } from './pages/SpendingSummary';
 import Filters from './pages/Filters';
 import { NewFilterModalContainer } from './organisms/FilterModal';

@@ -2,8 +2,8 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 
-import { NoAccounts } from 'components/NoAccounts';
 import { TestGreenbacksProvider } from 'context/Greenbacks';
+import { NoAccounts } from './NoAccounts';
 
 const meta: Meta<React.ComponentProps<typeof NoAccounts>> = {
   args: {
