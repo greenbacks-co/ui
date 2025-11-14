@@ -1,11 +1,11 @@
 import React, { FC, useState, useEffect } from 'react';
 
-import RadioButtons from 'components/RadioButtons';
 import Typeahead from 'components/Typeahead';
 import useAddFilter from 'hooks/useAddFilter';
 import useTags from 'hooks/useTags';
 import { Comparator } from 'types/filter';
 import Transaction, { Category } from 'types/transaction';
+import RadioButtons from './atoms/RadioButtons';
 import Label from './atoms/Label';
 import Button from './atoms/Button';
 

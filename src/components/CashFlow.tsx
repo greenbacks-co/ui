@@ -10,13 +10,13 @@ import {
 
 import ArticleContainer from 'components/ArticleContainer';
 import MonthSelector from 'components/MonthSelector';
-import RadioButtons from 'components/RadioButtons';
 import useAverageMonthlyEarning from 'hooks/useAverageMonthlyEarning';
 import useAverageMonthlySaving from 'hooks/useAverageMonthlySaving';
 import useAverageMonthlySpending from 'hooks/useAverageMonthlySpending';
 import useMonth from 'hooks/useMonth';
 import useTransactionsByCategory from 'hooks/useTransactionsByCategory';
 import Transaction from 'types/transaction';
+import RadioButtons from './atoms/RadioButtons';
 import LoadingIndicator from './atoms/LoadingIndicator';
 
 const CashFlow: FC = () => {

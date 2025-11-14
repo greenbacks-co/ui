@@ -13,11 +13,11 @@ import {
 } from 'recharts';
 
 import MonthSelector from 'components/MonthSelector';
-import RadioButtons from 'components/RadioButtons';
 import useMonth from 'hooks/useMonth';
 import useNow from 'hooks/useNow';
 import useSpendingTimeline, { DailyTotal } from 'hooks/useSpendingTimeline';
 import Transaction from 'types/transaction';
+import RadioButtons from './atoms/RadioButtons';
 import LoadingIndicator from './atoms/LoadingIndicator';
 
 const PreviousMonthSpending: FC = () => {
