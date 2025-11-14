@@ -3,12 +3,12 @@ import React, { FC, useEffect, useState } from 'react';
 import AverageSpendingSummary from 'components/AverageSpendingSummary';
 import Checkboxes from 'components/Checkboxes';
 import MonthlySpendingGraph from 'components/MonthlySpendingGraph';
-import PageWrapper from 'components/PageWrapper';
 import SpendingByTagAndMonthGraph from 'components/SpendingByTagAndMonthGraph';
 import TransactionsByTag from 'components/TransactionsByTag';
 import useAveragingPeriod from 'hooks/useAveragingPeriod';
 import useTagsByCategory from 'hooks/useTagsByCategory';
 import useTransactionsByTag from 'hooks/useTransactionsByTag';
+import PageWrapper from './molecules/PageWrapper';
 
 const Spending: FC = () => {
   const { count, endIso: endDate, startIso: startDate } = useAveragingPeriod();
