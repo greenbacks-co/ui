@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 
-import Typeahead from 'components/Typeahead';
 import Option from 'types/option';
+import Typeahead from './Typeahead';
 
 const meta: Meta<typeof Typeahead> = {
   args: {

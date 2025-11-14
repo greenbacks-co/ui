@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import Typeahead from 'components/Typeahead';
 import useTags from 'hooks/useTags';
 import { Comparator, FilterInput } from 'types/filter';
 import Transaction, { Category } from 'types/transaction';
 import { Variability, VARIABILITY_OPTIONS } from 'types/variability';
 import noop from 'utils/noop';
+import Typeahead from './molecules/Typeahead';
 import RadioButtons from './atoms/RadioButtons';
 import { Modal } from './molecules/Modal';
 import Label from './atoms/Label';

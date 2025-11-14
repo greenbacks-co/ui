@@ -5,9 +5,9 @@ import Input from 'components/Input';
 import Option, { ComplexOption } from 'types/option';
 import getOption from 'utils/getOption';
 import noop from 'utils/noop';
-import RadioButtons from './atoms/RadioButtons';
-import { IconType } from './atoms/Icon';
-import { Size, Text } from './atoms/Text';
+import RadioButtons from '../atoms/RadioButtons';
+import { IconType } from '../atoms/Icon';
+import { Size, Text } from '../atoms/Text';
 
 const Typeahead: FC<{
   id: string;
