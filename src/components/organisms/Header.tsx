@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 import { Link, LinkStyle } from 'components/Link';
 import noop from 'utils/noop';
-import { Heirarchy, Size, Text } from './atoms/Text';
-import { Button, ButtonStyle } from './atoms/Button';
+import { Heirarchy, Size, Text } from '../atoms/Text';
+import { Button, ButtonStyle } from '../atoms/Button';
 
 export function Header({
   hasLinks = true,

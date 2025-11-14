@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 
-import { Header } from 'components/Header';
 import { UserSettingsContext } from 'context/UserSettings';
 import useLogout from 'hooks/useLogout';
 import noop from 'utils/noop';
+import { Header } from './organisms/Header';
 
 export function Page({
   children,
