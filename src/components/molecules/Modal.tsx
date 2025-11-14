@@ -2,11 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 import noop from 'utils/noop';
-import { Icon, IconType } from './atoms/Icon';
-import { Panel, PanelItem } from './atoms/Panel';
-import { Row } from './atoms/Row';
-import { Text } from './atoms/Text';
-import { Button, ButtonStyle } from './atoms/Button';
+import { Icon, IconType } from '../atoms/Icon';
+import { Panel, PanelItem } from '../atoms/Panel';
+import { Row } from '../atoms/Row';
+import { Text } from '../atoms/Text';
+import { Button, ButtonStyle } from '../atoms/Button';
 
 export function Modal({
   children,
