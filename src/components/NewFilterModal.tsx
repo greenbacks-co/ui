@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import Label from 'components/Label';
 import { Modal } from 'components/Modal';
 import RadioButtons from 'components/RadioButtons';
 import Typeahead from 'components/Typeahead';
@@ -10,6 +9,7 @@ import { Comparator, FilterInput } from 'types/filter';
 import Transaction, { Category } from 'types/transaction';
 import { Variability, VARIABILITY_OPTIONS } from 'types/variability';
 import noop from 'utils/noop';
+import Label from './atoms/Label';
 import Button from './atoms/Button';
 
 export function NewFilterModal({

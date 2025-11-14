@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
 
-import { basicFontStyles } from './atoms/Text';
+import { basicFontStyles } from './Text';
 
 const Label: FC<{ forId?: string }> = ({ children, forId }) => (
   <StyledLabel htmlFor={forId}>{children}</StyledLabel>
