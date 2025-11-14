@@ -1,13 +1,13 @@
 import React, { FC, useContext } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import { AccountsContainer as Accounts } from 'components/Accounts';
 import Filters from 'components/Filters';
 import { NewFilterModalContainer } from 'components/NewFilterModal';
 import { NoAccountsBarrierContainer as NoAccountsBarrier } from 'components/NoAccounts';
 import { SpendingSummary } from 'components/SpendingSummaryPage';
 import TagModalContext, { TagModalProvider } from 'context/TagModal';
 import useAddFilter from 'hooks/useAddFilter';
+import { AccountsContainer as Accounts } from './pages/Accounts';
 import { Widgets } from './pages/Widgets';
 import { PageContainer } from './molecules/Page';
 
