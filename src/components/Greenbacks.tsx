@@ -8,7 +8,6 @@ import { SpendingSummary } from './pages/SpendingSummary';
 import Filters from './pages/Filters';
 import { NewFilterModalContainer } from './organisms/FilterModal';
 import { AccountsContainer as Accounts } from './pages/Accounts';
-import { Widgets } from './pages/Widgets';
 import { PageContainer } from './molecules/Page';
 
 function Greenbacks(): React.ReactElement {
@@ -41,14 +40,6 @@ const GreenbacksInContext: FC = () => {
           element={
             <NoAccountsBarrier>
               <SpendingSummary />
-            </NoAccountsBarrier>
-          }
-        />
-        <Route
-          path="/widgets/*"
-          element={
-            <NoAccountsBarrier>
-              <Widgets />
             </NoAccountsBarrier>
           }
         />
