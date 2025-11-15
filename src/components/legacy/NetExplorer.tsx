@@ -12,13 +12,13 @@ import {
   SortTransactionsBy,
 } from 'utils/groupTransactions';
 import noop from 'utils/noop';
-import LoadingIndicator from './atoms/LoadingIndicator';
-import { Icon, IconType } from './atoms/Icon';
-import List, { Item as ListItem } from './atoms/List';
-import { Panel, PanelItem } from './atoms/Panel';
-import { Alignment, Row } from './atoms/Row';
-import { Size, Text } from './atoms/Text';
-import { Button, ButtonStyle } from './atoms/Button';
+import LoadingIndicator from '../atoms/LoadingIndicator';
+import { Icon, IconType } from '../atoms/Icon';
+import List, { Item as ListItem } from '../atoms/List';
+import { Panel, PanelItem } from '../atoms/Panel';
+import { Alignment, Row } from '../atoms/Row';
+import { Size, Text } from '../atoms/Text';
+import { Button, ButtonStyle } from '../atoms/Button';
 
 export function NetExplorer({
   isLoading = false,

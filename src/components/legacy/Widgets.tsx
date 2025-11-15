@@ -3,12 +3,12 @@ import { Route, Routes, useNavigate } from 'react-router-dom';
 
 import AccountConnectionBarrier from 'components/AccountConnectionBarrier';
 import AverageSpendingByTag from 'components/AverageSpendingByTag';
-import { NetExplorerMonthContainer as NetExplorer } from 'components/NetExplorer';
 import Select from 'components/Select';
 import SpendingTimeline from 'components/SpendingTimeline';
 import TotalsByMonth from 'components/TotalsByMonth';
 import TransactionsPage from 'components/TransactionsPage';
 import UntaggedTransactions from 'components/UntaggedTransactions';
+import { NetExplorerMonthContainer as NetExplorer } from './NetExplorer';
 import Spending from './Spending';
 import MonthlySpendingByTag from './MonthlySpendingByTag';
 import { FunnelContainer } from './Funnel';
