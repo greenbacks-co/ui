@@ -1,17 +1,24 @@
 import React, { ReactElement, ReactNode } from 'react';
 import styled from 'styled-components';
+import LoadingIndicator from './LoadingIndicator';
 import { Size, Text } from './Text';
 
 export function Placeholder({
   children,
   height = '300px',
+  loading = false,
 }: {
   children?: ReactNode;
   height?: string;
+  loading?: boolean;
 }): ReactElement {
   return (
     <Wrapper $height={height}>
-      <Text size={Size.Small}>{children}</Text>
+      {loading ? (
+        <LoadingIndicator />
+      ) : (
+        <Text size={Size.Small}>{children}</Text>
+      )}
     </Wrapper>
   );
 }

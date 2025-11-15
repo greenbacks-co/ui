@@ -6,6 +6,7 @@ const meta: Meta<React.ComponentProps<typeof Component>> = {
   args: {
     children: 'Placeholder',
     height: '300px',
+    loading: false,
   },
   component: Component,
   parameters: {
@@ -16,5 +17,9 @@ const meta: Meta<React.ComponentProps<typeof Component>> = {
 type Story = StoryObj<typeof Component>;
 
 export const Playground: Story = {};
+
+export const Loading: Story = {
+  args: { loading: true },
+};
 
 export default meta;

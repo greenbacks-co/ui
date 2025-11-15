@@ -15,11 +15,13 @@ import { Placeholder } from '../atoms/Placeholder';
 
 export function CategoryBreakdownPanel({
   category,
+  loading = false,
   onSelect = noop,
   tags = [],
   variability,
 }: {
   category?: Category;
+  loading?: boolean;
   onSelect?: (input: string) => void;
   tags?: Array<{
     name: string;
@@ -28,6 +30,15 @@ export function CategoryBreakdownPanel({
   variability?: Variability;
 }): ReactElement {
   const { format } = useCurrencyFormatter();
+  if (loading)
+    return (
+      <Panel>
+        <PanelItem hasBottomBorder>
+          <Text>Category Breakdown</Text>
+        </PanelItem>
+        <Placeholder loading />
+      </Panel>
+    );
   if (!category || !variability)
     return (
       <Panel>

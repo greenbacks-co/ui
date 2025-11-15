@@ -8,6 +8,7 @@ import { CategoryBreakdownPanel as Component } from './CategoryBreakdownPanel';
 const meta: Meta<React.ComponentProps<typeof Component>> = {
   args: {
     category: Category.Saving,
+    loading: false,
     onSelect: fn(),
     tags: [
       {
@@ -46,6 +47,12 @@ export const Empty: Story = {
     category: Category.Earning,
     tags: [],
     variability: Variability.Fixed,
+  },
+};
+
+export const Loading: Story = {
+  args: {
+    loading: true,
   },
 };
 

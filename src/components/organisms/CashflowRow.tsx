@@ -16,6 +16,7 @@ export function CashflowRow({
   fixedEarning,
   fixedSaving,
   fixedSpending,
+  loading = false,
   projectedFixedEarning = 0,
   projectedFixedSpending = 0,
   variableEarning,
@@ -25,6 +26,7 @@ export function CashflowRow({
   fixedEarning: CategoryGroup;
   fixedSaving: CategoryGroup;
   fixedSpending: CategoryGroup;
+  loading?: boolean;
   projectedFixedEarning?: number;
   projectedFixedSpending?: number;
   variableEarning: CategoryGroup;
@@ -65,6 +67,7 @@ export function CashflowRow({
       />
       <CategoryBreakdownPanel
         category={category}
+        loading={loading}
         onSelect={(newTag) => setTag(newTag)}
         tags={selectedCategoryGroup?.tags}
         variability={variability}
@@ -130,6 +133,7 @@ export function CashflowRowContainer(): ReactElement {
     fixedEarning,
     fixedSaving,
     fixedSpending,
+    isLoading: loadingTransactions,
     variableEarning,
     variableSaving,
     variableSpending,
@@ -140,6 +144,7 @@ export function CashflowRowContainer(): ReactElement {
   const {
     fixedEarning: projectedFixedEarning,
     fixedSpending: projectedFixedSpending,
+    isLoading: loadingProjections,
   } = useCategorizedTransactions({
     startDate: datetime
       .fromISO(startDate)
@@ -152,6 +157,7 @@ export function CashflowRowContainer(): ReactElement {
       fixedEarning={fixedEarning}
       fixedSaving={fixedSaving}
       fixedSpending={fixedSpending}
+      loading={loadingTransactions || loadingProjections}
       projectedFixedEarning={
         isCurrent ? projectedFixedEarning?.total / 3 : undefined
       }
