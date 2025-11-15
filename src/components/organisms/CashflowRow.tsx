@@ -1,44 +1,40 @@
 import { CashflowGuagePanel } from 'components/molecules/CashflowGuagePanel';
 import { CategoryBreakdownPanel } from 'components/molecules/CategoryBreakdownPanel';
 import { TransactionsPanel } from 'components/molecules/TransactionsPanel';
+import {
+  CategoryGroup,
+  useCategorizedTransactions,
+} from 'hooks/useCategorizedTransactions';
 import useMonth from 'hooks/useMonth';
-import useTransactionsByCategory from 'hooks/useTransactionsByCategory';
 import React, { ReactElement, useState } from 'react';
 import styled from 'styled-components';
-import Transaction, { Category } from 'types/transaction';
+import { Category } from 'types/transaction';
 import { Variability } from 'types/variability';
 import datetime from 'utils/datetime';
-import groupTransactions, { Group, GroupBy } from 'utils/groupTransactions';
 
 export function CashflowRow({
-  earning,
+  fixedEarning,
+  fixedSaving,
+  fixedSpending,
   projectedFixedEarning = 0,
   projectedFixedSpending = 0,
-  saving,
-  spending,
+  variableEarning,
+  variableSaving,
+  variableSpending,
 }: {
-  earning?: Transaction[];
+  fixedEarning: CategoryGroup;
+  fixedSaving: CategoryGroup;
+  fixedSpending: CategoryGroup;
   projectedFixedEarning?: number;
   projectedFixedSpending?: number;
-  saving?: Transaction[];
-  spending?: Transaction[];
+  variableEarning: CategoryGroup;
+  variableSaving: CategoryGroup;
+  variableSpending: CategoryGroup;
 }): ReactElement {
-  const {
-    [Variability.Fixed]: fixedEarning,
-    [Variability.Variable]: variableEarning,
-  } = getVariabilityGroups(earning);
-  const {
-    [Variability.Fixed]: fixedSaving,
-    [Variability.Variable]: variableSaving,
-  } = getVariabilityGroups(saving);
-  const {
-    [Variability.Fixed]: fixedSpending,
-    [Variability.Variable]: variableSpending,
-  } = getVariabilityGroups(spending);
   const [category, setCategory] = useState<Category | undefined>();
   const [variability, setVariability] = useState<Variability | undefined>();
   const [tag, setTag] = useState<string | undefined>();
-  const categoryToGroup = selectCategory({
+  const selectedCategoryGroup = selectCategory({
     category,
     fixedEarning,
     fixedSaving,
@@ -48,11 +44,9 @@ export function CashflowRow({
     variableSpending,
     variability,
   });
-  const tags = groupTransactions({
-    groupBy: GroupBy.Tag,
-    transactions: categoryToGroup?.transactions,
-  });
-  const selectedTagGroup = tags?.find(({ key }) => key === tag);
+  const selectedTagGroup = selectedCategoryGroup?.tags?.find(
+    ({ name }) => name === tag,
+  );
   return (
     <Wrapper>
       <CashflowGuagePanel
@@ -72,7 +66,7 @@ export function CashflowRow({
       <CategoryBreakdownPanel
         category={category}
         onSelect={(newTag) => setTag(newTag)}
-        tags={tags?.map(({ key, total }) => ({ name: key, total }))}
+        tags={selectedCategoryGroup?.tags}
         variability={variability}
       />
       <TransactionsPanel
@@ -81,23 +75,6 @@ export function CashflowRow({
       />
     </Wrapper>
   );
-}
-
-function getVariabilityGroups(
-  transactions: Transaction[] | undefined,
-): Partial<Record<Variability, Group>> {
-  const groups = groupTransactions({
-    groupBy: GroupBy.Variability,
-    transactions,
-  });
-  return {
-    [Variability.Fixed]: groups?.find(
-      (group) => group.key === Variability.Fixed,
-    ),
-    [Variability.Variable]: groups?.find(
-      (group) => group.key === Variability.Variable,
-    ),
-  };
 }
 
 function selectCategory({
@@ -111,14 +88,14 @@ function selectCategory({
   variability,
 }: {
   category?: Category;
-  fixedEarning?: Group;
-  fixedSaving?: Group;
-  fixedSpending?: Group;
-  variableEarning?: Group;
-  variableSaving?: Group;
-  variableSpending?: Group;
+  fixedEarning?: CategoryGroup;
+  fixedSaving?: CategoryGroup;
+  fixedSpending?: CategoryGroup;
+  variableEarning?: CategoryGroup;
+  variableSaving?: CategoryGroup;
+  variableSpending?: CategoryGroup;
   variability?: Variability;
-}): Group | undefined {
+}): CategoryGroup | undefined {
   if (category === Category.Earning && variability === Variability.Fixed)
     return fixedEarning;
   if (category === Category.Earning && variability === Variability.Variable)
@@ -145,62 +122,41 @@ const Wrapper = styled.div`
 
 export function CashflowRowContainer(): ReactElement {
   const { isCurrent, endDate, startDate } = useMonth();
-  const { earning, saving, spending } = useTransactionsByCategory({
-    endDate,
-    startDate,
+  const {
+    fixedEarning,
+    fixedSaving,
+    fixedSpending,
+    variableEarning,
+    variableSaving,
+    variableSpending,
+  } = useCategorizedTransactions({
+    startDate: datetime.fromISO(startDate),
+    endDate: datetime.fromISO(endDate),
   });
   const {
     fixedEarning: projectedFixedEarning,
     fixedSpending: projectedFixedSpending,
-  } = useProjections();
+  } = useCategorizedTransactions({
+    startDate: datetime
+      .fromISO(startDate)
+      .minus({ months: 3 })
+      .startOf('month'),
+    endDate: datetime.fromISO(startDate).minus({ months: 1 }).endOf('month'),
+  });
   return (
     <CashflowRow
-      earning={earning}
-      projectedFixedEarning={isCurrent ? projectedFixedEarning : undefined}
-      projectedFixedSpending={isCurrent ? projectedFixedSpending : undefined}
-      saving={saving}
-      spending={spending}
+      fixedEarning={fixedEarning}
+      fixedSaving={fixedSaving}
+      fixedSpending={fixedSpending}
+      projectedFixedEarning={
+        isCurrent ? projectedFixedEarning?.total / 3 : undefined
+      }
+      projectedFixedSpending={
+        isCurrent ? projectedFixedSpending?.total / 3 : undefined
+      }
+      variableEarning={variableEarning}
+      variableSaving={variableSaving}
+      variableSpending={variableSpending}
     />
   );
-}
-
-function useProjections(): {
-  fixedEarning: number;
-  fixedSpending: number;
-} {
-  const { iso } = useMonth();
-  const startDate = datetime
-    .fromISO(iso)
-    .minus({ months: 3 })
-    .startOf('month')
-    .toISODate();
-  const endDate = datetime
-    .fromISO(iso)
-    .minus({ months: 1 })
-    .endOf('month')
-    .toISODate();
-  const { earning, spending } = useTransactionsByCategory({
-    startDate,
-    endDate,
-  });
-  const earningVariabilityGroups = groupTransactions({
-    groupBy: GroupBy.Variability,
-    transactions: earning,
-  });
-  const fixedEarning = earningVariabilityGroups?.find(
-    ({ key }) => key === Variability.Fixed,
-  );
-  const totalFixedEarning = fixedEarning?.total ?? 0;
-  const spendingVariabilityGroups = groupTransactions({
-    groupBy: GroupBy.Variability,
-    transactions: spending,
-  });
-  const fixedSpending = spendingVariabilityGroups?.find(
-    ({ key }) => key === Variability.Fixed,
-  );
-  const totalFixedSpending = fixedSpending?.total ?? 0;
-  return {
-    fixedEarning: totalFixedEarning / 3,
-    fixedSpending: totalFixedSpending / 3,
-  };
 }
