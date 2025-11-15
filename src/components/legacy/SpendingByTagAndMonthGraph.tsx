@@ -15,7 +15,7 @@ import useTransactionsByTagAndMonth, {
   MonthTagGroup,
 } from 'hooks/useTransactionsByTagAndMonth';
 import getMonth from 'utils/getMonth';
-import LoadingIndicator from './atoms/LoadingIndicator';
+import LoadingIndicator from '../atoms/LoadingIndicator';
 
 const SpendingByTagAndMonthGraph: FC<{ selectedTags?: string[] }> = ({
   selectedTags,
