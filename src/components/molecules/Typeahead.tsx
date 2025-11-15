@@ -1,10 +1,10 @@
 import React, { FC, useState } from 'react';
 import styled from 'styled-components';
 
-import Input from 'components/Input';
 import Option, { ComplexOption } from 'types/option';
 import getOption from 'utils/getOption';
 import noop from 'utils/noop';
+import Input from '../atoms/Input';
 import RadioButtons from '../atoms/RadioButtons';
 import { IconType } from '../atoms/Icon';
 import { Size, Text } from '../atoms/Text';
