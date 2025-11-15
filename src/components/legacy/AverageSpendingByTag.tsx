@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 
-import TransactionsByTag from 'components/TransactionsByTag';
 import useAveragingPeriod from 'hooks/useAveragingPeriod';
 import useTransactionsByTag from 'hooks/useTransactionsByTag';
+import TransactionsByTag from './TransactionsByTag';
 
 const AverageSpendingByTag: FC = () => {
   const { count, endIso: endDate, startIso: startDate } = useAveragingPeriod();

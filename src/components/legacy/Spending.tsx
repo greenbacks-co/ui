@@ -3,10 +3,10 @@ import React, { FC, useEffect, useState } from 'react';
 import AverageSpendingSummary from 'components/AverageSpendingSummary';
 import Checkboxes from 'components/Checkboxes';
 import SpendingByTagAndMonthGraph from 'components/SpendingByTagAndMonthGraph';
-import TransactionsByTag from 'components/TransactionsByTag';
 import useAveragingPeriod from 'hooks/useAveragingPeriod';
 import useTagsByCategory from 'hooks/useTagsByCategory';
 import useTransactionsByTag from 'hooks/useTransactionsByTag';
+import TransactionsByTag from './TransactionsByTag';
 import MonthlySpendingGraph from './MonthlySpendingGraph';
 import PageWrapper from '../molecules/PageWrapper';
 
