@@ -13,7 +13,7 @@ import useProjectedRemainingSpending from 'hooks/useProjectedRemainingSpending';
 import useTotalsByMonth, { MonthTotals } from 'hooks/useTotalsByMonth';
 import useTotalSpending from 'hooks/useTotalSpending';
 import getMonth from 'utils/getMonth';
-import LoadingIndicator from './atoms/LoadingIndicator';
+import LoadingIndicator from '../atoms/LoadingIndicator';
 
 const MonthlySpendingGraph: FC = () => {
   const { now } = useNow();
