@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 
-import AccountConnectionBarrier from 'components/AccountConnectionBarrier';
+import AccountConnectionBarrier from './AccountConnectionBarrier';
 import Select from './Select';
 import TransactionsPage from './TransactionsPage';
 import TotalsByMonth from './TotalsByMonth';
