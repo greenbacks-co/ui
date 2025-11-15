@@ -1,9 +1,8 @@
 import React, { createContext, FC, useState } from 'react';
 import { Auth0Provider, useAuth0 } from '@auth0/auth0-react';
 
-import { Login } from 'components/LoginPage';
-
 import noop from 'utils/noop';
+import { Login } from '../components/pages/Login';
 
 interface AuthContext {
   isAuthenticated: boolean;

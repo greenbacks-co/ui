@@ -3,10 +3,10 @@ import styled from 'styled-components';
 
 import useLogin from 'hooks/useLogin';
 import noop from 'utils/noop';
-import { Link } from './atoms/Link';
-import { PageWrapper } from './molecules/Page';
-import { Size, Text } from './atoms/Text';
-import Button from './atoms/Button';
+import { Link } from '../atoms/Link';
+import { PageWrapper } from '../molecules/Page';
+import { Size, Text } from '../atoms/Text';
+import Button from '../atoms/Button';
 
 export function Login({
   onLogin = noop,
