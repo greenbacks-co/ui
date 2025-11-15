@@ -2,37 +2,32 @@ import React, { ReactElement, useState } from 'react';
 import TransactionType from 'types/transaction';
 import { Placeholder } from 'components/atoms/Placeholder';
 import Transaction from './Transaction';
-import LoadingIndicator from '../atoms/LoadingIndicator';
 import Icon, { IconType } from '../atoms/Icon';
 import List, { Item } from '../atoms/List';
 import { Panel, PanelItem } from '../atoms/Panel';
-import { Alignment, Row } from '../atoms/Row';
+import { Row } from '../atoms/Row';
 import { Size, Text } from '../atoms/Text';
 import Button, { ButtonStyle } from '../atoms/Button';
 
 const PAGE_SIZE = 10;
 
 export function TransactionsPanel({
-  isLoading = false,
+  loading = false,
   title = 'Transactions',
   transactions = [],
 }: {
-  isLoading?: boolean;
+  loading?: boolean;
   title?: string;
   transactions?: TransactionType[];
 }): ReactElement {
   const [page, setPage] = useState(0);
-  if (isLoading)
+  if (loading)
     return (
       <Panel>
         <PanelItem hasBottomBorder>
           <Text>Transactions</Text>
         </PanelItem>
-        <PanelItem>
-          <Row alignment={Alignment.Center}>
-            <LoadingIndicator />
-          </Row>
-        </PanelItem>
+        <Placeholder loading />
       </Panel>
     );
   if (!transactions || transactions.length === 0)

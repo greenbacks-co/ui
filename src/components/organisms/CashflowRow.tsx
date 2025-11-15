@@ -73,6 +73,7 @@ export function CashflowRow({
         variability={variability}
       />
       <TransactionsPanel
+        loading={loading}
         title={selectedTagGroup ? tag : selectedCategoryGroup?.name}
         transactions={
           selectedTagGroup
