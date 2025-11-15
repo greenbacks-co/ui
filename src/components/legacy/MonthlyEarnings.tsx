@@ -5,7 +5,7 @@ import useCurrencyFormatter from 'hooks/useCurrencyFormatter';
 import useMonth from 'hooks/useMonth';
 import useTransactionsByCategory from 'hooks/useTransactionsByCategory';
 import getTransactionsByDate from 'utils/getTransactionsByDate';
-import LoadingIndicator from './atoms/LoadingIndicator';
+import LoadingIndicator from '../atoms/LoadingIndicator';
 
 const MonthlyEarnings: FC = () => {
   const { endDate, startDate } = useMonth();
