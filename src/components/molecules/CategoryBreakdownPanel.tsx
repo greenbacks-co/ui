@@ -11,6 +11,7 @@ import { Row } from '../atoms/Row';
 import { Text } from '../atoms/Text';
 import Button, { ButtonStyle } from '../atoms/Button';
 import { CategoryLabel } from './CategoryLabel';
+import { Placeholder } from '../atoms/Placeholder';
 
 export function CategoryBreakdownPanel({
   category,
@@ -27,7 +28,15 @@ export function CategoryBreakdownPanel({
   variability?: Variability;
 }): ReactElement {
   const { format } = useCurrencyFormatter();
-  if (!category || !variability) return <></>;
+  if (!category || !variability)
+    return (
+      <Panel>
+        <PanelItem hasBottomBorder>
+          <Text>Category Breakdown</Text>
+        </PanelItem>
+        <Placeholder>Please Select a Category</Placeholder>
+      </Panel>
+    );
   return (
     <Panel>
       <PanelItem hasBottomBorder>
