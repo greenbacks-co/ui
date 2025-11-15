@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Cashflow, Totals } from 'components/NewCashflow';
+import { Cashflow, Totals } from './CashflowTimeline';
 
 const meta: Meta<typeof Cashflow> = {
   args: {

@@ -6,7 +6,7 @@ import useTransactionsByCategory from 'hooks/useTransactionsByCategory';
 import Transaction from 'types/transaction';
 import { Variability } from 'types/variability';
 import groupTransactions, { GroupBy } from 'utils/groupTransactions';
-import { Cashflow, Series, Totals } from '../NewCashflow';
+import { Cashflow, Series, Totals } from '../atoms/charts/CashflowTimeline';
 
 export function CashflowTimeline({
   totals = [],
