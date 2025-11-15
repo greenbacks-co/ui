@@ -9,11 +9,13 @@ import { Row } from '../atoms/Row';
 import { Text } from '../atoms/Text';
 import Button, { ButtonStyle } from '../atoms/Button';
 import { CategoryLabel } from './CategoryLabel';
+import { Placeholder } from '../atoms/Placeholder';
 
 export function CashflowGuagePanel({
   fixedEarning = 0,
   fixedSaving = 0,
   fixedSpending = 0,
+  loading = false,
   onSelect = noop,
   projectedFixedEarning = 0,
   projectedFixedSpending = 0,
@@ -24,6 +26,7 @@ export function CashflowGuagePanel({
   fixedEarning?: number;
   fixedSaving?: number;
   fixedSpending?: number;
+  loading?: boolean;
   onSelect?: (input: { category: Category; variability: Variability }) => void;
   projectedFixedEarning?: number;
   projectedFixedSpending?: number;
@@ -33,6 +36,15 @@ export function CashflowGuagePanel({
 }): ReactElement {
   const { format } = useCurrencyFormatter();
   const { format: formatShort } = useCurrencyFormatter({ shorten: true });
+  if (loading)
+    return (
+      <Panel>
+        <PanelItem hasBottomBorder>
+          <Text>Transactions</Text>
+        </PanelItem>
+        <Placeholder loading />
+      </Panel>
+    );
   const remainingProjectedFixedEarning = Math.max(
     projectedFixedEarning - fixedEarning,
     0,

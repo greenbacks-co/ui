@@ -8,6 +8,7 @@ const meta: Meta<React.ComponentProps<typeof Component>> = {
     fixedEarning: 100000,
     fixedSaving: 60000,
     fixedSpending: 60000,
+    loading: false,
     onSelect: fn(),
     variableEarning: 100000,
     variableSaving: 60000,
@@ -22,5 +23,11 @@ const meta: Meta<React.ComponentProps<typeof Component>> = {
 type Story = StoryObj<typeof Component>;
 
 export const Playground: Story = {};
+
+export const Loading: Story = {
+  args: {
+    loading: true,
+  },
+};
 
 export default meta;

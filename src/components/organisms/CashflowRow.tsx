@@ -55,6 +55,7 @@ export function CashflowRow({
         fixedEarning={fixedEarning?.total}
         fixedSaving={fixedSaving?.total}
         fixedSpending={fixedSpending?.total}
+        loading={loading}
         projectedFixedEarning={projectedFixedEarning}
         projectedFixedSpending={projectedFixedSpending}
         variableEarning={variableEarning?.total}
