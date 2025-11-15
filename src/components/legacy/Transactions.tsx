@@ -7,8 +7,8 @@ import groupTransactions, {
   SortGroupsBy,
 } from 'utils/groupTransactions';
 import styled from 'utils/styled';
-import Transaction from './molecules/Transaction';
-import List, { Item } from './atoms/List';
+import Transaction from '../molecules/Transaction';
+import List, { Item } from '../atoms/List';
 
 const Transactions: FC<{
   groupBy?: GroupBy;

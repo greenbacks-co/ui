@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 
-import Transactions from 'components/Transactions';
 import useAveragingPeriod from 'hooks/useAveragingPeriod';
 import useNow from 'hooks/useNow';
 import useUntaggedTransactions from 'hooks/useUntaggedTransactions';
+import Transactions from './Transactions';
 import SectionContainer from './SectionContainer';
 import LoadingIndicator from '../atoms/LoadingIndicator';
 

@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import Transactions from 'components/Transactions';
 import { transactions } from 'stories/testTransactions';
 import { GroupBy, SortGroupsBy } from 'utils/groupTransactions';
+import Transactions from './Transactions';
 
 const meta: Meta<typeof Transactions> = {
   args: {
