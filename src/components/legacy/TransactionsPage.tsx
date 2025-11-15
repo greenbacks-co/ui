@@ -1,13 +1,13 @@
 import React, { FC, useState } from 'react';
 
 import Select from 'components/Select';
-import TransactionSelector from 'components/TransactionSelector';
 import useCategories from 'hooks/useCategories';
 import useMonth from 'hooks/useMonth';
 import useSelectedFilters from 'hooks/useSelectedFilters';
 import useTransactionsByCategory from 'hooks/useTransactionsByCategory';
 import Transaction, { Category } from 'types/transaction';
 import { GroupBy, SortGroupsBy } from 'utils/groupTransactions';
+import TransactionSelector from './TransactionSelector';
 import Transactions from './Transactions';
 import MonthSelector from '../organisms/MonthSelector';
 
