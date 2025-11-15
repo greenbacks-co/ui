@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import { Pie, PieChart, ResponsiveContainer } from 'recharts';
 
-import SectionContainer from 'components/SectionContainer';
 import useCurrencyFormatter from 'hooks/useCurrencyFormatter';
 import type { TagGroup } from 'types/tagGroup';
+import SectionContainer from './SectionContainer';
 import LoadingIndicator from '../atoms/LoadingIndicator';
 
 const TransactionsByTag: FC<{

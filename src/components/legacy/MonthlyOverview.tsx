@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
 
-import SectionContainer from 'components/SectionContainer';
 import useCurrencyFormatter from 'hooks/useCurrencyFormatter';
 import useMonth from 'hooks/useMonth';
 import useTotalEarning from 'hooks/useTotalEarning';
 import useTotalSaving from 'hooks/useTotalSaving';
 import useTotalSpending from 'hooks/useTotalSpending';
+import SectionContainer from './SectionContainer';
 import CashFlowGraph from './CashFlowGraph';
 import LoadingIndicator from '../atoms/LoadingIndicator';
 

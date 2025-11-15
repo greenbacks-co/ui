@@ -1,10 +1,10 @@
 import React, { FC, Fragment } from 'react';
 
-import SectionContainer from 'components/SectionContainer';
 import useCurrencyFormatter from 'hooks/useCurrencyFormatter';
 import useMonth from 'hooks/useMonth';
 import useTransactionsByCategory from 'hooks/useTransactionsByCategory';
 import getTransactionsByDate from 'utils/getTransactionsByDate';
+import SectionContainer from './SectionContainer';
 import LoadingIndicator from '../atoms/LoadingIndicator';
 
 const MonthlyExpenses: FC = () => {
