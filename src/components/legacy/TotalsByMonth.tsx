@@ -1,5 +1,5 @@
 import { DateTime } from 'luxon';
-import React, { FC, Fragment } from 'react';
+import React, { FC } from 'react';
 import {
   LabelList,
   Legend,
@@ -15,12 +15,12 @@ import Checkboxes from 'components/Checkboxes';
 import useCurrencyFormatter from 'hooks/useCurrencyFormatter';
 import useMultiselect from 'hooks/useMultiselect';
 import useTotalsByMonth, { MonthTotals } from 'hooks/useTotalsByMonth';
-import LoadingIndicator from './atoms/LoadingIndicator';
-import { Icon, IconType } from './atoms/Icon';
-import { Panel, PanelItem } from './atoms/Panel';
-import { Alignment, Row } from './atoms/Row';
-import { Size, Text } from './atoms/Text';
-import { Button, ButtonStyle } from './atoms/Button';
+import LoadingIndicator from '../atoms/LoadingIndicator';
+import { Icon, IconType } from '../atoms/Icon';
+import { Panel, PanelItem } from '../atoms/Panel';
+import { Alignment, Row } from '../atoms/Row';
+import { Size, Text } from '../atoms/Text';
+import { Button, ButtonStyle } from '../atoms/Button';
 
 const TotalsByMonth: FC<{ area?: string; hasCheckboxes?: boolean }> = ({
   area,

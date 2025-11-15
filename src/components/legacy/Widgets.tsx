@@ -3,8 +3,8 @@ import { Route, Routes, useNavigate } from 'react-router-dom';
 
 import AccountConnectionBarrier from 'components/AccountConnectionBarrier';
 import Select from 'components/Select';
-import TotalsByMonth from 'components/TotalsByMonth';
 import TransactionsPage from 'components/TransactionsPage';
+import TotalsByMonth from './TotalsByMonth';
 import SpendingTimeline from './SpendingTimeline';
 import UntaggedTransactions from './UntaggedTransactions';
 import AverageSpendingByTag from './AverageSpendingByTag';
