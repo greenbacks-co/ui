@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Month, TotalsByMonth } from 'components/NewTotalsByMonth';
+import { Month, TotalsByMonth } from './TotalsByMonth';
 
 const meta: Meta<React.ComponentProps<typeof TotalsByMonth>> = {
   args: {

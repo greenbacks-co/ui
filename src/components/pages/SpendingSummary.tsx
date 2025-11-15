@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import MonthSelector from '../organisms/MonthSelector';
-import { TotalsByMonthPanelContainer as TotalsByMonth } from '../NewTotalsByMonth';
+import { TotalsByMonthPanelContainer as TotalsByMonth } from '../organisms/TotalsByMonth';
 import { CashflowRowContainer } from '../organisms/CashflowRow';
 
 export function SpendingSummary(): React.ReactElement {

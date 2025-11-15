@@ -6,9 +6,9 @@ import useNow from 'hooks/useNow';
 import Transaction from 'types/transaction';
 import { Variability } from 'types/variability';
 import groupTransactions, { GroupBy } from 'utils/groupTransactions';
-import { Panel, PanelItem } from './atoms/Panel';
-import { Text } from './atoms/Text';
-import { Cashflow, Series } from './NewCashflow';
+import { Panel, PanelItem } from '../atoms/Panel';
+import { Text } from '../atoms/Text';
+import { Cashflow, Series } from '../NewCashflow';
 
 export function TotalsByMonth({
   monthTotals = [],
