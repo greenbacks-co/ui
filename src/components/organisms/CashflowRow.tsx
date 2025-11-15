@@ -70,8 +70,12 @@ export function CashflowRow({
         variability={variability}
       />
       <TransactionsPanel
-        title={tag}
-        transactions={selectedTagGroup?.transactions}
+        title={selectedTagGroup ? tag : selectedCategoryGroup?.name}
+        transactions={
+          selectedTagGroup
+            ? selectedTagGroup?.transactions
+            : selectedCategoryGroup?.transactions
+        }
       />
     </Wrapper>
   );

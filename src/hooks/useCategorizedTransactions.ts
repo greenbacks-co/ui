@@ -23,12 +23,18 @@ export function useCategorizedTransactions({
     startDate: startDate.toISODate(),
     endDate: endDate.toISODate(),
   });
-  const { fixed: fixedEarning, variable: variableEarning } =
-    splitCategory(earning);
-  const { fixed: fixedSaving, variable: variableSaving } =
-    splitCategory(saving);
-  const { fixed: fixedSpending, variable: variableSpending } =
-    splitCategory(spending);
+  const { fixed: fixedEarning, variable: variableEarning } = splitCategory({
+    name: 'Earning',
+    transactions: earning,
+  });
+  const { fixed: fixedSaving, variable: variableSaving } = splitCategory({
+    name: 'Saving',
+    transactions: saving,
+  });
+  const { fixed: fixedSpending, variable: variableSpending } = splitCategory({
+    name: 'Spending',
+    transactions: spending,
+  });
   return {
     fixedEarning,
     fixedSaving,
@@ -41,6 +47,7 @@ export function useCategorizedTransactions({
 }
 
 export interface CategoryGroup {
+  name: string;
   tags: TagGroup[];
   total: number;
   transactions: Transaction[];
@@ -52,7 +59,13 @@ export interface TagGroup {
   transactions: Transaction[];
 }
 
-function splitCategory(transactions?: Transaction[]): {
+function splitCategory({
+  name,
+  transactions,
+}: {
+  name: string;
+  transactions?: Transaction[];
+}): {
   fixed: CategoryGroup;
   variable: CategoryGroup;
 } {
@@ -72,11 +85,13 @@ function splitCategory(transactions?: Transaction[]): {
   });
   return {
     fixed: {
+      name: `Fixed ${name}`,
       tags: fixedTags?.map((group) => ({ ...group, name: group.key })) ?? [],
       total: fixed?.total ?? 0,
       transactions: fixed?.transactions ?? [],
     },
     variable: {
+      name: `Variable ${name}`,
       tags: variableTags?.map((group) => ({ ...group, name: group.key })) ?? [],
       total: variable?.total ?? 0,
       transactions: variable?.transactions ?? [],
