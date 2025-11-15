@@ -4,19 +4,19 @@ import React, { ReactElement, useState } from 'react';
 import TransactionType from 'types/transaction';
 import noop from 'utils/noop';
 
-import useNow from '../hooks/useNow';
+import useNow from '../../hooks/useNow';
 import groupTransactions, {
   GroupBy,
   SortTransactionsBy,
-} from '../utils/groupTransactions';
-import Button, { ButtonStyle } from './atoms/Button';
-import Icon, { IconType } from './atoms/Icon';
-import { Alignment, Row } from './atoms/Row';
-import List, { Item } from './atoms/List';
-import LoadingIndicator from './atoms/LoadingIndicator';
-import { Panel, PanelItem } from './atoms/Panel';
-import { Size, Text } from './atoms/Text';
-import Transaction from './molecules/Transaction';
+} from '../../utils/groupTransactions';
+import Button, { ButtonStyle } from '../atoms/Button';
+import Icon, { IconType } from '../atoms/Icon';
+import { Alignment, Row } from '../atoms/Row';
+import List, { Item } from '../atoms/List';
+import LoadingIndicator from '../atoms/LoadingIndicator';
+import { Panel, PanelItem } from '../atoms/Panel';
+import { Size, Text } from '../atoms/Text';
+import Transaction from '../molecules/Transaction';
 
 export function UntaggedTransactions({
   currentIndex = 0,
