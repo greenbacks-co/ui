@@ -8,13 +8,13 @@ import {
   YAxis,
 } from 'recharts';
 
-import ArticleContainer from 'components/ArticleContainer';
 import useAverageMonthlyEarning from 'hooks/useAverageMonthlyEarning';
 import useAverageMonthlySaving from 'hooks/useAverageMonthlySaving';
 import useAverageMonthlySpending from 'hooks/useAverageMonthlySpending';
 import useMonth from 'hooks/useMonth';
 import useTransactionsByCategory from 'hooks/useTransactionsByCategory';
 import Transaction from 'types/transaction';
+import ArticleContainer from './ArticleContainer';
 import MonthSelector from '../organisms/MonthSelector';
 import RadioButtons from '../atoms/RadioButtons';
 import LoadingIndicator from '../atoms/LoadingIndicator';

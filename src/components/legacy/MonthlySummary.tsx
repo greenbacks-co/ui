@@ -3,7 +3,7 @@ import React, { FC } from 'react';
 import useMonth from 'hooks/useMonth';
 import useTransactionsByTag from 'hooks/useTransactionsByTag';
 import useUntaggedTransactions from 'hooks/useUntaggedTransactions';
-import ArticleContainer from '../ArticleContainer';
+import ArticleContainer from './ArticleContainer';
 import MonthlyEarnings from './MonthlyEarnings';
 import MonthlyExpenses from './MonthlyExpenses';
 import MonthlySavings from './MonthlySavings';
