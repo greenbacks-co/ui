@@ -1,7 +1,6 @@
 import { DateTime } from 'luxon';
 import React, { useContext, useState } from 'react';
 
-import { MonthlyAmountsGraph } from 'components/MonthlyAmountsGraph';
 import { UserSettingsContext } from 'context/UserSettings';
 import useCurrencyFormatter from 'hooks/useCurrencyFormatter';
 import useNow from 'hooks/useNow';
@@ -14,6 +13,7 @@ import {
   SortGroupsBy,
 } from 'utils/groupTransactions';
 import noop from 'utils/noop';
+import { MonthlyAmountsGraph } from './MonthlyAmountsGraph';
 import LoadingIndicator from '../atoms/LoadingIndicator';
 import { Icon, IconType } from '../atoms/Icon';
 import List, { Item } from '../atoms/List';

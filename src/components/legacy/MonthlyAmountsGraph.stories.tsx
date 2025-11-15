@@ -1,7 +1,7 @@
 import { DateTime } from 'luxon';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { MonthlyAmountsGraph } from 'components/MonthlyAmountsGraph';
+import { MonthlyAmountsGraph } from './MonthlyAmountsGraph';
 
 const meta: Meta<React.ComponentProps<typeof MonthlyAmountsGraph>> = {
   args: {
