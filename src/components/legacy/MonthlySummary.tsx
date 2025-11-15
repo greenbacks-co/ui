@@ -6,7 +6,7 @@ import useUntaggedTransactions from 'hooks/useUntaggedTransactions';
 import ArticleContainer from '../ArticleContainer';
 import MonthlyEarnings from './MonthlyEarnings';
 import MonthlyExpenses from './MonthlyExpenses';
-import MonthlySavings from '../MonthlySavings';
+import MonthlySavings from './MonthlySavings';
 import MonthlyOverview from './MonthlyOverview';
 import SectionContainer from '../SectionContainer';
 import TransactionsByTag from '../TransactionsByTag';
