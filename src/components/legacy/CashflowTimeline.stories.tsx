@@ -1,13 +1,13 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import {
-  CashflowTimeline,
-  CashflowTimelineContainer,
-} from 'components/CashflowTimeline';
 import { Totals } from 'components/NewCashflow';
 import RouteProvider from 'context/Route';
 import { DemoApiProvider } from 'context/GreenbacksApi';
+import {
+  CashflowTimeline,
+  CashflowTimelineContainer,
+} from './CashflowTimeline';
 
 const meta: Meta<typeof CashflowTimeline> = {
   args: {

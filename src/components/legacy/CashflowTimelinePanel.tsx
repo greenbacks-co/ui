@@ -10,7 +10,7 @@ import groupTransactions, {
   GroupBy,
   SortGroupsBy,
 } from 'utils/groupTransactions';
-import { buildTimeline, CashflowTimeline } from '../CashflowTimeline';
+import { buildTimeline, CashflowTimeline } from './CashflowTimeline';
 import { LABELS_BY_SERIES, Series, Totals } from '../NewCashflow';
 import { Panel, PanelItem } from '../atoms/Panel';
 import { Size, Text } from '../atoms/Text';
