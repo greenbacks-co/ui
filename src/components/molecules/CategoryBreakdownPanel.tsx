@@ -37,6 +37,15 @@ export function CategoryBreakdownPanel({
         <Placeholder>Please Select a Category</Placeholder>
       </Panel>
     );
+  if (tags.length === 0)
+    return (
+      <Panel>
+        <PanelItem hasBottomBorder>
+          <Text>Category Breakdown</Text>
+        </PanelItem>
+        <Placeholder>Selected Category is Empty</Placeholder>
+      </Panel>
+    );
   return (
     <Panel>
       <PanelItem hasBottomBorder>

@@ -41,4 +41,12 @@ export const Placeholder: Story = {
   },
 };
 
+export const Empty: Story = {
+  args: {
+    category: Category.Earning,
+    tags: [],
+    variability: Variability.Fixed,
+  },
+};
+
 export default meta;
