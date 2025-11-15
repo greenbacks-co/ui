@@ -1,10 +1,10 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import SpendingTimeline from 'components/SpendingTimeline';
 import { TestGreenbacksProvider } from 'context/Greenbacks';
 import { transactions } from 'stories/testTransactions';
 import buildApiTransactionsMock from '__test__/utils/buildApiTransactionsMock';
+import SpendingTimeline from './SpendingTimeline';
 
 const meta: Meta<typeof SpendingTimeline> = {
   parameters: {

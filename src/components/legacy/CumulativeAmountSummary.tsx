@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react';
 
-import { PureSpendingTimeline as SpendingTimeline } from 'components/SpendingTimeline';
 import { UserSettingsContext } from 'context/UserSettings';
 import useCurrencyFormatter from 'hooks/useCurrencyFormatter';
 import useNow from 'hooks/useNow';
@@ -16,6 +15,7 @@ import {
   SortTransactionsBy,
 } from 'utils/groupTransactions';
 import noop from 'utils/noop';
+import { PureSpendingTimeline as SpendingTimeline } from './SpendingTimeline';
 import { PureMonthSelector as MonthSelector } from '../organisms/MonthSelector';
 import Transaction from '../molecules/Transaction';
 import LoadingIndicator from '../atoms/LoadingIndicator';

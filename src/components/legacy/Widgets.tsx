@@ -3,9 +3,9 @@ import { Route, Routes, useNavigate } from 'react-router-dom';
 
 import AccountConnectionBarrier from 'components/AccountConnectionBarrier';
 import Select from 'components/Select';
-import SpendingTimeline from 'components/SpendingTimeline';
 import TotalsByMonth from 'components/TotalsByMonth';
 import TransactionsPage from 'components/TransactionsPage';
+import SpendingTimeline from './SpendingTimeline';
 import UntaggedTransactions from './UntaggedTransactions';
 import AverageSpendingByTag from './AverageSpendingByTag';
 import { NetExplorerMonthContainer as NetExplorer } from './NetExplorer';

@@ -2,8 +2,8 @@ import React from 'react';
 import { DateTime } from 'luxon';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { PureSpendingTimeline as SpendingTimeline } from 'components/SpendingTimeline';
 import { transactions } from 'stories/testTransactions';
+import { PureSpendingTimeline as SpendingTimeline } from './SpendingTimeline';
 
 type Args = React.ComponentProps<typeof SpendingTimeline> & {
   endDate: string;
