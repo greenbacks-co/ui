@@ -1,5 +1,6 @@
 import React, { ReactElement, useState } from 'react';
 import TransactionType from 'types/transaction';
+import { Placeholder } from 'components/atoms/Placeholder';
 import Transaction from './Transaction';
 import LoadingIndicator from '../atoms/LoadingIndicator';
 import Icon, { IconType } from '../atoms/Icon';
@@ -32,6 +33,15 @@ export function TransactionsPanel({
             <LoadingIndicator />
           </Row>
         </PanelItem>
+      </Panel>
+    );
+  if (!transactions || transactions.length === 0)
+    return (
+      <Panel>
+        <PanelItem hasBottomBorder>
+          <Text>Transactions</Text>
+        </PanelItem>
+        <Placeholder>No Transactions</Placeholder>
       </Panel>
     );
   const sortedTransactions = transactions.sort((a, b) =>

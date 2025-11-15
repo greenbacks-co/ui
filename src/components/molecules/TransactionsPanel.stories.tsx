@@ -17,4 +17,10 @@ type Story = StoryObj<typeof Component>;
 
 export const Playground: Story = {};
 
+export const Placeholder: Story = {
+  args: {
+    transactions: undefined,
+  },
+};
+
 export default meta;
