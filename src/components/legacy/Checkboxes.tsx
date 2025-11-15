@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 
-import Checkbox from 'components/Checkbox';
 import noop from 'utils/noop';
-import Button from './atoms/Button';
+import Checkbox from './Checkbox';
+import Button from '../atoms/Button';
 
 const Checkboxes: FC<{
   hasButtons?: boolean;

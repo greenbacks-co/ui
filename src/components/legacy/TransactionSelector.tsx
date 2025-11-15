@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 
-import Checkboxes from 'components/Checkboxes';
 import { Category } from 'types/transaction';
 import noop from 'utils/noop';
+import Checkboxes from './Checkboxes';
 
 const TransactionSelector: FC<{
   onChangeSelectedCategories?: (categories: string[]) => void;

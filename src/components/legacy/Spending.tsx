@@ -1,9 +1,9 @@
 import React, { FC, useEffect, useState } from 'react';
 
-import Checkboxes from 'components/Checkboxes';
 import useAveragingPeriod from 'hooks/useAveragingPeriod';
 import useTagsByCategory from 'hooks/useTagsByCategory';
 import useTransactionsByTag from 'hooks/useTransactionsByTag';
+import Checkboxes from './Checkboxes';
 import AverageSpendingSummary from './AverageSpendingSummary';
 import SpendingByTagAndMonthGraph from './SpendingByTagAndMonthGraph';
 import TransactionsByTag from './TransactionsByTag';

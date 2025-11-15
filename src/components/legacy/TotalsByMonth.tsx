@@ -11,10 +11,10 @@ import {
 } from 'recharts';
 import styled from 'styled-components';
 
-import Checkboxes from 'components/Checkboxes';
 import useCurrencyFormatter from 'hooks/useCurrencyFormatter';
 import useMultiselect from 'hooks/useMultiselect';
 import useTotalsByMonth, { MonthTotals } from 'hooks/useTotalsByMonth';
+import Checkboxes from './Checkboxes';
 import LoadingIndicator from '../atoms/LoadingIndicator';
 import { Icon, IconType } from '../atoms/Icon';
 import { Panel, PanelItem } from '../atoms/Panel';

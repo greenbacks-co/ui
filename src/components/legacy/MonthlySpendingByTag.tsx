@@ -9,13 +9,13 @@ import {
   YAxis,
 } from 'recharts';
 
-import Checkbox from 'components/Checkbox';
-import Checkboxes from 'components/Checkboxes';
 import useAveragingPeriod from 'hooks/useAveragingPeriod';
 import useMonth from 'hooks/useMonth';
 import useMultiselect from 'hooks/useMultiselect';
 import useTransactionsByTag from 'hooks/useTransactionsByTag';
 import type { TagGroup } from 'types/tagGroup';
+import Checkbox from './Checkbox';
+import Checkboxes from './Checkboxes';
 import MonthSelector from '../organisms/MonthSelector';
 import LoadingIndicator from '../atoms/LoadingIndicator';
 

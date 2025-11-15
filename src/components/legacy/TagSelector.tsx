@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react';
 
-import Checkboxes from 'components/Checkboxes';
 import useTagsByCategory from 'hooks/useTagsByCategory';
+import Checkboxes from './Checkboxes';
 
 const TagSelector: FC = () => {
   const { spending: spendingTags } = useTagsByCategory();
