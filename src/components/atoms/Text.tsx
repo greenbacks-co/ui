@@ -8,6 +8,7 @@ export function Text({
   heirarchy = Heirarchy.P,
   isBold = false,
   isCenterAligned = false,
+  isFullWidth = false,
   isRightAligned = false,
   isUnderlined = false,
   size = Size.Medium,
@@ -18,6 +19,7 @@ export function Text({
   heirarchy?: Heirarchy;
   isBold?: boolean;
   isCenterAligned?: boolean;
+  isFullWidth?: boolean;
   isRightAligned?: boolean;
   isUnderlined?: boolean;
   size?: Size;
@@ -29,6 +31,7 @@ export function Text({
       canOverflow={canOverflow}
       isBold={isBold}
       isCenterAligned={isCenterAligned}
+      isFullWidth={isFullWidth}
       isRightAligned={isRightAligned}
       isUnderlined={isUnderlined}
       size={size}
@@ -71,6 +74,7 @@ interface InnerTextProps {
   canOverflow?: boolean;
   isBold: boolean;
   isCenterAligned: boolean;
+  isFullWidth: boolean;
   isRightAligned: boolean;
   isUnderlined: boolean;
   size: Size;
@@ -86,6 +90,7 @@ const sharedStyles = css<InnerTextProps>`
   ${({ isCenterAligned }) => isCenterAligned && 'text-align: center;'}
   ${({ isRightAligned }) => isRightAligned && 'text-align: right;'}
   ${({ isUnderlined }) => isUnderlined && 'text-decoration: underline;'}
+  ${({ isFullWidth }) => isFullWidth && 'flex-grow: 1;'}
   ${({ canOverflow }) =>
     !canOverflow &&
     `
