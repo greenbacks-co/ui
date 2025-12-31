@@ -28,7 +28,7 @@ const Wrapper = styled.div<{
   columnBreakpoint?: number;
   space: Space;
 }>`
-  align-items: baseline;
+  align-items: center;
   display: flex;
   gap: ${({ space }) => getWidth({ space })};
   justify-content: ${({ alignment }) => alignment};

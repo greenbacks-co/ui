@@ -3,6 +3,7 @@ import { CategoryBreakdownPanel } from 'components/molecules/CategoryBreakdownPa
 import { TransactionsPanel } from 'components/molecules/TransactionsPanel';
 import {
   CategoryGroup,
+  TagGroup,
   useCategorizedTransactions,
 } from 'hooks/useCategorizedTransactions';
 import useMonth from 'hooks/useMonth';
@@ -19,6 +20,7 @@ export function CashflowRow({
   loading = false,
   projectedFixedEarning = 0,
   projectedFixedSpending = 0,
+  tagAverages = {},
   variableEarning,
   variableSaving,
   variableSpending,
@@ -29,6 +31,9 @@ export function CashflowRow({
   loading?: boolean;
   projectedFixedEarning?: number;
   projectedFixedSpending?: number;
+  tagAverages?: Partial<
+    Record<Category, Partial<Record<Variability, Record<string, number>>>>
+  >;
   variableEarning: CategoryGroup;
   variableSaving: CategoryGroup;
   variableSpending: CategoryGroup;
@@ -49,6 +54,8 @@ export function CashflowRow({
   const selectedTagGroup = selectedCategoryGroup?.tags?.find(
     ({ name }) => name === tag,
   );
+  const selectedTagAverage =
+    category && variability ? tagAverages[category]?.[variability] : {};
   return (
     <Wrapper>
       <CashflowGuagePanel
@@ -71,6 +78,7 @@ export function CashflowRow({
         loading={loading}
         onSelect={(newTag) => setTag(newTag)}
         tags={selectedCategoryGroup?.tags}
+        tagAverages={selectedTagAverage}
         variability={variability}
       />
       <TransactionsPanel
@@ -144,9 +152,13 @@ export function CashflowRowContainer(): ReactElement {
     endDate: datetime.fromISO(endDate),
   });
   const {
-    fixedEarning: projectedFixedEarning,
-    fixedSpending: projectedFixedSpending,
-    isLoading: loadingProjections,
+    fixedEarning: averageFixedEarning,
+    fixedSaving: averageFixedSaving,
+    fixedSpending: averageFixedSpending,
+    isLoading: loadingAverages,
+    variableEarning: averageVariableEarning,
+    variableSaving: averageVariableSaving,
+    variableSpending: averageVariableSpending,
   } = useCategorizedTransactions({
     startDate: datetime
       .fromISO(startDate)
@@ -154,21 +166,46 @@ export function CashflowRowContainer(): ReactElement {
       .startOf('month'),
     endDate: datetime.fromISO(startDate).minus({ months: 1 }).endOf('month'),
   });
+  const tagAverages = {
+    [Category.Earning]: {
+      [Variability.Fixed]: collectAverages(averageFixedEarning.tags),
+      [Variability.Variable]: collectAverages(averageVariableEarning.tags),
+    },
+    [Category.Saving]: {
+      [Variability.Fixed]: collectAverages(averageFixedSaving.tags),
+      [Variability.Variable]: collectAverages(averageVariableSaving.tags),
+    },
+    [Category.Spending]: {
+      [Variability.Fixed]: collectAverages(averageFixedSpending.tags),
+      [Variability.Variable]: collectAverages(averageVariableSpending.tags),
+    },
+  };
   return (
     <CashflowRow
       fixedEarning={fixedEarning}
       fixedSaving={fixedSaving}
       fixedSpending={fixedSpending}
-      loading={loadingTransactions || loadingProjections}
+      loading={loadingTransactions || loadingAverages}
       projectedFixedEarning={
-        isCurrent ? projectedFixedEarning?.total / 3 : undefined
+        isCurrent ? averageFixedEarning?.total / 3 : undefined
       }
       projectedFixedSpending={
-        isCurrent ? projectedFixedSpending?.total / 3 : undefined
+        isCurrent ? averageFixedSpending?.total / 3 : undefined
       }
+      tagAverages={tagAverages}
       variableEarning={variableEarning}
       variableSaving={variableSaving}
       variableSpending={variableSpending}
     />
+  );
+}
+
+function collectAverages(tags: TagGroup[]): Record<string, number> {
+  return tags.reduce(
+    (result, tag) => ({
+      ...result,
+      [tag.name]: tag.total / 3,
+    }),
+    {},
   );
 }

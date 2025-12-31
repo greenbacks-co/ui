@@ -8,7 +8,7 @@ import noop from 'utils/noop';
 import List, { Item } from '../atoms/List';
 import { Panel, PanelItem } from '../atoms/Panel';
 import { Row } from '../atoms/Row';
-import { Text } from '../atoms/Text';
+import { Size, Text } from '../atoms/Text';
 import Button, { ButtonStyle } from '../atoms/Button';
 import { CategoryLabel } from './CategoryLabel';
 import { Placeholder } from '../atoms/Placeholder';
@@ -18,6 +18,7 @@ export function CategoryBreakdownPanel({
   loading = false,
   onSelect = noop,
   tags = [],
+  tagAverages = {},
   variability,
 }: {
   category?: Category;
@@ -27,6 +28,7 @@ export function CategoryBreakdownPanel({
     name: string;
     total: number;
   }>;
+  tagAverages?: Record<string, number>;
   variability?: Variability;
 }): ReactElement {
   const { format } = useCurrencyFormatter();
@@ -82,20 +84,35 @@ export function CategoryBreakdownPanel({
       <List hasOutsideBorder={false}>
         {tags
           .sort((a, b) => (a.total > b.total ? -1 : 1))
-          .map(({ name, total }) => (
-            <Item>
-              <Button
-                isFullWidth
-                onClick={() => onSelect(name)}
-                style={ButtonStyle.Unstyled}
-              >
-                <Row>
-                  <Text>{name}</Text>
-                  <Text>{format(total)}</Text>
-                </Row>
-              </Button>
-            </Item>
-          ))}
+          .map(({ name, total }) => {
+            const difference = total - tagAverages[name];
+            const differenceFraction = Math.abs(difference / total);
+            return (
+              <Item>
+                <Button
+                  isFullWidth
+                  onClick={() => onSelect(name)}
+                  style={ButtonStyle.Unstyled}
+                >
+                  <Row>
+                    <Text>{name}</Text>
+                    <Row>
+                      {tagAverages[name] && differenceFraction > 0.2 && (
+                        <>
+                          <Text size={Size.Small}>
+                            ({difference > 0 && '+'}
+                            {format(difference)})
+                          </Text>
+                          &nbsp;
+                        </>
+                      )}
+                      <Text>{format(total)}</Text>
+                    </Row>
+                  </Row>
+                </Button>
+              </Item>
+            );
+          })}
       </List>
     </Panel>
   );
