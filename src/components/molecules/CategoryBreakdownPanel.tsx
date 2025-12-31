@@ -7,7 +7,7 @@ import { CATEGORY_COLOURS } from 'utils/categoryColours';
 import noop from 'utils/noop';
 import List, { Item } from '../atoms/List';
 import { Panel, PanelItem } from '../atoms/Panel';
-import { Row } from '../atoms/Row';
+import { Alignment, Row, Space } from '../atoms/Row';
 import { Size, Text } from '../atoms/Text';
 import Button, { ButtonStyle } from '../atoms/Button';
 import { CategoryLabel } from './CategoryLabel';
@@ -94,20 +94,15 @@ export function CategoryBreakdownPanel({
                   onClick={() => onSelect(name)}
                   style={ButtonStyle.Unstyled}
                 >
-                  <Row>
-                    <Text>{name}</Text>
-                    <Row>
-                      {tagAverages[name] && differenceFraction > 0.2 && (
-                        <>
-                          <Text size={Size.Small}>
-                            ({difference > 0 && '+'}
-                            {format(difference)})
-                          </Text>
-                          &nbsp;
-                        </>
-                      )}
-                      <Text>{format(total)}</Text>
-                    </Row>
+                  <Row alignment={Alignment.End} space={Space.Medium}>
+                    <Text isFullWidth>{name}</Text>
+                    {tagAverages[name] && differenceFraction > 0.2 && (
+                      <Text size={Size.Small}>
+                        ({difference > 0 && '+'}
+                        {format(difference)})
+                      </Text>
+                    )}
+                    <Text>{format(total)}</Text>
                   </Row>
                 </Button>
               </Item>
