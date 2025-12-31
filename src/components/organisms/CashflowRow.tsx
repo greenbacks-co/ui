@@ -13,6 +13,8 @@ import { Category } from 'types/transaction';
 import { Variability } from 'types/variability';
 import datetime from 'utils/datetime';
 
+const MONTHS_TO_AVERAGE = 3;
+
 export function CashflowRow({
   fixedEarning,
   fixedSaving,
@@ -162,7 +164,7 @@ export function CashflowRowContainer(): ReactElement {
   } = useCategorizedTransactions({
     startDate: datetime
       .fromISO(startDate)
-      .minus({ months: 3 })
+      .minus({ months: MONTHS_TO_AVERAGE })
       .startOf('month'),
     endDate: datetime.fromISO(startDate).minus({ months: 1 }).endOf('month'),
   });
@@ -187,10 +189,10 @@ export function CashflowRowContainer(): ReactElement {
       fixedSpending={fixedSpending}
       loading={loadingTransactions || loadingAverages}
       projectedFixedEarning={
-        isCurrent ? averageFixedEarning?.total / 3 : undefined
+        isCurrent ? averageFixedEarning?.total / MONTHS_TO_AVERAGE : undefined
       }
       projectedFixedSpending={
-        isCurrent ? averageFixedSpending?.total / 3 : undefined
+        isCurrent ? averageFixedSpending?.total / MONTHS_TO_AVERAGE : undefined
       }
       tagAverages={tagAverages}
       variableEarning={variableEarning}
@@ -204,7 +206,7 @@ function collectAverages(tags: TagGroup[]): Record<string, number> {
   return tags.reduce(
     (result, tag) => ({
       ...result,
-      [tag.name]: tag.total / 3,
+      [tag.name]: tag.total / MONTHS_TO_AVERAGE,
     }),
     {},
   );
